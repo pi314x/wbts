@@ -7,3 +7,6 @@ body, button, input, div, form {
   background-color: #333;
   color: white;
 }
+label {
+  font-style: bold;
+}

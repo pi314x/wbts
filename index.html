@@ -12,7 +12,7 @@
   </head>
 <body>
   <div class="tab">
-  <button class="tablinks" onclick="openWrap(event, 'Wrap')">Wrap</button>
+  <button class="tablinks" onclick="openWrap(event, 'Wrap') id="defaultOpen">Wrap</button>
   <button class="tablinks" onclick="openWrap(event, 'Unwrap')">Unwrap</button>
   <div id="center">
     <h1>Token Wrapper/Unwrapper</h1>
@@ -58,6 +58,7 @@ function openWrap(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+document.getElementById("defaultOpen").click();
 </script>
  </body>
 </html>

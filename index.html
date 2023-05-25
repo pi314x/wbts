@@ -68,10 +68,10 @@
   var result = document.querySelector('#amount');
   slider.addEventListener('input', function(event) { //changed to input here
     var sliderValue = event.target.value;
-    var maxValue = 2000;
-    var coef = 18;
+    var maxValue = 10;
+    var coef = 0.00001;
     var calc;
-    calc = -maxValue + (sliderValue * coef);
+    calc = (sliderValue * coef);
     result.value = calc;
   });
   </script>

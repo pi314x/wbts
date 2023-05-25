@@ -17,19 +17,19 @@
   <div id="center">
     <h1>Token Wrapper/Unwrapper</h1>
     <p>Wrap token to BSC blockchain and unwrap from BSC blockchain.</p>
+    <div id="ctotal"></div>
+    <div id="cbalcust"></div>     
     <div id="Unwrap" class="tabcontent">
     <section class="form">
       <h1>Unwrap token</h1>
-      <div id="ctotal"></div>
-      <div id="caccount"></div>
-      <div id="cbalance"></div>
-      <div id="cbalcust"></div>     
-        <p>Please fill in your wallet address and the amount of tokens you want to unwrap.</p>
+      <p>Please fill in your wallet address and the amount of tokens you want to unwrap.</p>
       <label for="wallet">Wallet:</label>
       <input type="text" id="wallet" class="input input-primary" style="text-transform:lowercase" /><br /><br />
       <label for="amount">Amount:</label>
       <input type="number" id="amount" class="input input-primary" /><br /><br />
       <button class="btn" onclick="connectWallet()" id="connectWallet">Connect wallet</button>
+      <div id="caccount"></div>
+      <div id="cbalance"></div>
       <button class="btn" onclick="unwrap()" id="unwrap">Unwrap</button>
       <div id="txnhash"></div>
     </section>

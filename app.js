@@ -84,11 +84,6 @@ const ABI = [
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 let account = "0x";
 
-async function toChecksumAddress(address) {
-  let checkSumAddress = await provider.toChecksumAddress(address)
-  return (checkSumAddress);
-}
-
 async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);
   account = accountList[0];
@@ -101,6 +96,11 @@ function getContract() {
   let signer = provider.getSigner(account);
   let contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
   return contract;
+}
+
+async function toChecksumAddress(address) {
+  let checkSumAddress = await provider.toChecksumAddress(address);
+  return checkSumAddress;
 }
 
 async function balanceOf(account) {

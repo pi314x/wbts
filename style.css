@@ -48,7 +48,8 @@ p.thicker {
   padding: 10px; 
   width: 100px;
   border-radius: 5px;
-  font-size: 80%;
+  font-size: 60%;
+  text-align: left;
 }
 .input:hover{
   /*background-color: #408EC5;*/

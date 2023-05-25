@@ -45,7 +45,7 @@ p.thicker {
   border-radius: 4px;
   font-size: 80%;
 }
-.btn:hover button{
+.btn button:hover {
   background-color: #408EC5;
 }
 .input{

@@ -137,7 +137,7 @@ async function totalSupply() {
   total = total / Math.pow(10, decimals);
   document.getElementById("ctotal").innerHTML =
     "Total Supply of " + name + ": " + total + " " + symbol;
-  await totalBalanceCustodian;
+  //await totalBalanceCustodian;
 }
 
 async function totalBalanceCustodian() {

@@ -1,5 +1,6 @@
 body {
-  font: 100% Monaco, sans-serif;
+  font-family: monaco,Consolas,Lucida Console,monospace; 
+  font-size: 100%,
   color: #333;
 }
 .inverse {

@@ -77,7 +77,20 @@ const ABI = [
 		],
 		"stateMutability": "view",
 		"type": "function"
-	}
+	},
+	{
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
 ];
 
 //import { ethers } from "/lib/ethers-5.2.esm.min.js";
@@ -108,8 +121,9 @@ async function balanceOf(account) {
   let balance = await contract.balanceOf(account);
   let symbol = await contract.symbol();
   let name = await contract.name();
+  let decimals = await contract.decimals();	
   document.getElementById("cbalance").innerHTML =
-    "Current Balance of " + name + ": " + balance + " " + symbol;
+    "Current Balance of " + name + ": " + balance + " " + symbol / decimals;
 }
 
 async function totalSupply() {

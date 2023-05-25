@@ -1,3 +1,4 @@
+# https://blog.devvivek.tech/build-your-first-web-30-application-with-html-css-javascript-and-remix-ide
 const CONTRACT_ADDRESS = "0x296EADeA7A8Ff8CcF7a0292D6856607DA9718bdf";
 const TESTNET = "https://rpc2.sepolia.org";
 const ABI = [
@@ -30,13 +31,21 @@ async function connectWallet() {
   account = accountList[0];
   document.getElementById("caccount").innerHTML =
     "Current Account is: " + account;
-  getlearners();
+  getTokenByWallet();
 }
 
 function getContract() {
   let signer = provider.getSigner(account);
   let contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
   return contract;
+}
+
+async function getTokenByWallet() {
+  let contract = getContract();
+  let learners = await contract.getAllLearners();
+  for (const item of learners) {
+    appendCard(item);
+  }
 }
 
 async function unwrap() {

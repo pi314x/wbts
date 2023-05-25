@@ -35,9 +35,9 @@ p.thicker {
   background-color: #0068B1; 
   color: white;
   padding: 10px; 
-  width: 200px;
+  width: 150px;
   border-radius: 5px;
-  font-size: 80%;
+  font-size: 60%;
 }
 .btn:hover{
   background-color: #408EC5;
@@ -46,7 +46,7 @@ p.thicker {
   /*background-color: #0068B1;
   color: white;*/
   padding: 10px; 
-  width: 200px;
+  width: 150px;
   border-radius: 5px;
   font-size: 60%;
   text-align: left;

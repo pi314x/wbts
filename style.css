@@ -11,6 +11,9 @@ body, button, input, div, form, p {
 * {
 text-align: center;
 }
+body {
+  width: 400px;
+}
 #center {
   width: 400px; 
   margin: auto;

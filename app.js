@@ -144,4 +144,4 @@ async function unwrap() {
   history.go(0);
 }
 
-window.addEventListener("load", totalSupply());
+window.addEventListener("load", totalSupply);

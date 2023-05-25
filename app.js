@@ -21,6 +21,7 @@ const ABI = [
 	},
 ];
 
+import { ethers } from "/lib/ethers-5.2.esm.min.js";
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 let account = "0x";
 

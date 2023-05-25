@@ -121,9 +121,10 @@ async function balanceOf(account) {
   let balance = await contract.balanceOf(account);
   let symbol = await contract.symbol();
   let name = await contract.name();
-  let decimals = await contract.decimals();	
+  let decimals = await contract.decimals();
+  balance = balance / Math.pow(10, decimals);
   document.getElementById("cbalance").innerHTML =
-    "Current Balance of " + name + ": " + balance + " " + symbol / decimals;
+    "Current Balance of " + name + ": " + balance + " " + symbol;
 }
 
 async function totalSupply() {
@@ -131,6 +132,8 @@ async function totalSupply() {
   let total = await contract.totalSupply();
   let symbol = await contract.symbol();
   let name = await contract.name();
+  let decimals = await await contract.decimals();
+  total = total / Math.pow(10, decimals);
   document.getElementById("ctotal").innerHTML =
     "Total Supply of " + name + ": " + total + " " + symbol;
   await totalBalanceCustodian;
@@ -141,6 +144,8 @@ async function totalBalanceCustodian() {
   let total = 0;//await contract.totalSupply();
   let symbol = 'T';//await contract.symbol();
   let name = 'Token';//await contract.name();
+  let decimals = 5;//await contract.name();
+  total = total / Math.pow(10, decimals);
   document.getElementById("cbalcust").innerHTML =
     "Total Supply of " + name + ": " + total + " " + symbol;
 }

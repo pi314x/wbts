@@ -26,7 +26,8 @@
       <label for="wallet">Wallet:</label>
       <input type="text" id="wallet" class="input input-primary" style="text-transform:lowercase" /><br /><br />
       <label for="amount">Amount:</label>
-      <input type="number" id="amount" class="input input-primary" /><br /><br />
+      <input type="number" id="amount" class="input input-primary" />
+      <input id="slider" type="range" name="points" min="0" max="100" value=0><br /><br />
       <button class="btn" onclick="connectWallet()" id="connectWallet">Connect wallet</button>
       <div id="caccount"></div>
       <div id="cbalance"></div>
@@ -47,20 +48,32 @@
    </div>
    </div>
   <script>
-function openWrap(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
+  function openWrap(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
   }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-document.getElementById("defaultOpen").click();
-</script>
+
+  document.getElementById("defaultOpen").click();
+
+  var slider = document.querySelector('#slider');
+  var result = document.querySelector('#amount');
+  slider.addEventListener('input', function(event) { //changed to input here
+    var sliderValue = event.target.value;
+    var maxValue = 2000;
+    var coef = 18;
+    var calc;
+    calc = maxValue - (sliderValue * coef);
+    result.value = calc;
+  });
+  </script>
  </body>
 </html>

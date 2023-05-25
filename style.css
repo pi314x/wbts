@@ -1,4 +1,4 @@
-body {
+body, button, input, div {
   font-family: monaco,Consolas,Lucida Console,monospace; 
   font-size: 100%;
   color: #333;

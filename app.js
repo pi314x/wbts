@@ -107,6 +107,13 @@ async function balanceOf(account) {
   }
 }
 
+async function totalSupply {
+  let total = await contract.totalSupply;
+  document.getElementById("ctotal").innerHTML =
+    "Total Supply of " + name + ": " + totalSupply + " " + symbol;
+  }
+}
+
 async function unwrap() {
   let wallet = document.getElementById("wallet");
   let amount = document.getElementById("amount");

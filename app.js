@@ -20,6 +20,25 @@ const ABI = [
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
 ];
 
 //import { ethers } from "/lib/ethers-5.2.esm.min.js";
@@ -31,7 +50,7 @@ async function connectWallet() {
   account = accountList[0];
   document.getElementById("caccount").innerHTML =
     "Current Account is: " + account;
-  getTokenByWallet();
+  getTokenByWallet(account);
 }
 
 function getContract() {
@@ -40,11 +59,10 @@ function getContract() {
   return contract;
 }
 
-async function getTokenByWallet() {
-  let contract = getContract();
-  let learners = await contract.getAllLearners();
-  for (const item of learners) {
-    appendCard(item);
+async function balanceOf(account) {
+  let balance = await contract.balanceOf(account);
+  document.getElementById("cbalance").innerHTML =
+    "Current Balance is: " + balance;
   }
 }
 

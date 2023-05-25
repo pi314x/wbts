@@ -7,6 +7,9 @@ body, button, input, div, form, p {
   background-color: #333;
   color: white;
 }
+* {
+text-align: center;
+}
 label {
   font-weight: 900;
 }

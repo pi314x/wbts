@@ -26,7 +26,7 @@
       <label for="wallet">Wallet:</label>
       <input type="text" id="wallet" class="input input-primary" style="text-transform:lowercase" /><br /><br />
       <label for="amount">Amount:</label>
-      <input type="number" id="amount" class="input input-primary" />
+      <input type="number" id="amount" class="input input-primary" /><br />
       <input id="slider" type="range" name="points" min="0" max="100" value=0><br /><br />
       <button class="btn" onclick="connectWallet()" id="connectWallet">Connect wallet</button>
       <div id="caccount"></div>
@@ -71,7 +71,7 @@
     var maxValue = 2000;
     var coef = 18;
     var calc;
-    calc = maxValue - (sliderValue * coef);
+    calc = -maxValue + (sliderValue * coef);
     result.value = calc;
   });
   </script>

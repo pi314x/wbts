@@ -1,5 +1,3 @@
-import { ethers } from "https://cdn.ethers.io/lib/ethers-5.2.esm.min.js";
-
 const CONTRACT_ADDRESS = "0x296EADeA7A8Ff8CcF7a0292D6856607DA9718bdf";
 const TESTNET = "https://rpc2.sepolia.org";
 const ABI = [

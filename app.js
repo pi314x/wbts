@@ -82,7 +82,7 @@ const ABI = [
 
 //import { ethers } from "/lib/ethers-5.2.esm.min.js";
 const provider = new ethers.providers.Web3Provider(window.ethereum);
-let account = "0x";
+let account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 
 async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);

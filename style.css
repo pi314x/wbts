@@ -10,6 +10,12 @@ body, button, input, div, form, p {
 * {
 text-align: center;
 }
+#center {
+  width: 400px; 
+  margin: auto;
+  /* Optional Styling */
+  padding: 20px;
+}
 label {
   font-weight: 900;
 }

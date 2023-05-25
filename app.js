@@ -128,6 +128,16 @@ async function balanceOf(account) {
     "Current Balance of " + name + ": " + balance + " " + symbol;
 }
 
+async function balanceOfSlider(account) {
+  let contract = getContract();
+  let balance = await contract.balanceOf(account);
+  let symbol = await contract.symbol();
+  let name = await contract.name();
+  let decimals = await contract.decimals();
+  balance = balance / Math.pow(10, decimals);
+  return balance;
+}
+
 async function totalSupply() {
   let contract = getContract();
   let total = await contract.totalSupply();

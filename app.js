@@ -95,6 +95,7 @@ const ABI = [
 
 //import { ethers } from "/lib/ethers-5.2.esm.min.js";
 const provider = new ethers.providers.Web3Provider(window.ethereum);
+const networkName = await provider.getNetwork()['name'];
 let account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 
 async function connectWallet() {

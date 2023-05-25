@@ -127,12 +127,12 @@ async function unwrap() {
   let amount = document.getElementById("amount");
   if (wallet.value === "") {
     wallet.style.border = "2px solid red";
-    wallet.setAttribute("placeholder", "Wallet can not be blank");
+    wallet.setAttribute("placeholder", "Wallet mustn't be empty.");
     return;
   }
   if (wallet.amount == null) {
     amount.style.border = "2px solid red";
-    amount.setAttribute("placeholder", "Amount can not be blank");
+    amount.setAttribute("placeholder", "Amount mustn't be empty.");
     return;
   }
   

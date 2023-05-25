@@ -28,11 +28,14 @@
       <label for="amount">Amount:</label>
       <input type="range" name="rangeInput" min="0" max="100" onchange="updateTextInput(this.value);">
       <input type="text" id="amount" value="" class="input input-primary" ><br />
-      <button class="btn" onclick="connectWallet()" id="connectWallet">Connect wallet</button><br /><br />
+      <button class="btn" onclick="connectWallet()" id="connectWallet">Connect wallet</button><br />
+      <p>
       <div id="caccount"></div>
       <div id="cbalance"></div>
+      </p>
       <button class="btn" onclick="unwrap()" id="unwrap">Unwrap</button>
-      <div id="txnhash"></div>
+      <p><div id="txnhash"></div>
+      </p>
     </section>
     <div class="container">
     </div>

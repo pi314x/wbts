@@ -38,20 +38,20 @@ p.thicker {
   width: 150px;
   border-radius: 2px;
   font-size: 100%;
-  border-with: 1px;
+  border-width: 1px;
 }
 .btn:hover{
   background-color: #408EC5;
 }
 .input{
-  /*background-color: #0068B1;
-  color: white;*/
+  background-color: #0068B1;
+  color: white;
   padding: 2px; 
   width: 150px;
   border-radius: 2px;
   font-size: 100%;
   text-align: left;
-  border-with: 1px;
+  border-width: 1px;
 }
 .input:hover{
   /*background-color: #408EC5;*/

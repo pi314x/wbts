@@ -61,8 +61,10 @@ function getContract() {
 
 async function balanceOf(account) {
   let balance = await contract.balanceOf(account);
+  let symbol = await contract.symbol;
+  let name = await contract.name;
   document.getElementById("cbalance").innerHTML =
-    "Current Balance is: " + balance;
+    "Current Balance of " + name + ": " + balance + " " + symbol;
   }
 }
 

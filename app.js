@@ -106,7 +106,7 @@ async function balanceOf(account) {
     "Current Balance of " + name + ": " + balance + " " + symbol;
 }
 
-async function totalSupply {
+async function totalSupply() {
   let total = await contract.totalSupply;
   document.getElementById("ctotal").innerHTML =
     "Total Supply of " + name + ": " + totalSupply + " " + symbol;

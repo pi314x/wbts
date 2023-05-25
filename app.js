@@ -1,43 +1,24 @@
-const CONTRACT_ADDRESS = "PASTE_YOUR_CONTRACT_ADDRESS_HERE";
+const CONTRACT_ADDRESS = "0x296EADeA7A8Ff8CcF7a0292D6856607DA9718bdf";
+const TESTNET = "https://rpc2.sepolia.org";
 const ABI = [
   {
-    inputs: [
-      {
-        internalType: "string",
-        name: "learning",
-        type: "string",
-      },
-    ],
-    name: "addLearner",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "getAllLearners",
-    outputs: [
-      {
-        components: [
-          {
-            internalType: "address",
-            name: "card",
-            type: "address",
-          },
-          {
-            internalType: "string",
-            name: "learning",
-            type: "string",
-          },
-        ],
-        internalType: "struct ChainJourney.Learner[]",
-        name: "",
-        type: "tuple[]",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "wallet",
+				"type": "string"
+			}
+		],
+		"name": "unwrap",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
 ];
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -57,36 +38,25 @@ function getContract() {
   return contract;
 }
 
-async function getlearners() {
-  let contract = getContract();
-  let learners = await contract.getAllLearners();
-  // console.log(learners);
-  for (const item of learners) {
-    appendCard(item);
-  }
-}
-
-function appendCard(item) {
-  let container = document.getElementsByClassName("container")[0];
-  let card = document.createElement("div");
-  card.className = "card";
-  card.innerHTML =
-    "Address " + item.card + "<br/>" + "Learning : " + item.learning;
-  container.append(card);
-}
-
-async function addLearner() {
-  let learningtext = document.getElementById("inputText");
-  if (learningtext.value === "") {
-    learningtext.style.border = "2px solid red";
-    learningtext.setAttribute("placeholder", "This filed can not be blank");
+async function unwrap() {
+  let wallet = document.getElementById("wallet");
+  let amount = document.getElementById("amount");
+  if (wallet.value === "") {
+    wallet.style.border = "2px solid red";
+    wallet.setAttribute("placeholder", "Wallet can not be blank");
     return;
   }
+  if (wallet.amount === "") {
+    amount.style.border = "2px solid red";
+    amount.setAttribute("placeholder", "Amount can not be blank");
+    return;
+  }
+  
   let contract = getContract();
-  let txn = await contract.addLearner(learningtext.value);
+  let txn = await contract.unwrap(amount.value, wallet.value);
   let showhash = document.getElementById("txnhash");
   let a = document.createElement("a");
-  a.href = `https://goerli.etherscan.io/tx/${txn.hash}`;
+  a.href = `https://sepolia.etherscan.io/tx/${txn.hash}`;
   a.innerHTML = "Follow your transaction here";
   showhash.append(a);
   await txn.wait();

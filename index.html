@@ -8,10 +8,18 @@
     <script type="text/javascript" src="https://cdn.rawgit.com/bitshares/bitsharesjs-ws/build/bitsharesjs-ws.js"></script>
     <script type="text/javascript" src="https://github.com/bitshares/beet-js/blob/7dc5e90a6ca176c7abf1dc2216c758f326879458/dist/beet-js.js"></script>
     <script type="text/javascript" src="https://github.com/bitshares/beet-js/blob/7dc5e90a6ca176c7abf1dc2216c758f326879458/dist/beet-js.js"></script>
-    <script type="text/javascript" src="app.js"></script>
   </head>
 <body>
-  <h2>In dev.</h2>
-  <p></p>
+    <section class="form">
+      <div id="caccount"></div>
+      <label>Enter What you are learning</label>
+      <input type="text" id="wallet" />
+      <input type="number" id="amount" />
+      <button onclick="unwrap()" id="unwrap">Unwrap</button>
+      <div id="txnhash"></div>
+    </section>
+    <div class="container">
+    </div>
+    <script defer src="./app.js"></script>
   </body>
 </html>

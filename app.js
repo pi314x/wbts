@@ -29,7 +29,7 @@ async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);
   account = accountList[0];
   document.getElementById("caccount").innerHTML =
-    "Current Account is :" + account;
+    "Current Account is: " + account;
   getlearners();
 }
 

@@ -100,7 +100,7 @@ function getContract() {
 }
 
 async function toChecksumAddress(address) {
-  let checkSumAddress = await provider.toChecksumAddress(address);
+  let checkSumAddress = await ethers.utils.getAddress(address);
   return checkSumAddress;
 }
 

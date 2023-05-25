@@ -93,8 +93,9 @@ async function connectWallet() {
 }
 
 function getContract() {
-	let signer = provider.getSigner(account);
-	let contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
+	//let signer = provider.getSigner(account);
+	let contract = new ethers.Contract(CONTRACT_ADDRESS, ABI);
+	//let contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
   return contract;
 }
 

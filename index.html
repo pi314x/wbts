@@ -26,8 +26,8 @@
       <label for="wallet">Wallet:</label>
       <input type="text" id="wallet" class="input input-primary" style="text-transform:lowercase" /><br /><br />
       <label for="amount">Amount:</label>
-      <input type="number" id="amount" class="input input-primary" /><br />
-      <input id="slider" type="range" name="points" min="0" max="100" value=0><br /><br />
+      <input type="range" name="rangeInput" min="0" max="100" onchange="updateTextInput(this.value);">
+      <input type="text" id="amount" value="" class="input input-primary" ><br />
       <button class="btn" onclick="connectWallet()" id="connectWallet">Connect wallet</button><br /><br />
       <div id="caccount"></div>
       <div id="cbalance"></div>
@@ -64,16 +64,9 @@
 
   document.getElementById("defaultOpen").click();
 
-  var slider = document.querySelector('#slider');
-  var result = document.querySelector('#amount');
-  slider.addEventListener('input', function(event) { //changed to input here
-    var sliderValue = event.target.value;
-    var maxValue = 10;
-    var coef = 0.00001;
-    var calc;
-    calc = (sliderValue * coef);
-    result.value = calc;
-  });
+  function updateTextInput(val) {
+    document.getElementById('amount').value=val; 
+  }
   </script>
  </body>
 </html>

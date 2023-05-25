@@ -81,7 +81,8 @@ const ABI = [
 ];
 
 //import { ethers } from "/lib/ethers-5.2.esm.min.js";
-const provider = new ethers.providers.Web3Provider(window.ethereum);
+//const provider = new ethers.providers.Web3Provider(window.ethereum);
+const provider = new ethers.providers.WebSocketProvider(TESTNET);
 let account = "0x";
 
 async function connectWallet() {
@@ -94,8 +95,9 @@ async function connectWallet() {
 }
 
 function getContract() {
-  let signer = provider.getSigner(account);
-  let contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
+  //let signer = provider.getSigner(account);
+  let contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, provider);
+  //let contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
   return contract;
 }
 

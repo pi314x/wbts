@@ -35,7 +35,7 @@ p.thicker {
   background-color: #0068B1; 
   color: white;
   padding: 10px; 
-  width: 100px;
+  width: 200px;
   border-radius: 5px;
   font-size: 80%;
 }
@@ -43,10 +43,10 @@ p.thicker {
   background-color: #408EC5;
 }
 .input{
-  /*background-color: #0068B1; */
+  /*background-color: #0068B1;
   color: white;*/
   padding: 10px; 
-  width: 100px;
+  width: 200px;
   border-radius: 5px;
   font-size: 60%;
   text-align: left;

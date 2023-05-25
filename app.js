@@ -89,7 +89,7 @@ async function connectWallet() {
   account = accountList[0];
   document.getElementById("caccount").innerHTML =
     "Current Account is: " + account;
-  getTokenByWallet(account);
+  await balanceOf(account);
 }
 
 function getContract() {
@@ -99,6 +99,7 @@ function getContract() {
 }
 
 async function balanceOf(account) {
+  let contract = getContract();
   let balance = await contract.balanceOf(account);
   let symbol = await contract.symbol();
   let name = await contract.name();
@@ -107,6 +108,7 @@ async function balanceOf(account) {
 }
 
 async function totalSupply() {
+  let contract = getContract();
   let total = await contract.totalSupply();
   document.getElementById("ctotal").innerHTML =
     "Total Supply of " + name + ": " + totalSupply + " " + symbol;

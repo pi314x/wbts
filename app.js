@@ -1,4 +1,4 @@
-# https://blog.devvivek.tech/build-your-first-web-30-application-with-html-css-javascript-and-remix-ide
+// https://blog.devvivek.tech/build-your-first-web-30-application-with-html-css-javascript-and-remix-ide
 const CONTRACT_ADDRESS = "0x296EADeA7A8Ff8CcF7a0292D6856607DA9718bdf";
 const TESTNET = "https://rpc2.sepolia.org";
 const ABI = [

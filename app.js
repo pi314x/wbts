@@ -128,7 +128,7 @@ async function unwrap() {
     wallet.setAttribute("placeholder", "Wallet can not be blank");
     return;
   }
-  if (wallet.amount === "") {
+  if (wallet.amount == null) {
     amount.style.border = "2px solid red";
     amount.setAttribute("placeholder", "Amount can not be blank");
     return;

@@ -118,7 +118,7 @@ async function totalSupply() {
   let symbol = await contract.symbol();
   let name = await contract.name();
   document.getElementById("ctotal").innerHTML =
-    "Total Supply of " + name + ": " + totalSupply + " " + symbol;
+    "Total Supply of " + name + ": " + total + " " + symbol;
 }
 
 async function unwrap() {
@@ -146,4 +146,4 @@ async function unwrap() {
   history.go(0);
 }
 
-window.addEventListener("load", totalSupply());
+window.addEventListener("load", totalSupply);;

@@ -137,4 +137,4 @@ async function unwrap() {
   history.go(0);
 }
 
-//window.addEventListener("load", connectWallet);
+window.addEventListener("load", totalSupply);

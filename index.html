@@ -11,7 +11,13 @@
     <script type="application/javascript" src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
   </head>
 <body>
- <div id="center">
+  <div class="tab">
+  <button class="tablinks" onclick="openWrap(event, 'Wrap')">Wrap</button>
+  <button class="tablinks" onclick="openWrap(event, 'Unwrap')">Unwrap</button>
+  <div id="center">
+    <h1>Token Wrapper/Unwrapper</h1>
+    <p>Wrap token to BSC blockchain and unwrap from BSC blockchain.</p>
+    <div id="Unwrap" class="tabcontent">
     <section class="form">
       <h1>Unwrapping token</h1>
       <div id="ctotal"></div>
@@ -30,6 +36,13 @@
     <div class="container">
     </div>
     <script defer src="./app.js"></script>
+   </div>
+   <div id="Wrap" class="tabcontent">
+   <section class="form">
+    <h1>Wrap Token</h1>
+    <p>Send token to wallet address -gateway and add the destination ERC20 wallet into the memo field.</p>
+   </section>
+   </div>
    </div>
  </body>
 </html>

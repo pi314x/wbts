@@ -86,7 +86,7 @@ let account = "0x";
 
 async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);
-  account = accountList[0];
+  account = await toChecksumAddress(accountList[0]);
   document.getElementById("caccount").innerHTML =
     "Current Account is: " + account;
   await balanceOf(account);
@@ -144,4 +144,4 @@ async function unwrap() {
   history.go(0);
 }
 
-window.addEventListener("load", totalSupply);
+window.addEventListener("load", totalSupply());

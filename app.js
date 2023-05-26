@@ -6,7 +6,7 @@ const CHAINID_BSC_MAIN = 56;
 const CHAINID_BSC_TEST = 97;
 const TEST = new Boolean(true);
 const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
-const NODE_TEST = "wss://test.xbts.io";
+const NODE_TEST = "wss://testnet.xbts.io/ws";
 
 const ABI = [
   {

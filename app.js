@@ -4,7 +4,7 @@ const CHAINID_ETHEREUM = 1;
 const CHAINID_SEPOLIA = 11155111;
 const CHAINID_BSC_MAIN = 56;
 const CHAINID_BSC_TEST = 97;
-const BTS_TEST = new Boolean(true);
+const TEST = new Boolean(true);
 const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
 const NODE_TEST = "wss://test.xbts.io";
 
@@ -100,16 +100,17 @@ const ABI = [
 	},
 ];
 
+var node = NODE_TEST;
+
+if (TEST == false) {
+  var node = NODE_MAIN;
+}
+
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const network = provider.getNetwork();
 const networkName = network['name'];
 const chainId = network['chainId'];
 var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
-var node = NODE_TEST;
-
-if (BTS_TEST == false) {
-  var node = NODE_MAIN;
-}
 
 async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);

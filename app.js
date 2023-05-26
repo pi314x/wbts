@@ -186,12 +186,12 @@ async function BitShares(node) {
 	var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.15');
   var obj = await bitshares_js.bitshares_ws.Apis.db.get_objects(['1.3.0']);
   var total = Number(balances[0]["amount"]);
-  var total = total / Math.pow(10, decimals);
   var symbol = obj[0]['symbol'];
   var name = obj[0]['name'];
   var decimals = obj[0]['precision'];
   var fees = Number(ticker["lowest_ask"]).toFixed(0);
   var minimum = fees + 1;
+  var total = total / Math.pow(10, decimals);
   document.getElementById("fees").innerHTML = fees;
   document.getElementById("fees").innerHTML = minimum;
   document.getElementById("cbalcust").innerHTML =

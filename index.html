@@ -14,13 +14,13 @@
   <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'Wrap')" id="defaultOpen">Wrap</button>
   <button class="tablinks" onclick="openTab(event, 'Unwrap')">Unwrap</button>
-  <div id="center">
+  <!--<div id="center">-->
     <h1>Token Wrapper/Unwrapper</h1>
     <p>Wrap und unwrap token between Binance Smart Chain and blockchain.</p>
     <div id="contractaddr"></div>
     <div id="ctotal"></div>
     <div id="cbalcust"></div>     
-    <div id="Unwrap" class="tabcontent"><button type="button" class="btn" onclick="connectWallet()" id="connectWallet">Connect wallet</button>
+    <div id="Unwrap" class="tabcontent">
     <section class="form">
       <h1>Unwrap token</h1>
       <p>Please fill in your wallet address and the amount of tokens you want to unwrap.</p>
@@ -42,6 +42,7 @@
       <div id="txnhash"></div>
       </p>
     </section>
+ <button type="button" class="btn" onclick="connectWallet()" id="connectWallet">Connect wallet</button>
     <!--<div class="container"></div>-->
     <script defer src="./app.js"></script>
    </div>

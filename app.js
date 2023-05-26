@@ -100,9 +100,12 @@ const ABI = [
 	},
 ];
 
-if (TEST == false) {
+if (TEST == true) {
+  var node = NODE_TEST;
+} else {
   var node = NODE_MAIN;
 }
+
 
 var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 

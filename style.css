@@ -47,6 +47,7 @@ p.thicker {
   border-radius: 8px;
   font-size: 100%;
   float: None;
+  border: none;
 }
 .btn:hover {
   background-color: #408EC5;

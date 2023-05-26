@@ -194,8 +194,8 @@ async function unwrap() {
   }
   let contract = getContract();
   let decimals = await contract.decimals();
-  amount = amount * Math.pow(10, decimals);
-  let txn = await contract.unwrap(amount.value, wallet.value);
+  let unwrapAmount = amount.value * Math.pow(10, decimals);
+  let txn = await contract.unwrap(unwrapAmount, wallet.value);
   let showhash = document.getElementById("txnhash");
   let a = document.createElement("a");
   a.href = `https://sepolia.etherscan.io/tx/${txn.hash}`;

@@ -39,7 +39,7 @@ p.thicker {
   font-weight: 900;
 }
 
-.btn button{
+.btn {
   background-color: #0068B1; 
   color: white;
   padding: 4px; 
@@ -48,7 +48,7 @@ p.thicker {
   font-size: 80%;
   float: None;
 }
-.btn button:hover {
+.btn:hover {
   background-color: #408EC5;
 }
 
@@ -125,3 +125,6 @@ input[type=number] {
   from {opacity: 0;}
   to {opacity: 1;}
 }
+
+#Wrap {background-color: #ccc;}
+#Unwrap {background-color: #ccc;}

@@ -199,7 +199,8 @@ async function unwrap() {
   let showhash = document.getElementById("txnhash");
   let a = document.createElement("a");
   a.href = `https://sepolia.etherscan.io/tx/${txn.hash}`;
-  a.innerHTML = "Follow your transaction here";
+  a.innerHTML = txn.hash;
+  a.setAttribute('target', '_blank');
   showhash.append(a);
   await txn.wait();
   //history.go(0);

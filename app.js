@@ -8,9 +8,6 @@ const BTS_TEST = true;
 const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
 const NODE_TEST = "wss://test.xbts.io";
 
-// https://github.com/bitshares/bitsharesjs
-
-
 const ABI = [
   {
 		"inputs": [
@@ -110,6 +107,7 @@ const chainId = network['chainId'];
 let account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 let node = "wss://test.xbts.io";
 
+// https://github.com/bitshares/bitsharesjs
 bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
 });

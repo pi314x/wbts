@@ -189,7 +189,7 @@ async function unwrap() {
   }
   let contract = getContract();
   let decimals = await contract.decimals();
-  let amount = amount * Math.pow(10, decimals);
+  amount = amount * Math.pow(10, decimals);
   let txn = await contract.unwrap(amount.value, wallet.value);
   let showhash = document.getElementById("txnhash");
   let a = document.createElement("a");

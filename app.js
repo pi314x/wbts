@@ -182,7 +182,7 @@ async function unwrap() {
     wallet.setAttribute("placeholder", "Wallet mustn't be empty.");
     return;
   }
-  if (amount.value == null) {
+  if (amount.value == null || amount.value === "") {
     amount.style.border = "2px solid red";
     amount.setAttribute("placeholder", "Amount mustn't be empty.");
     return;

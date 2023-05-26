@@ -84,6 +84,7 @@ input[type=number] {
   border: 1px solid #ccc;
   background-color: #f1f1f1;
   border-radius: 4px;
+  border: none;
 }
 
 /* Style the buttons inside the tab */

@@ -104,8 +104,12 @@ const provider = new ethers.providers.Web3Provider(window.ethereum);
 const network = provider.getNetwork();
 const networkName = network['name'];
 const chainId = network['chainId'];
-let account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
-let node = "wss://test.xbts.io";
+var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
+var node = NODE_TEST;
+
+if (BTS_TEST === false) {
+  node = NODE_MAIN;
+}
 
 async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);
@@ -166,14 +170,14 @@ async function totalSupply() {
   document.getElementById("ctotal").innerHTML =
     "Total Supply of " + name + ": " + total + " " + symbol;
   await ContractAddress();
-  await totalBalanceCustodian();
+  await BitShares(node);
 }
 
 async function BitShares(node) {
-	// https://github.com/bitshares/bitsharesjs
-	bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then((res) => {
-			console.log("connected to:", res[0].network);
-	});	
+  // https://github.com/bitshares/bitsharesjs
+  bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then((res) => {
+    console.log("connected to:", res[0].network);
+  });	
   let balances = await bitshares_js.bitshares_ws.Apis.db.get_account_balances("1.2.25961",["1.3.0"])
   let ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589')
   let obj = await bitshares_js.bitshares_ws.Apis.db.get_object('1.3.0')

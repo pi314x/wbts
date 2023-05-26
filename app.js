@@ -4,7 +4,7 @@ const CHAINID_ETHEREUM = 1;
 const CHAINID_SEPOLIA = 11155111;
 const CHAINID_BSC_MAIN = 56;
 const CHAINID_BSC_TEST = 97;
-const BTS_TEST = Boolean(true);
+const BTS_TEST = new Boolean(true);
 const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
 const NODE_TEST = "wss://test.xbts.io";
 

@@ -99,7 +99,6 @@ const ABI = [
 	},
 ];
 
-//import { ethers } from "/lib/ethers-5.2.esm.min.js";
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const network = provider.getNetwork()
 const networkName = network['name'];
@@ -177,7 +176,7 @@ async function totalSupply() {
   document.getElementById("ctotal").innerHTML =
     "Total Supply of " + name + ": " + total + " " + symbol;
   await ContractAddress();
-  //await totalBalanceCustodian;
+  await totalBalanceCustodian;
 }
 
 async function totalBalanceCustodian() {

@@ -107,8 +107,8 @@ const chainId = network['chainId'];
 var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 var node = NODE_TEST;
 
-if (BTS_TEST === false) {
-  node = NODE_MAIN;
+if (BTS_TEST == false) {
+  var node = NODE_MAIN;
 }
 
 async function connectWallet() {

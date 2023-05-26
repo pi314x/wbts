@@ -106,6 +106,10 @@ async function connectWallet() {
   await balanceOf(account);
 }
 
+function ContractAddress() {
+  document.getElementById("contractaddr").innerHTML = CONTRACT_ADDRESS;
+}
+
 function getContract() {
   let signer = provider.getSigner(account);
   let contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
@@ -148,6 +152,7 @@ async function totalSupply() {
   total = total / Math.pow(10, decimals);
   document.getElementById("ctotal").innerHTML =
     "Total Supply of " + name + ": " + total + " " + symbol;
+  await ContractAddress();
   //await totalBalanceCustodian;
 }
 

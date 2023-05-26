@@ -100,17 +100,21 @@ const ABI = [
 	},
 ];
 
-var node = NODE_TEST;
-
 if (TEST == false) {
   var node = NODE_MAIN;
 }
 
-const provider = new ethers.providers.Web3Provider(window.ethereum);
-const network = provider.getNetwork();
-const networkName = network['name'];
-const chainId = network['chainId'];
 var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
+
+try {
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const network = provider.getNetwork();
+  const networkName = network['name'];
+  const chainId = network['chainId'];
+}
+catch(err) {
+  document.getElementById("ctotal").innerHTML = err.message;
+}
 
 async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);

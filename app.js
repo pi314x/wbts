@@ -195,7 +195,9 @@ async function BitShares(node) {
   var name = obj[0]['name'];
   var decimals = obj[0]['precision'];
   var fees = Number(ticker["lowest_ask"]).toFixed(0);
+  var minimum = fees + 1;
   document.getElementById("fees").innerHTML = fees;
+  document.getElementById("fees").innerHTML = minimum;
   document.getElementById("cbalcust").innerHTML =
     "Total Supply of " + name + ": " + total + " " + symbol;
 }

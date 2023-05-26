@@ -1,6 +1,6 @@
 // https://blog.devvivek.tech/build-your-first-web-30-application-with-html-css-javascript-and-remix-ide
 const CONTRACT_ADDRESS = "0x296EADeA7A8Ff8CcF7a0292D6856607DA9718bdf";
-const TESTNET = "https://rpc2.sepolia.org";
+const CHAINID_SEPOLIA = 11155111;
 const ABI = [
   {
 		"inputs": [
@@ -95,14 +95,22 @@ const ABI = [
 
 //import { ethers } from "/lib/ethers-5.2.esm.min.js";
 const provider = new ethers.providers.Web3Provider(window.ethereum);
+const chainId = await provider.request({ method: 'eth_chainId' });
 const networkName = provider.getNetwork()['name'];
 let account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 
 async function connectWallet() {
+
+	try {
+	  await provider.request({
+	    method: 'wallet_switchEthereumChain',
+	    params: [{ chainId: CHAINID_SEPOLIA}],
+	  });
+  console.log("You have succefully switched to Sepolia Test network")
+
   let accountList = await provider.send("eth_requestAccounts", []);
   account = await toChecksumAddress(accountList[0]);
-  document.getElementById("caccount").innerHTML =
-    "Current Account is: " + account;
+  document.getElementById("caccount").innerHTML = "Current Account is: " + account;
   await balanceOf(account);
 }
 

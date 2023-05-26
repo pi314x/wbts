@@ -195,7 +195,7 @@ async function BitShares(node) {
   document.getElementById("fees").innerHTML = "Please be aware that " + fees + " token equals 1 USDT will be deducted as a gateway fee.";
   document.getElementById("minimum").innerHTML = "Minimun wrap or deposit amount to Binance Smart Chain is " + minimum + " token.";
   document.getElementById("cbalcust").innerHTML =
-    "Proof of Reserve Supply: " + total + " " + symbol;
+    "Custodian Wallet Supply: " + total + " " + symbol;
 }
 
 async function unwrap() {

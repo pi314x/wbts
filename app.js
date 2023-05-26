@@ -182,7 +182,8 @@ async function BitShares(node) {
     console.log("connected to:", res[0].network);
   });	
   var balances = await bitshares_js.bitshares_ws.Apis.db.get_account_balances("1.2.25961",["1.3.0"]);
-  var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589');
+  /*var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589');*/
+	var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.15');
   var obj = await bitshares_js.bitshares_ws.Apis.db.get_objects(['1.3.0']);
   var total = Number(balances[0]["amount"]);
   var total = total / Math.pow(10, decimals);

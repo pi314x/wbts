@@ -3,6 +3,8 @@ const CONTRACT_ADDRESS = "0x296EADeA7A8Ff8CcF7a0292D6856607DA9718bdf";
 const CHAINID_SEPOLIA = 11155111;
 const CHAINID_BSC = 61;
 const BTS_TEST = true;
+const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
+const NODE_TEST = "wss://test.xbts.io";
 
 // https://github.com/bitshares/bitsharesjs
 
@@ -104,6 +106,7 @@ const network = provider.getNetwork()
 const networkName = network['name'];
 const chainId = network['chainId'];
 let account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
+let node = "wss://test.xbts.io";
 
 async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);
@@ -131,9 +134,9 @@ function BitShares() {
 	console.log('BTS_TEST')
 	console.log(BTS_TEST)
 	if (BTS_TEST === true) {
-		let node = "wss://test.xbts.io"
+		node = NODE_TEST
 	} else {
-		let node = "wss://eu.nodes.bitshares.ws"
+		node = NODE_MAIN
 	}
 	apis = bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then(res => {
     console.log("connected to:", res[0].network);

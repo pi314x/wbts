@@ -38,7 +38,7 @@ p.thick {
 p.thicker {
   font-weight: 900;
 }
-.btn button{
+button.btn {
   background-color: #0068B1; 
   color: white;
   padding: 4px; 
@@ -46,7 +46,7 @@ p.thicker {
   border-radius: 4px;
   font-size: 80%;
 }
-.btn button:hover {
+button.btn:hover {
   background-color: #408EC5;
 }
 

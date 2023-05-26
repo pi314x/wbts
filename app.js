@@ -178,14 +178,14 @@ async function BitShares(node) {
   bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
   });	
-  let balances = await bitshares_js.bitshares_ws.Apis.db.get_account_balances("1.2.25961",["1.3.0"])
-  let ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589')
-  let obj = await bitshares_js.bitshares_ws.Apis.db.get_object('1.3.0')
-  let total = 10;//await contract.totalSupply();
-  let symbol = 'T';//await contract.symbol();
-  let name = 'Token';//await contract.name();
-  let decimals = 5;//await contract.name();
-  total = total / Math.pow(10, decimals);
+  var balances = await bitshares_js.bitshares_ws.Apis.db.get_account_balances("1.2.25961",["1.3.0"])
+  var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589')
+  var obj = await bitshares_js.bitshares_ws.Apis.db.get_object('1.3.0')
+  var total = 10;//await contract.totalSupply();
+  var symbol = 'T';//await contract.symbol();
+  var name = 'Token';//await contract.name();
+  var decimals = 5;//await contract.name();
+  var total = total / Math.pow(10, decimals);
   document.getElementById("cbalcust").innerHTML =
     "Total Supply of " + name + ": " + total + " " + symbol;
 }

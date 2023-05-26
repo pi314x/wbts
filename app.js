@@ -172,11 +172,11 @@ async function totalSupply() {
   await totalBalanceCustodian();
 }
 
-async function totalBalanceCustodian(apis) {
+async function totalBalanceCustodian() {
   let bts = BitShares();
-	let balances = await bitshares_js.bitshares_ws.Apis.db.get_account_balances("1.2.25961",["1.3.0"])
-	let ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589')
-	let obj = await bitshares_js.bitshares_ws.Apis.db.get_object('1.3.0')
+  let balances = await bitshares_js.bitshares_ws.Apis.db.get_account_balances("1.2.25961",["1.3.0"])
+  let ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589')
+  let obj = await bitshares_js.bitshares_ws.Apis.db.get_object('1.3.0')
   let total = 0;//await contract.totalSupply();
   let symbol = 'T';//await contract.symbol();
   let name = 'Token';//await contract.name();
@@ -220,6 +220,6 @@ async function unwrap() {
 
 window.addEventListener("load", totalSupply);
 
-apis = bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then(res => {
-	console.log("connected to:", res[0].network);
+bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then(res => {
+  console.log("connected to:", res[0].network);
 });

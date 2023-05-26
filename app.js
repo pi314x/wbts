@@ -130,15 +130,15 @@ function getContract() {
 function BitShares() {
 	console.log('BTS_TEST')
 	console.log(BTS_TEST)
-	if (BTS_TEST == true) {
+	if (BTS_TEST === true) {
 		let node = "wss://test.xbts.io"
 	} else {
 		let node = "wss://eu.nodes.bitshares.ws"
 	}
-	x = bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then(res => {
+	apis = bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then(res => {
     console.log("connected to:", res[0].network);
 	});
-	return x;
+	return apis;
 }
 
 async function toChecksumAddress(address) {

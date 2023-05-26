@@ -218,6 +218,7 @@ bitshares_js.bitshares_ws.Apis.instance("wss://test.xbts.io").init_promise.then(
     console.log("connected to:", res[0].network);
 });
 
-await bitshares_js.bitshares_ws.Apis.db.get_objects(["fdh"])
+custbal = await bitshares_js.bitshares_ws.Apis.db.get_account_balances("1.2.25961",["1.3.0"])
+xrate = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589')
 
 

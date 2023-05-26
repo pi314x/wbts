@@ -187,7 +187,6 @@ async function unwrap() {
     amount.setAttribute("placeholder", "Amount mustn't be empty.");
     return;
   }
-  
   let contract = getContract();
   let txn = await contract.unwrap(amount.value, wallet.value);
   let showhash = document.getElementById("txnhash");
@@ -197,20 +196,6 @@ async function unwrap() {
   showhash.append(a);
   await txn.wait();
   //history.go(0);
-}
-
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
 }
 
 window.addEventListener("load", totalSupply);

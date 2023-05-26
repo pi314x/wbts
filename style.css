@@ -49,6 +49,19 @@ p.thicker {
 .btn button:hover {
   background-color: #408EC5;
 }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .input{
   background-color: #0068B1;
   color: white;
@@ -109,16 +122,4 @@ p.thicker {
 @keyframes fadeEffect {
   from {opacity: 0;}
   to {opacity: 1;}
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
 }

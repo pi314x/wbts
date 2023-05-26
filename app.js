@@ -2,6 +2,11 @@
 const CONTRACT_ADDRESS = "0x296EADeA7A8Ff8CcF7a0292D6856607DA9718bdf";
 const CHAINID_SEPOLIA = 11155111;
 const CHAINID_BSC = 61;
+
+// https://github.com/bitshares/bitsharesjs
+import {Apis} from "bitsharesjs-ws";
+var {ChainStore} = require("bitsharesjs");
+
 const ABI = [
   {
 		"inputs": [
@@ -208,3 +213,16 @@ async function unwrap() {
 }
 
 window.addEventListener("load", totalSupply);
+
+Apis.instance("wss://eu.nodes.bitshares.ws", true).init_promise.then((res) => {
+    console.log("connected to:", res[0].network);
+    ChainStore.init().then(() => {
+        ChainStore.subscribe(updateState);
+    });
+});
+
+let dynamicGlobal = null;
+function updateState(object) {
+    dynamicGlobal = ChainStore.getObject("2.1.0");
+    console.log("ChainStore object update\n", dynamicGlobal ? dynamicGlobal.toJS() : dynamicGlobal);
+}

@@ -132,10 +132,8 @@ function getContract() {
 
 function BitShares() {
 	let node = NODE_TEST
-	if (BTS_TEST === true) {
-		node = NODE_TEST
-	} else {
-		node = NODE_MAIN
+	if (BTS_TEST === false) {
+    node = NODE_MAIN
 	}
 	apis = bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then(res => {
     console.log("connected to:", res[0].network);

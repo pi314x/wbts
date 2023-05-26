@@ -196,7 +196,7 @@ async function unwrap() {
   a.innerHTML = "Follow your transaction here";
   showhash.append(a);
   await txn.wait();
-  history.go(0);
+  //history.go(0);
 }
 
 function openCity(evt, cityName) {

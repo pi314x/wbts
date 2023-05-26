@@ -7,6 +7,7 @@ const CHAINID_BSC_TEST = 97;
 const TEST = new Boolean(true);
 const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
 const NODE_TEST = "wss://testnet.xbts.io/ws";
+const CUSTODIAN = "1.2.26650";
 
 const ABI = [
   {
@@ -181,7 +182,7 @@ async function BitShares(node) {
   bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
   });	
-  var balances = await bitshares_js.bitshares_ws.Apis.db.get_account_balances("1.2.25961",["1.3.0"]);
+  var balances = await bitshares_js.bitshares_ws.Apis.db.get_account_balances(CUSTODIAN,["1.3.0"]);
   /*var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589');*/
 	var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.22');
   var obj = await bitshares_js.bitshares_ws.Apis.db.get_objects(['1.3.0']);

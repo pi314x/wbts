@@ -135,7 +135,8 @@ async function balanceOfSlider(account) {
   let name = await contract.name();
   let decimals = await contract.decimals();
   balance = balance / Math.pow(10, decimals);
-  return balance;
+  const val = document.querySelector('input').balance;
+  console.log(val);
 }
 
 async function totalSupply() {

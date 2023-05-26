@@ -1,7 +1,9 @@
 // https://blog.devvivek.tech/build-your-first-web-30-application-with-html-css-javascript-and-remix-ide
 const CONTRACT_ADDRESS = "0x296EADeA7A8Ff8CcF7a0292D6856607DA9718bdf";
+const CHAINID_ETHEREUM = 1;
 const CHAINID_SEPOLIA = 11155111;
-const CHAINID_BSC = 61;
+const CHAINID_BSC_MAIN = 56;
+const CHAINID_BSC_TEST = 97;
 const BTS_TEST = true;
 const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
 const NODE_TEST = "wss://test.xbts.io";

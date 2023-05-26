@@ -107,11 +107,6 @@ const chainId = network['chainId'];
 let account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 let node = "wss://test.xbts.io";
 
-// https://github.com/bitshares/bitsharesjs
-bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then((res) => {
-    console.log("connected to:", res[0].network);
-});
-
 async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);
   account = await toChecksumAddress(accountList[0]);
@@ -174,12 +169,15 @@ async function totalSupply() {
   await totalBalanceCustodian();
 }
 
-async function totalBalanceCustodian() {
-  let bts = BitShares();
+async function BitShares(node) {
+	// https://github.com/bitshares/bitsharesjs
+	bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then((res) => {
+			console.log("connected to:", res[0].network);
+	});	
   let balances = await bitshares_js.bitshares_ws.Apis.db.get_account_balances("1.2.25961",["1.3.0"])
   let ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589')
   let obj = await bitshares_js.bitshares_ws.Apis.db.get_object('1.3.0')
-  let total = 0;//await contract.totalSupply();
+  let total = 10;//await contract.totalSupply();
   let symbol = 'T';//await contract.symbol();
   let name = 'Token';//await contract.name();
   let decimals = 5;//await contract.name();

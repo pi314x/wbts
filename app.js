@@ -188,7 +188,7 @@ async function BitShares(node) {
   var total = Number(balances[0]["amount"]);
   var symbol = obj[0]['symbol'];
   var decimals = obj[0]['precision'];
-  var fees = Number(ticker["lowest_ask"]).toFixed(0);
+  var fees = Number(ticker["highest_bid"]).toFixed(0);
   var minimum = fees + 1;
   var total = total / Math.pow(10, decimals);
   document.getElementById("fees").innerHTML = fees;

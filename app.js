@@ -178,7 +178,7 @@ async function totalSupply() {
   document.getElementById("ctotal").innerHTML =
     "Total Supply of " + name + ": " + total + " " + symbol;
   await ContractAddress();
-  await totalBalanceCustodian;
+  await totalBalanceCustodian();
 }
 
 async function totalBalanceCustodian() {

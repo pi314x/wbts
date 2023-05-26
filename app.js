@@ -107,12 +107,12 @@ async function connectWallet() {
 }
 
 function ContractAddress() {
-  //document.getElementById("contractaddr").innerHTML = CONTRACT_ADDRESS;
-  let contractaddr = document.getElementById("contractaddr");
+  document.getElementById("contractaddr").innerHTML = CONTRACT_ADDRESS;
+  /*let contractaddr = document.getElementById("contractaddr");
   let a = document.createElement("a");
   a.href = `https://sepolia.etherscan.io/address/${CONTRACT_ADDRESS}`;
   a.innerHTML = CONTRACT_ADDRESS
-  contractaddr.append(a);
+  contractaddr.append(a);*/
 }
 
 function getContract() {

@@ -220,6 +220,6 @@ async function unwrap() {
 
 window.addEventListener("load", totalSupply);
 
-bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then(res => {
-  console.log("connected to:", res[0].network);
+bitshares_js.bitshares_ws.Apis.instance("wss://eu.nodes.bitshares.ws").init_promise.then((res) => {
+    console.log("connected to:", res[0].network);
 });

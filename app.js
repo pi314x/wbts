@@ -182,15 +182,15 @@ async function BitShares(node) {
   bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
   });	
-  var balances = await bitshares_js.bitshares_ws.Apis.db.get_account_balances(CUSTODIAN,["1.3.0"]);
+  let balances = await bitshares_js.bitshares_ws.Apis.db.get_account_balances(CUSTODIAN,["1.3.0"]);
   /*var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589');*/
-  var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.22');
-  var obj = await bitshares_js.bitshares_ws.Apis.db.get_objects(['1.3.0']);
+  let ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.22');
+  let obj = await bitshares_js.bitshares_ws.Apis.db.get_objects(['1.3.0']);
   var total = Number(balances[0]["amount"]);
-  var symbol = obj[0]['symbol'];
-  var decimals = obj[0]['precision'];
-  var fees = Number(ticker["highest_bid"]).toFixed(0);
-  var minimum = Number(fees) + 1;
+  let symbol = obj[0]['symbol'];
+  let decimals = obj[0]['precision'];
+  let fees = Number(ticker["highest_bid"]).toFixed(0);
+  let minimum = Number(fees) + 1;
   var total = total / Math.pow(10, decimals);
   document.getElementById("fees").innerHTML = fees;
   document.getElementById("minimum").innerHTML = minimum;

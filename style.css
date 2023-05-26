@@ -89,7 +89,8 @@ input[type=number] {
 
 /* Style the buttons inside the tab */
 .tab button {
-  background-color: inherit;
+  /*background-color: inherit;*/
+  background-color: #ddd;
   float: left;
   border: none;
   outline: none;

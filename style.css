@@ -47,7 +47,7 @@ p.thicker {
   border-radius: 8px;
   font-size: 100%;
   float: None;
-  border-size 1px;
+  border-width: thin;
 }
 .btn:hover {
   background-color: #408EC5;
@@ -73,7 +73,7 @@ input[type=number] {
   border-radius: 8px;
   font-size: 80%;
   text-align: left;
-  border-size 1px;
+  border-width: thin;
 }
 .input:hover{
   /*background-color: #408EC5;*/

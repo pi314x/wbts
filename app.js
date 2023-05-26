@@ -130,17 +130,6 @@ function getContract() {
   return contract;
 }
 
-function BitShares() {
-	let node = NODE_TEST
-	if (BTS_TEST === false) {
-    node = NODE_MAIN
-	}
-	apis = bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then(res => {
-    console.log("connected to:", res[0].network);
-	});
-	return apis;
-}
-
 async function toChecksumAddress(address) {
   let checkSumAddress = await ethers.utils.getAddress(address);
   return checkSumAddress;
@@ -181,7 +170,7 @@ async function totalSupply() {
   await totalBalanceCustodian();
 }
 
-async function totalBalanceCustodian() {
+async function totalBalanceCustodian(apis) {
   let bts = BitShares();
 	let balances = await bitshares_js.bitshares_ws.Apis.db.get_account_balances("1.2.25961",["1.3.0"])
 	let ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589')
@@ -228,3 +217,7 @@ async function unwrap() {
 }
 
 window.addEventListener("load", totalSupply);
+
+apis = bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then(res => {
+	console.log("connected to:", res[0].network);
+});

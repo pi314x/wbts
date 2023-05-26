@@ -20,8 +20,8 @@
    <div id="cbalcust"></div>   
   <p></p>
   <div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'Wrap')" id="defaultOpen">Wrap</button>
-  <button class="tablinks" onclick="openTab(event, 'Unwrap')">Unwrap</button>
+  <button class="tablinks" onclick="openTab(event, 'Wrap', '#ccc')" id="defaultOpen">Wrap</button>
+  <button class="tablinks" onclick="openTab(event, 'Unwrap', '#ccc')">Unwrap</button>
  </div>
     <div id="Unwrap" class="tabcontent">
     <section class="form">
@@ -52,7 +52,7 @@
    </div>
    </div>
   <script>
-  function openTab(evt, tabName) {
+  function openTab(evt, tabName, color) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
@@ -61,9 +61,11 @@
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
+      tablinks[i].style.backgroundColor = "";
     }
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
+    elmnt.style.backgroundColor = color;
   }
 
   document.getElementById("defaultOpen").click();

@@ -183,17 +183,19 @@ async function totalSupply() {
 
 async function BitShares(node) {
   // https://github.com/bitshares/bitsharesjs
-  bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then((res) => {
+  bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
   });	
-  var balances = await bitshares_js.bitshares_ws.Apis.db.get_account_balances("1.2.25961",["1.3.0"])
-  var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589')
-  var obj = await bitshares_js.bitshares_ws.Apis.db.get_object('1.3.0')
-  var total = 10;//await contract.totalSupply();
-  var symbol = 'T';//await contract.symbol();
-  var name = 'Token';//await contract.name();
-  var decimals = 5;//await contract.name();
+  var balances = await bitshares_js.bitshares_ws.Apis.db.get_account_balances("1.2.25961",["1.3.0"]);
+  var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589');
+  var obj = await bitshares_js.bitshares_ws.Apis.db.get_objects(['1.3.0']);
+  var total = Number(balances[0]["amount"]);
   var total = total / Math.pow(10, decimals);
+  var symbol = obj[0]['symbol'];
+  var name = obj[0]['name'];
+  var decimals = obj[0]['precision'];
+  var fees = Number(ticker["lowest_ask"]).toFixed(0);
+  document.getElementById("fees").innerHTML = fees;
   document.getElementById("cbalcust").innerHTML =
     "Total Supply of " + name + ": " + total + " " + symbol;
 }

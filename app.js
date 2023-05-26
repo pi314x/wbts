@@ -99,13 +99,6 @@ const chainId = await provider.request({ method: 'eth_chainId' });
 const networkName = provider.getNetwork()['name'];
 let account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 
-try {
-	await provider.request({
-		method: 'wallet_switchEthereumChain',
-		params: [{ chainId: CHAINID_SEPOLIA}],
-	});
-console.log("You have succefully switched to Sepolia Test network")
-
 async function connectWallet() {
 	
   let accountList = await provider.send("eth_requestAccounts", []);

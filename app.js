@@ -131,8 +131,7 @@ function getContract() {
 }
 
 function BitShares() {
-	console.log('BTS_TEST')
-	console.log(BTS_TEST)
+	let node = NODE_TEST
 	if (BTS_TEST === true) {
 		node = NODE_TEST
 	} else {

@@ -213,15 +213,11 @@ async function unwrap() {
 
 window.addEventListener("load", totalSupply);
 
-/*Apis.instance("wss://eu.nodes.bitshares.ws", true).init_promise.then((res) => {
+bitshares_js.bitshares_ws.Apis.instance("wss://test.xbts.io").init_promise.then(res => {
+//bitshares_js.bitshares_ws.Apis.instance("wss://eu.nodes.bitshares.ws", true).init_promise.then(res => {
     console.log("connected to:", res[0].network);
-    ChainStore.init().then(() => {
-        ChainStore.subscribe(updateState);
-    });
 });
 
-let dynamicGlobal = null;
-function updateState(object) {
-    dynamicGlobal = ChainStore.getObject("2.1.0");
-    console.log("ChainStore object update\n", dynamicGlobal ? dynamicGlobal.toJS() : dynamicGlobal);
-}*/
+await bitshares_js.bitshares_ws.Apis.db.get_objects(["fdh"])
+
+

@@ -189,10 +189,10 @@ async function BitShares(node) {
   var symbol = obj[0]['symbol'];
   var decimals = obj[0]['precision'];
   var fees = Number(ticker["highest_bid"]).toFixed(0);
-  var minimum = fees + 1;
+  var minimum = Number(fees) + 1;
   var total = total / Math.pow(10, decimals);
   document.getElementById("fees").innerHTML = fees;
-  document.getElementById("fees").innerHTML = minimum;
+  document.getElementById("minimum").innerHTML = minimum;
   document.getElementById("cbalcust").innerHTML =
     "Proof of Reserve Supply: " + total + " " + symbol;
 }

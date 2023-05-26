@@ -181,7 +181,6 @@ async function BitShares(node) {
   // https://github.com/bitshares/bitsharesjs
   bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
-	   let bal = bitshares_js.bitshares_ws.Apis.db.get_account_balances(CUSTODIAN,["1.3.0"]);
   });
   let balances = await bitshares_js.bitshares_ws.Apis.db.get_account_balances(CUSTODIAN,["1.3.0"]);
   /*var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589');*/

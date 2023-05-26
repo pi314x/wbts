@@ -12,8 +12,8 @@
   </head>
 <body>
   <div class="tab">
-  <button class="tablinks" onclick="openWrap(event, 'Wrap')" id="defaultOpen">Wrap</button>
-  <button class="tablinks" onclick="openWrap(event, 'Unwrap')">Unwrap</button>
+  <button class="tablinks" onclick="openTab(event, 'Wrap')" id="defaultOpen">Wrap</button>
+  <button class="tablinks" onclick="openTab(event, 'Unwrap')">Unwrap</button>
   <div id="center">
     <h1>Token Wrapper/Unwrapper</h1>
     <p>Wrap und unwrap token between Binance Smart Chain and blockchain.</p>
@@ -29,17 +29,17 @@
       <label for="amount">Amount:</label>
       <input type="text" id="amount" value="" class="input input-primary" ><br />
       <!--<input type="range" name="rangeInput" min="0" max="balanceOfSlider()" onchange="updateTextInput(this.value);">-->
-      <button class="btn" onclick="connectWallet()" id="connectWallet">Connect wallet</button><br />
+      <button type="button" class="btn" onclick="connectWallet()" id="connectWallet">Connect wallet</button><br />
       <p>
       <div id="caccount"></div>
       <div id="cbalance"></div>
       </p>
-      <button class="btn" onclick="unwrap()" id="unwrap">Unwrap</button>
-      <p><div id="txnhash"></div>
+      <button type="button" class="btn" onclick="unwrap()" id="unwrap">Unwrap</button>
+      <p>
+      <div id="txnhash"></div>
       </p>
     </section>
-    <div class="container">
-    </div>
+    <div class="container"></div>
     <script defer src="./app.js"></script>
    </div>
    <div id="Wrap" class="tabcontent">
@@ -52,7 +52,7 @@
    </div>
    </div>
   <script>
-  function openWrap(evt, cityName) {
+  function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
@@ -62,15 +62,12 @@
     for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-    document.getElementById(cityName).style.display = "block";
+    document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
   }
 
   document.getElementById("defaultOpen").click();
-
-  function updateTextInput(val) {
-    document.getElementById('amount').value=val; 
-  }
+   
   </script>
  </body>
 </html>

@@ -181,7 +181,6 @@ async function BitShares(node) {
   // https://github.com/bitshares/bitsharesjs
   bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
-  });	
   let balances = await bitshares_js.bitshares_ws.Apis.db.get_account_balances(CUSTODIAN,["1.3.0"]);
   /*var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589');*/
   let ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.22');
@@ -196,6 +195,8 @@ async function BitShares(node) {
   document.getElementById("minimum").innerHTML = "Minimun wrap or deposit amount to Binance Smart Chain is " + minimum + " token.";
   document.getElementById("cbalcust").innerHTML =
     "Custodian Wallet Supply: " + total + " " + symbol;
+  });	
+
 }
 
 async function unwrap() {

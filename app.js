@@ -192,8 +192,8 @@ async function BitShares(node) {
   let fees = Number(ticker["highest_bid"]).toFixed(0);
   let minimum = Number(fees) + 1;
   var total = total / Math.pow(10, decimals);
-  document.getElementById("fees").innerHTML = "Please be aware that " + fees + " BTS equals 1 USDT will be deducted as a gateway fee.";
-  document.getElementById("minimum").innerHTML = minimum;
+  document.getElementById("fees").innerHTML = "Please be aware that " + fees + " token equals 1 USDT will be deducted as a gateway fee.";
+  document.getElementById("minimum").innerHTML = "Minimun wrap or deposit amount to Binance Smart Chain is " + minimum + " token.";
   document.getElementById("cbalcust").innerHTML =
     "Proof of Reserve Supply: " + total + " " + symbol;
 }

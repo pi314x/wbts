@@ -128,6 +128,8 @@ function getContract() {
 }
 
 function BitShares() {
+	console.log('BTS_TEST')
+	console.log(BTS_TEST)
 	if (BTS_TEST == true) {
 		let node = "wss://test.xbts.io"
 	} else {

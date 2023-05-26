@@ -155,7 +155,7 @@ async function totalSupply() {
   let total = await contract.totalSupply();
   let symbol = await contract.symbol();
   let name = await contract.name();
-  let decimals = await await contract.decimals();
+  let decimals = await contract.decimals();
   total = total / Math.pow(10, decimals);
   document.getElementById("ctotal").innerHTML =
     "Total Supply of " + name + ": " + total + " " + symbol;
@@ -188,6 +188,8 @@ async function unwrap() {
     return;
   }
   let contract = getContract();
+  let decimals = await contract.decimals();
+  let amount = amount * Math.pow(10, decimals);
   let txn = await contract.unwrap(amount.value, wallet.value);
   let showhash = document.getElementById("txnhash");
   let a = document.createElement("a");

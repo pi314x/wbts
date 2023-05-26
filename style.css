@@ -45,6 +45,7 @@ p.thicker {
   width: 180px;
   border-radius: 4px;
   font-size: 80%;
+  float: center;
 }
 .btn button:hover {
   background-color: #408EC5;
@@ -57,6 +58,7 @@ p.thicker {
   border-radius: 4px;
   font-size: 80%;
   text-align: left;
+  border: none;
 }
 .input:hover{
   /*background-color: #408EC5;*/

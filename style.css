@@ -44,7 +44,7 @@ p.thicker {
   color: white;
   padding: 4px; 
   width: 180px;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 100%;
   float: None;
 }
@@ -69,7 +69,7 @@ input[type=number] {
   color: white;
   padding: 4px; 
   width: 180px;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 80%;
   text-align: left;
   border: none;
@@ -97,7 +97,7 @@ input[type=number] {
   padding: 14px 16px;
   transition: 0.3s;
   font-size: 100%;
-  border-radius: 4px 4px 0px 0px;
+  border-radius: 8px 8px 0px 0px;
 }
 
 /* Change background color of buttons on hover */

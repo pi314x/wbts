@@ -110,6 +110,10 @@ const chainId = network['chainId'];
 let account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 let node = "wss://test.xbts.io";
 
+bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then((res) => {
+    console.log("connected to:", res[0].network);
+});
+
 async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);
   account = await toChecksumAddress(accountList[0]);
@@ -219,7 +223,3 @@ async function unwrap() {
 }
 
 window.addEventListener("load", totalSupply);
-
-bitshares_js.bitshares_ws.Apis.instance("wss://eu.nodes.bitshares.ws").init_promise.then((res) => {
-    console.log("connected to:", res[0].network);
-});

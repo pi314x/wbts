@@ -224,17 +224,19 @@ async function BitShares() {
 	console.log(e.data);
 	};
 
-	ws.send('{"id":1, "method":"call", "params":[0,"get_objects", [["1.3.0"]]]}');
+	ws.send('{"id":1, "method":"call", "params":[0,"get_objects", [["1.3.0","'+CUSTODIAN+'"]]]}');
 	ws.send('{"id":2, "method":"call", "params":[0,"get_ticker", ["1.3.0","1.3.22"]]}');
 	ws.send('{"id":3, "method":"call", "params":[0,"get_account_balances", ["'+CUSTODIAN+'",["1.3.0"]]]}')
   
   var total = Number(balances[0]["amount"]);
   let symbol = obj[0]['symbol'];
   let decimals = obj[0]['precision'];
+  let custName = obj[1]['name'];
   let fees = Number(ticker["highest_bid"]).toFixed(0);
   let minimum = Number(fees) + 1;
   var total = total / Math.pow(10, decimals);
 	
+  document.getElementById("custname").innerHTML = "Please be aware that " + custName + " token equals 1 USDT will be deducted as a gateway fee.";	
   document.getElementById("fees").innerHTML = "Please be aware that " + fees + " token equals 1 USDT will be deducted as a gateway fee.";
   document.getElementById("minimum").innerHTML = "Minimun wrap or deposit amount to Binance Smart Chain is " + minimum + " token.";
   document.getElementById("cbalcust").innerHTML =

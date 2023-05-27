@@ -102,15 +102,6 @@ const ABI = [
 	},
 ];
 
-if (TEST == true) {
-  var node = NODE_TEST;
-} else {
-  var node = NODE_MAIN;
-}
-
-
-var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
-
 window.ethereum ?
   ethereum.request({method: "eth_requestAccounts"}).then((accounts) => {
   
@@ -122,6 +113,14 @@ window.ethereum ?
     
   }).catch((err) => console.log(err))
 : console.log("Please install MetaMask")
+
+if (TEST == true) {
+  var node = NODE_TEST;
+} else {
+  var node = NODE_MAIN;
+}
+
+var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const network = provider.getNetwork();
@@ -195,7 +194,8 @@ async function BitShares(node) {
   /*bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
   });*/
-console.log(node)	
+	console.log('BitShares');
+console.log(node);
 async function get_objects(obj) {
     return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_objects", [
                 obj

@@ -133,7 +133,7 @@ const chainId = network['chainId'];
 
 try {
   
-  await provider.request({
+  provider.request({
     method: 'wallet_switchEthereumChain',
     params: [{ chainId: CHAINID_SEPOLIA}],
   });
@@ -146,7 +146,26 @@ try {
    console.log("Please add the Sepolia network to MetaMask")
   }
   console.log("Cannot switch to the network")
-  
+ 
+}
+
+try {
+    provider.request({
+      method: 'wallet_addEthereumChain',
+      params: [
+          {
+            chainId: 'CHAINID_SEPOLIA, 
+            chainName:'Sepolia',
+            rpcUrls:['https://ethereum-sepolia.blockpi.network/v1/rpc/public'],                   
+            blockExplorerUrls:['https://sepolia.etherscan.io/'],  
+            nativeCurrency: { 
+              symbol:'ETH',   
+              decimals: 18
+            }     
+          }
+        ]);
+  } catch (err) {
+     console.log(err);
 }
 
 async function connectWallet() {

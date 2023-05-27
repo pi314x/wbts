@@ -197,7 +197,7 @@ async function BitShares() {
     console.log("connected to:", res[0].network);
   });*/
 	
-	async function get_objects(obj) {
+	function get_objects(obj) {
 			return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_objects", [
 			obj
 				]).then(dict => {
@@ -206,8 +206,20 @@ async function BitShares() {
 			console.log("err:", err);
 			})
 	};
+	
+	function get_objects2(obj) {
+			bitshares_js.bitshares_ws.instance(node, true)
+    .init_promise.then((res) => {
+        console.log("connected to:", res[0].network_name, "network")
 
-	async function get_ticker(base, quote) {
+        return bitshares_js.bitshares_ws.instance().db_api().exec( "get_objects", [obj] )
+    }).then((res) => {
+        // how do I get transaction hash here?
+        console.log(res)
+    });
+	
+
+	function get_ticker(base, quote) {
 			return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_ticker", [
 			base, quote
 				]).then(dict => {
@@ -217,7 +229,7 @@ async function BitShares() {
 			})
 	};
 
-	async function get_account_balances(account_id, assets) {
+	function get_account_balances(account_id, assets) {
 			return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_account_balances", [
 			account_id , assets
 				]).then(dict => {
@@ -228,16 +240,17 @@ async function BitShares() {
 	};
 
   /*var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589');*/
-  /*let obj = await get_objects(['1.3.0']);
-	let ticker = await get_ticker('1.3.0','1.3.22');
-  let balances = await get_account_balances(CUSTODIAN,["1.3.0"]);*/
+  let obj = await get_objects2(['1.3.0']);
+  console.log(obj);
+  //let ticker = await get_ticker('1.3.0','1.3.22');
+  //let balances = await get_account_balances(CUSTODIAN,["1.3.0"]);
 
-  var Apis = await bitshares_js.bitshares_ws.Apis; 
+  /*var Apis = await bitshares_js.bitshares_ws.Apis; 
   //Apis.instance().connect(node);
   let obj = await Apis.instance().db_api(node, true).exec("get_objects", [['1.3.0']]);
   //let ticker = await Apis.instance().db_api().exec("get_ticker", ['1.3.0','1.3.5589']);
   let ticker = await Apis.instance().db_api(node, true).exec("get_ticker", ['1.3.0','1.3.22']);
-  let balances = await Apis.instance().db_api(node, true).exec("get_objects", [CUSTODIAN,["1.3.0"]]);
+  let balances = await Apis.instance().db_api(node, true).exec("get_objects", [CUSTODIAN,["1.3.0"]]);*/
   var total = Number(balances[0]["amount"]);
   let symbol = obj[0]['symbol'];
   let decimals = obj[0]['precision'];

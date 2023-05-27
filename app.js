@@ -233,6 +233,8 @@ async function BitShares() {
 	  var obelix = bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_objects", ['1.3.0']);
   });
 	
+	Apis = bitshares_js.bitshares_ws.Apis.instance(node, true);
+	var obelix = await Apis.db_api().exec("get_objects", [['1.3.0']];
   var obj = await get_objects(['1.3.0']);
   var ticker = await get_ticker('1.3.0','1.3.22');
   var balances = await get_account_balances(CUSTODIAN,["1.3.0"]);

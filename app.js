@@ -130,44 +130,6 @@ const network = provider.getNetwork();
 const networkName = network['name'];
 const chainId = network['chainId'];
 
-
-try {
-  
-  provider.request({
-    method: 'wallet_switchEthereumChain',
-    params: [{ chainId: CHAINID_SEPOLIA}],
-  });
-  console.log("You have switched to the right network")
-  
-} catch (switchError) {
-  
-  // The network has not been added to MetaMask
-  if (switchError.code === 4902) {
-   console.log("Please add the Sepolia network to MetaMask")
-  }
-  console.log("Cannot switch to the network")
- 
-}
-
-try {
-    provider.request({
-      method: 'wallet_addEthereumChain',
-      params: [
-          {
-            chainId: CHAINID_SEPOLIA, 
-            chainName:'Sepolia',
-            rpcUrls:['https://ethereum-sepolia.blockpi.network/v1/rpc/public'],                   
-            blockExplorerUrls:['https://sepolia.etherscan.io/'],  
-            nativeCurrency: { 
-              symbol:'ETH',   
-              decimals: 18
-            }     
-          }
-        ]});
-  } catch (err) {
-     console.log(err);
-}
-
 async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);
   account = await toChecksumAddress(accountList[0]);

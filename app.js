@@ -107,7 +107,7 @@ window.ethereum ?
   
     // Log public address of user
     console.log(accounts[0])
-    let a0 = accounts[0]
+    var a0 = accounts[0]
   
     // Get network ID
     let n = ethereum.chainId // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.

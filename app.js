@@ -195,8 +195,8 @@ async function BitShares(node) {
   /*bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
   });*/
-	
-	async function get_objects(obj) {
+console.log(node)	
+async function get_objects(obj) {
     return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_objects", [
                 obj
             ]).then(dict => {

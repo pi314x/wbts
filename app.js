@@ -188,51 +188,42 @@ async function totalSupply() {
   await ContractAddress();
   await BitShares();
 }
-
-async function get_objects(obj) {
-	bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
-    console.log("connected to:", res[0].network);
-  });
-			return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_objects", [
-									obj
-							]).then(dict => {
-									return dict;
-							}).catch(err => {
-									console.log("err:", err);
-			})
-	};
-
-	async function get_ticker(base, quote) {
-		bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
-    console.log("connected to:", res[0].network);
-  });
-			return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_ticker", [
-									base, quote
-							]).then(dict => {
-									return dict;
-							}).catch(err => {
-									console.log("err:", err);
-			})
-	};
-
-	async function get_account_balances(account_id, assets) {
-		bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
-    console.log("connected to:", res[0].network);
-  });
-			return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_account_balances", [
-									account_id , assets
-							]).then(dict => {
-									return dict;
-							}).catch(err => {
-									console.log("err:", err);
-			})
-	};
 	
 async function BitShares() {
   // https://github.com/bitshares/bitsharesjs
   /*bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
   });*/
+	
+	async function get_objects(obj) {
+			return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_objects", [
+			obj
+				]).then(dict => {
+			return dict;
+				}).catch(err => {
+			console.log("err:", err);
+			})
+	};
+
+	async function get_ticker(base, quote) {
+			return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_ticker", [
+			base, quote
+				]).then(dict => {
+			return dict;
+				}).catch(err => {
+			console.log("err:", err);
+			})
+	};
+
+	async function get_account_balances(account_id, assets) {
+			return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_account_balances", [
+			account_id , assets
+				]).then(dict => {
+			return dict;
+				}).catch(err => {
+			console.log("err:", err);
+			})
+	};
 
   /*var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589');*/
   let obj = await get_objects(['1.3.0']);

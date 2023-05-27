@@ -214,8 +214,9 @@ async function BitShares() {
 
         return bitshares_js.bitshares_ws.instance().db_api().exec( "get_objects", [obj] )
     }).then((res) => {
-        // how do I get transaction hash here?
+        
         console.log(res)
+				return res;
     });
 	
 

@@ -186,7 +186,7 @@ async function totalSupply() {
   document.getElementById("ctotal").innerHTML =
     "Total Supply of " + name + ": " + total + " " + symbol;
   await ContractAddress();
-  await BitShares(node);
+  await BitShares();
 }
 
 async function get_objects(obj) {
@@ -219,7 +219,7 @@ async function get_objects(obj) {
 			})
 	};
 	
-async function BitShares(node) {
+async function BitShares() {
   // https://github.com/bitshares/bitsharesjs
   /*bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);

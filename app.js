@@ -189,13 +189,7 @@ async function totalSupply() {
   await BitShares(node);
 }
 
-async function BitShares(node) {
-  // https://github.com/bitshares/bitsharesjs
-  /*bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
-    console.log("connected to:", res[0].network);
-  });*/
-
-	async function get_objects(obj) {
+async function get_objects(obj) {
 			return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_objects", [
 									obj
 							]).then(dict => {
@@ -225,6 +219,12 @@ async function BitShares(node) {
 			})
 	};
 	
+async function BitShares(node) {
+  // https://github.com/bitshares/bitsharesjs
+  /*bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
+    console.log("connected to:", res[0].network);
+  });*/
+
   /*var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589');*/
   let obj = await get_objects(['1.3.0']);
 	let ticker = await get_ticker('1.3.0','1.3.22');

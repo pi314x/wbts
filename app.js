@@ -206,7 +206,7 @@ async function BitShares() {
 	
   await bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise;
 
-var ws = new WebSocket(node);
+let ws = new WebSocket(node);
 ws.onmessage = (e) => {
 let ret = JSON.parse(e.data);
 switch(ret["id"]) {
@@ -226,7 +226,7 @@ console.log(e.data);
     
 ws.send('{"id":1, "method":"call", "params":[0,"get_objects", [["1.3.0"]]]}');
 ws.send('{"id":2, "method":"call", "params":[0,"get_ticker", ["1.3.0","1.3.22"]]}');
-ws.send('{"id":3, "method":"call", "params":[0,"get_account_balances", CUSTODIAN,["1.3.0"]]}')
+ws.send('{"id":3, "method":"call", "params":[0,"get_account_balances", [CUSTODIAN,["1.3.0"]]]}');
   
   var total = Number(balances[0]["amount"]);
   let symbol = obj[0]['symbol'];

@@ -163,7 +163,7 @@ try {
               decimals: 18
             }     
           }
-        ]);
+        ]});
   } catch (err) {
      console.log(err);
 }

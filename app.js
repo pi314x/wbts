@@ -235,12 +235,7 @@ async function BitShares() {
 	
   var Apis = null;
   bitshares_js.bitshares_ws.Apis.instance().connect(node);
-  bitshares_js.bitshares_ws.Apis.instance().init_promise.then(function () {
-	  bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_objects", [['1.3.0']]).then((trans) => {
-		  var obelix = trans;
-	  });
-  });
-													 
+									 
   //Apis = await bitshares_js.bitshares_ws.Apis.instance(node, true, 10000);
 
   var obelix = await bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_objects", [['1.3.0']]);

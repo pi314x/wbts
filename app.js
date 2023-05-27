@@ -226,6 +226,9 @@ async function BitShares() {
 	
 	ws.onopen = function (event) {
       console.log('connection is open!')
+if (ws.readyState  === 1) {
+     console.log("It is safe to send messages now")
+}
  ws.send('{"id":1, "method":"call", "params":[0,"get_objects", [["1.3.0","'+CUSTODIAN+'"]]]}');
 	ws.send('{"id":2, "method":"call", "params":[0,"get_ticker", ["1.3.0","1.3.22"]]}');
 	ws.send('{"id":3, "method":"call", "params":[0,"get_account_balances", ["'+CUSTODIAN+'",["1.3.0"]]]}')

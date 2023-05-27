@@ -194,37 +194,37 @@ async function BitShares(node) {
   bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
   });
-	console.log('BitShares');
-console.log(node);
-async function get_objects(obj) {
-    return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_objects", [
-                obj
-            ]).then(dict => {
-                return dict;
-            }).catch(err => {
-                console.log("err:", err);
-    })
-}
 
-async function get_ticker(base, quote) {
-    return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_ticker", [
-                base, quote
-            ]).then(dict => {
-                return dict;
-            }).catch(err => {
-                console.log("err:", err);
-    })
-} 
+	async function get_objects(obj) {
+			return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_objects", [
+									obj
+							]).then(dict => {
+									return dict;
+							}).catch(err => {
+									console.log("err:", err);
+			})
+	};
 
-async function get_account_balances(account_id, assets) {
-    return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_account_balances", [
-                account_id , assets
-            ]).then(dict => {
-                return dict;
-            }).catch(err => {
-                console.log("err:", err);
-    })
-} 
+	async function get_ticker(base, quote) {
+			return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_ticker", [
+									base, quote
+							]).then(dict => {
+									return dict;
+							}).catch(err => {
+									console.log("err:", err);
+			})
+	};
+
+	async function get_account_balances(account_id, assets) {
+			return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_account_balances", [
+									account_id , assets
+							]).then(dict => {
+									return dict;
+							}).catch(err => {
+									console.log("err:", err);
+			})
+	};
+	
   let balances = await get_account_balances(CUSTODIAN,["1.3.0"]);
   /*var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589');*/
   let ticker = await get_ticker('1.3.0','1.3.22');

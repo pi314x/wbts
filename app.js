@@ -202,22 +202,13 @@ async function BitShares() {
   /*bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
   });*/
-  
-  let ws = new WebSocket(node); 
-	
-	ws = new WebSocket(node);
-ws.onmessage = (e) => {
-       var x = JSON.parse(e.data);
-console.log(x['result']);
-    };
-ws.send('{"id":1, "method":"call", "params":[0,"get_accounts",[["1.2.0"]]]}')
+ 
 	
   await bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise;
 	;
-ws = new WebSocket(node);
+var ws = new WebSocket(node);
 ws.onmessage = (e) => {
-var x = JSON.parse(e.data);
-vonsole.log(e.data);
+console.log(e.data);
 };
     
 ws.send('{"id":1, "method":"call", "params":[0,"get_objects", [["1.3.0"]]]}');

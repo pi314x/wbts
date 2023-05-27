@@ -241,7 +241,7 @@ async function BitShares() {
 	};
 
   /*var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589');*/
-  let x = await get_objects2(['1.3.0']);
+  let x =  get_objects2(['1.3.0']);
   console.log(x);
   //let ticker = await get_ticker('1.3.0','1.3.22');
   //let balances = await get_account_balances(CUSTODIAN,["1.3.0"]);

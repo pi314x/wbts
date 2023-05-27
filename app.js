@@ -202,7 +202,7 @@ async function get_objects(objects) {
 			})
 			.then((res) => {
 				console.log(res);
-				return res;
+				var obj = res;
 			});
 	}
 
@@ -216,7 +216,7 @@ async function get_objects(objects) {
 			})
 			.then((res) => {
 				console.log(res);
-				return res;
+				val obj =  res;
 			});
 	}
 
@@ -230,7 +230,7 @@ async function get_objects(objects) {
 			})
 			.then((res) => {
 				console.log(res);
-				return res;
+				var balances =  res;
 			});
 	}
 	
@@ -240,10 +240,10 @@ async function BitShares() {
     console.log("connected to:", res[0].network);
   });*/
 
-  let obj = await get_objects(['1.3.0']);
-  let ticker = await get_ticker('1.3.0','1.3.22');
-  let balances = await get_account_balances(CUSTODIAN,["1.3.0"]);
-	
+  await get_objects(['1.3.0']);
+  await get_ticker('1.3.0','1.3.22');
+  await get_account_balances(CUSTODIAN,["1.3.0"]);
+
   var total = Number(balances[0]["amount"]);
   let symbol = obj[0]['symbol'];
   let decimals = obj[0]['precision'];

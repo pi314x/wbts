@@ -232,8 +232,8 @@ async function BitShares() {
 	let ticker = await get_ticker('1.3.0','1.3.22');
   let balances = await get_account_balances(CUSTODIAN,["1.3.0"]);*/
 
-  var Apis = bitshares_js.bitshares_ws.Apis; 
-  Apis.instance().connect(node);
+  var Apis = await bitshares_js.bitshares_ws.Apis; 
+  await Apis.instance().connect(node);
   let obj = await Apis.instance().db_api().exec("get_objects", [['1.3.0']]);
   let ticker = await Apis.instance().db_api().exec("get_ticker", ['1.3.0','1.3.5589']);
   let balances = await Apis.instance().db_api().exec("get_objects", [CUSTODIAN,["1.3.0"]]);

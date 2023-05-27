@@ -123,13 +123,12 @@ window.ethereum ?
   }).catch((err) => console.log(err))
 : console.log("Please install MetaMask")
 
-objects
-/*
+
 try {
   
   await provider.request({
     method: 'wallet_switchEthereumChain',
-    params: [{ chainId: chainId}],
+    params: [{ chainId: CHAINID_SEPOLIA}],
   });
   console.log("You have switched to the right network")
   
@@ -137,11 +136,11 @@ try {
   
   // The network has not been added to MetaMask
   if (switchError.code === 4902) {
-   console.log("Please add the Polygon network to MetaMask")
+   console.log("Please add the Sepolia network to MetaMask")
   }
   console.log("Cannot switch to the network")
   
-}*/
+}
 
 var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 

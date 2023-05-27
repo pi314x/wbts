@@ -107,7 +107,6 @@ window.ethereum ?
   
     // Log public address of user
     console.log(accounts[0])
-    var a0 = accounts[0];
   
     // Get network ID
     let n = ethereum.chainId // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
@@ -121,7 +120,7 @@ if (TEST == true) {
   var node = NODE_MAIN;
 }
 
-var account = a0; // "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
+var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const network = provider.getNetwork();

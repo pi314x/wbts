@@ -234,7 +234,17 @@ async function BitShares() {
   });
 	
   var Apis = null;
-  Apis = await bitshares_js.bitshares_ws.Apis.instance(node, true, 10000);
+  bitshares_js.bitshares_ws.Apis.instance().connect(node);
+  bitshares_js.bitshares_ws.Apis.instance().init_promise.then(function () {
+	  bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_objects", [['1.3.0']]).then((trans) => {
+		  var obelix = trans;
+	  });
+bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_ticker", ['1.3.0','1.3.22']).then((trans) => {
+		  var asterix = trans;
+	  });
+  });
+													 
+  //Apis = await bitshares_js.bitshares_ws.Apis.instance(node, true, 10000);
 
   var obelix = await bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_objects", [['1.3.0']]);
   var asterix = await bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_ticker", ['1.3.0','1.3.22']);

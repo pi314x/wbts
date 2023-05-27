@@ -234,7 +234,7 @@ if (ws.readyState  === 1) {
   ws.send('{"id":3, "method":"call", "params":[0,"get_account_balances", ["'+CUSTODIAN+'",["1.3.0"]]]}');
     }
 	
-  while (balances == null) {};
+
   var total = Number(balances[0]["amount"]);
   let symbol = obj[0]['symbol'];
   let decimals = obj[0]['precision'];

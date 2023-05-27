@@ -154,7 +154,7 @@ try {
       method: 'wallet_addEthereumChain',
       params: [
           {
-            chainId: 'CHAINID_SEPOLIA, 
+            chainId: CHAINID_SEPOLIA, 
             chainName:'Sepolia',
             rpcUrls:['https://ethereum-sepolia.blockpi.network/v1/rpc/public'],                   
             blockExplorerUrls:['https://sepolia.etherscan.io/'],  

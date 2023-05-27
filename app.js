@@ -191,9 +191,9 @@ async function totalSupply() {
 
 async function BitShares(node) {
   // https://github.com/bitshares/bitsharesjs
-  /*bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
+  bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
-  });*/
+  });
 	console.log('BitShares');
 console.log(node);
 async function get_objects(obj) {

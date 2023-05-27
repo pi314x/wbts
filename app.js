@@ -197,7 +197,7 @@ var ticker;
 var balances;
 
 async function get_objects(obj) {
-    return bitshares_js.bitshares_ws.Apis.instance(node).db_api().exec("get_objects", [
+    return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_objects", [
                 obj
             ]).then(dict => {
                 return dict;
@@ -207,7 +207,7 @@ async function get_objects(obj) {
 };
 
 async function get_ticker(base, quote) {
-    return bitshares_js.bitshares_ws.Apis.instance(node).db_api().exec("get_ticker", [
+    return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_ticker", [
                 base, quote
             ]).then(dict => {
                 return dict;
@@ -217,7 +217,7 @@ async function get_ticker(base, quote) {
 };
 
 async function get_account_balances(account_id, assets) {
-    return bitshares_js.bitshares_ws.Apis.instance(node).db_api().exec("get_account_balances", [
+    return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_account_balances", [
                 account_id , assets
             ]).then(dict => {
                 return dict;

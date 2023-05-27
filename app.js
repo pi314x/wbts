@@ -106,11 +106,9 @@ const ABI = [
 
 if (TEST == true) {
   var node = NODE_TEST;
-  var chainId = CHAINID_SEPOLIA;
 
 } else {
   var node = NODE_MAIN;
-  var chainId = CHAINID_BSC_MAIN;
 }
 
 window.ethereum ?

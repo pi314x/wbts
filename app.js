@@ -222,26 +222,15 @@ async function BitShares() {
 			// code block
 	} 
 	console.log(e.data);
-	};
-ws.onopen = (e) => {
-	let ret = JSON.parse(e.data);
-	switch(ret["id"]) {
-		case 1:
-			obj = ret['result'];
-			break;
-		case 2:
-			ticker = ret['result'];
-			break;
-		case 3:
-			balances = ret['result'];
-		default:
-			// code block
-	} 
-	console.log(e.data);
-	};
-	ws.send('{"id":1, "method":"call", "params":[0,"get_objects", [["1.3.0","'+CUSTODIAN+'"]]]}');
+	};   
+	
+	ws.onopen = function (event) {
+      console.log('connection is open!')
+ ws.send('{"id":1, "method":"call", "params":[0,"get_objects", [["1.3.0","'+CUSTODIAN+'"]]]}');
 	ws.send('{"id":2, "method":"call", "params":[0,"get_ticker", ["1.3.0","1.3.22"]]}');
 	ws.send('{"id":3, "method":"call", "params":[0,"get_account_balances", ["'+CUSTODIAN+'",["1.3.0"]]]}')
+    }
+	
   
   var total = Number(balances[0]["amount"]);
   let symbol = obj[0]['symbol'];

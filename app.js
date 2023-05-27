@@ -226,23 +226,15 @@ async function get_account_balances(account_id, assets) {
     })
 };
 
-  bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
-    console.log("connected to:", res[0].network);
-  });
-	
-	Apis = bitshares_js.bitshares_ws.Apis.instance(node, true);
-	var obelix =  Apis.db_api().exec("get_objects", [['1.3.0']]);
-	var asterix =  Apis.db_api().exec("get_ticker", ['1.3.0','1.3.22']);
-	
 async function BitShares() {
   // https://github.com/bitshares/bitsharesjs
   bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
   });
 	
-	Apis = await bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise;
-	var obelix = await Apis.db_api().exec("get_objects", [['1.3.0']]);
-	var asterix = await Apis.db_api().exec("get_ticker", ['1.3.0','1.3.22']);
+  Apis = await bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise;
+  var obelix = await Apis.db_api().exec("get_objects", [['1.3.0']]);
+  var asterix = await Apis.db_api().exec("get_ticker", ['1.3.0','1.3.22']);
   var obj = await get_objects(['1.3.0']);
   var ticker = await get_ticker('1.3.0','1.3.22');
   var balances = await get_account_balances(CUSTODIAN,["1.3.0"]);

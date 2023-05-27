@@ -232,9 +232,10 @@ async function BitShares() {
   bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
   });
-	
+  
+  bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise;  	
   bitshares_js.bitshares_ws.Apis.instance().connect(node);
-	
+
   
   var asterix=await bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_objects", [['1.3.0']]);
 

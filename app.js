@@ -208,6 +208,19 @@ async function BitShares() {
 
 var ws = new WebSocket(node);
 ws.onmessage = (e) => {
+let ret = JSON.parse(e.data);
+switch(ret["id"]) {
+  case 1:
+    obj = ret;
+    break;
+  case 2:
+    ticker = ret;
+    break;
+	case 3:
+    balances = ret;
+  default:
+    // code block
+} 
 console.log(e.data);
 };
     

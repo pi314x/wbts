@@ -192,6 +192,10 @@ async function totalSupply() {
   await BitShares();
 }
 
+var obj;
+var ticker;
+var balances;
+
 async function get_objects(objects) {
 		bitshares_js.bitshares_ws.Apis.instance(node, true)
 			.init_promise.then((res) => {
@@ -216,7 +220,7 @@ async function get_objects(objects) {
 			})
 			.then((res) => {
 				console.log(res);
-				val obj =  res;
+				var ticker  =  res;
 			});
 	}
 

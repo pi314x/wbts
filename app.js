@@ -228,8 +228,9 @@ async function get_account_balances(account_id, assets) {
 	
 async function BitShares() {
   // https://github.com/bitshares/bitsharesjs
-  bitshares_js.bitshares_ws.Apis.instance(node).init_promise.then((res) => {
+  bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
+	  var obelix = bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_objects", ['1.3.0']);
   });
 	
   var obj = await get_objects(['1.3.0']);

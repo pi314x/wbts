@@ -199,14 +199,30 @@ var balances;
 
 async function BitShares() {
   // https://github.com/bitshares/bitsharesjs
-  bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
+  /*bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
-  });
+  });*/
   
+  let ws = new WebSocket(node); 
+	
+	ws = new WebSocket(node);
+ws.onmessage = (e) => {
+       var x = JSON.parse(e.data);
+console.log(x['result']);
+    };
+ws.send('{"id":1, "method":"call", "params":[0,"get_accounts",[["1.2.0"]]]}')
+	
   await bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise;
-  var obj = await bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_objects", [['1.3.0']]);
-  var ticker = await bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_ticker", ['1.3.0','1.3.22']);
-  var balances = await bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_account_balances", CUSTODIAN,["1.3.0"]);
+node = "wss://api.dex.trading/wss";
+ws = new WebSocket(node);
+ws.onmessage = (e) => {
+var x = JSON.parse(e.data);
+vonsole.log(e.data);
+};
+    
+ws.send('{"id":1, "method":"call", "params":[0,"get_objects", [["1.3.0"]]]}');
+ws.send('{"id":2, "method":"call", "params":[0,"get_ticker", ["1.3.0","1.3.22"]]}');
+ws.send('{"id":2, "method":"call", "params":[0,"get_ticker", ["1.3.0","1.3.5589"]]}');
   
   var total = Number(balances[0]["amount"]);
   let symbol = obj[0]['symbol'];

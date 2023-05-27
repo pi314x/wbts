@@ -236,7 +236,7 @@ async function BitShares() {
   let minimum = Number(fees) + 1;
   var total = total / Math.pow(10, decimals);
 	
-  document.getElementById("custname").innerHTML = "Please be aware that " + custName + " token equals 1 USDT will be deducted as a gateway fee.";	
+  document.getElementById("custname").innerHTML = "Send token to wallet address <b>" + custName + "</b> and add the destination ERC20 wallet into the memo field.";
   document.getElementById("fees").innerHTML = "Please be aware that " + fees + " token equals 1 USDT will be deducted as a gateway fee.";
   document.getElementById("minimum").innerHTML = "Minimun wrap or deposit amount to Binance Smart Chain is " + minimum + " token.";
   document.getElementById("cbalcust").innerHTML =

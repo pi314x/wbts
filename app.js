@@ -196,45 +196,35 @@ var obj;
 var ticker;
 var balances;
 
-async function get_objects(objects) {
-		bitshares_js.bitshares_ws.Apis.instance(node, true)
-			.init_promise.then((res) => {
-				console.log("connected to:", res[0].network_name, "network");
-				bitshares_js.bitshares_ws.Apis.instance(node)
-					.db_api()
-					.exec("get_objects", [objects]);
-			})*/
-			.then((res) => {
-				console.log(res);
-			return res;
-			});
-	}
+async function get_objects(obj) {
+    return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_objects", [
+                obj
+            ]).then(dict => {
+                return dict;
+            }).catch(err => {
+                console.log("err:", err);
+    })
+};
 
-	async function get_ticker(base, quote) {
-		bitshares_js.bitshares_ws.Apis.instance(node, true)
-			.init_promise.then((res) => {
-				console.log("connected to:", res[0].network_name, "network");
-				/*return bitshares_js.bitshares_ws.Apis.instance(node)
-					.db_api()
-					.exec("get_ticker", [base, quote]);
-			})*/
-			.then((res) => {
-				console.log(res);
-			});
-	}
+async function get_ticker(base, quote) {
+    return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_ticker", [
+                base, quote
+            ]).then(dict => {
+                return dict;
+            }).catch(err => {
+                console.log("err:", err);
+    })
+};
 
-	async function get_account_balances(account_id, assets) {
-		bitshares_js.bitshares_ws.Apis.instance(node, true)
-			.init_promise.then((res) => {
-				console.log("connected to:", res[0].network_name, "network");
-				/*return bitshares_js.bitshares_ws.Apis.instance(node)
-					.db_api()
-					.exec("get_account_balances", [account_id, assets]);
-			})*/
-			.then((res) => {
-				console.log(res);
-			});
-	}
+async function get_account_balances(account_id, assets) {
+    return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_account_balances", [
+                account_id , assets
+            ]).then(dict => {
+                return dict;
+            }).catch(err => {
+                console.log("err:", err);
+    })
+};
 	
 async function BitShares() {
   // https://github.com/bitshares/bitsharesjs

@@ -83,7 +83,7 @@ input[type=number] {
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  background-color: #fff; /*f1f1f1;*/
   border-radius: 8px 8px 0px 0px;
   border: none;
 }

@@ -230,9 +230,9 @@ async function get_account_balances(account_id, assets) {
     console.log("connected to:", res[0].network);
   });
 	
-	Apis = await bitshares_js.bitshares_ws.Apis.instance(node, true);
-	var obelix = await Apis.db_api().exec("get_objects", [['1.3.0']]);
-	var asterix = await Apis.db_api().exec("get_ticker", ['1.3.0','1.3.22']);
+	Apis = bitshares_js.bitshares_ws.Apis.instance(node, true);
+	var obelix =  Apis.db_api().exec("get_objects", [['1.3.0']]);
+	var asterix =  Apis.db_api().exec("get_ticker", ['1.3.0','1.3.22']);
 	
 async function BitShares() {
   // https://github.com/bitshares/bitsharesjs

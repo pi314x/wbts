@@ -211,13 +211,13 @@ async function BitShares() {
 	let ret = JSON.parse(e.data);
 	switch(ret["id"]) {
 		case 1:
-			obj = ret;
+			obj = ret['result'];
 			break;
 		case 2:
-			ticker = ret;
+			ticker = ret['result'];
 			break;
 		case 3:
-			balances = ret;
+			balances = ret['result'];
 		default:
 			// code block
 	} 

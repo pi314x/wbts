@@ -205,7 +205,7 @@ async function BitShares() {
  
 	
   await bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise;
-	;
+
 var ws = new WebSocket(node);
 ws.onmessage = (e) => {
 console.log(e.data);

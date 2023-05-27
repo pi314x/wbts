@@ -196,6 +196,7 @@ async function BitShares(node) {
   });
 
 	async function get_objects(obj) {
+		console.log(node);
 			return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_objects", [
 									obj
 							]).then(dict => {
@@ -206,6 +207,7 @@ async function BitShares(node) {
 	};
 
 	async function get_ticker(base, quote) {
+		console.log(node);
 			return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_ticker", [
 									base, quote
 							]).then(dict => {
@@ -216,6 +218,7 @@ async function BitShares(node) {
 	};
 
 	async function get_account_balances(account_id, assets) {
+		console.log(node);
 			return bitshares_js.bitshares_ws.Apis.instance(node, true).db_api().exec("get_account_balances", [
 									account_id , assets
 							]).then(dict => {
@@ -225,10 +228,11 @@ async function BitShares(node) {
 			})
 	};
 	
-  let balances = await get_account_balances(CUSTODIAN,["1.3.0"]);
   /*var ticker = await bitshares_js.bitshares_ws.Apis.db.get_ticker('1.3.0','1.3.5589');*/
-  let ticker = await get_ticker('1.3.0','1.3.22');
   let obj = await get_objects(['1.3.0']);
+	let ticker = await get_ticker('1.3.0','1.3.22');
+  let balances = await get_account_balances(CUSTODIAN,["1.3.0"]);
+	
   var total = Number(balances[0]["amount"]);
   let symbol = obj[0]['symbol'];
   let decimals = obj[0]['precision'];

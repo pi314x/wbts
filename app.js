@@ -239,9 +239,6 @@ async function BitShares() {
 	  bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_objects", [['1.3.0']]).then((trans) => {
 		  var obelix = trans;
 	  });
-bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_ticker", ['1.3.0','1.3.22']).then((trans) => {
-		  var asterix = trans;
-	  });
   });
 													 
   //Apis = await bitshares_js.bitshares_ws.Apis.instance(node, true, 10000);

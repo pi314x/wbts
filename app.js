@@ -123,6 +123,13 @@ window.ethereum ?
   }).catch((err) => console.log(err))
 : console.log("Please install MetaMask")
 
+var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
+
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+const network = provider.getNetwork();
+const networkName = network['name'];
+const chainId = network['chainId'];
+
 
 try {
   
@@ -141,13 +148,6 @@ try {
   console.log("Cannot switch to the network")
   
 }
-
-var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
-
-const provider = new ethers.providers.Web3Provider(window.ethereum);
-const network = provider.getNetwork();
-const networkName = network['name'];
-const chainId = network['chainId'];
 
 async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);

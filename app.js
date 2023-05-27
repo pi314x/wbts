@@ -218,6 +218,7 @@ async function BitShares() {
         console.log(res)
 				return res;
     });
+	};
 	
 
 	function get_ticker(base, quote) {

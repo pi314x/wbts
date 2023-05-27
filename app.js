@@ -1,5 +1,3 @@
-import { Apis } from 'bitsharesjs-ws';
-
 // https://blog.devvivek.tech/build-your-first-web-30-application-with-html-css-javascript-and-remix-ide
 // https://github.com/bitshares/bitsharesjs/issues/19
 // https://github.com/bitshares/bitsharesjs/issues/9

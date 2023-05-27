@@ -197,39 +197,40 @@ var ticker;
 var balances;
 
 async function get_objects(objects) {
-		return bitshares_js.bitshares_ws.Apis.instance(node, true)
+		bitshares_js.bitshares_ws.Apis.instance(node, true)
 			.init_promise.then((res) => {
 				console.log("connected to:", res[0].network_name, "network");
-				return bitshares_js.bitshares_ws.Apis.instance(node)
+				bitshares_js.bitshares_ws.Apis.instance(node)
 					.db_api()
 					.exec("get_objects", [objects]);
-			})
+			})*/
 			.then((res) => {
 				console.log(res);
+			return res;
 			});
 	}
 
 	async function get_ticker(base, quote) {
-		return bitshares_js.bitshares_ws.Apis.instance(node, true)
+		bitshares_js.bitshares_ws.Apis.instance(node, true)
 			.init_promise.then((res) => {
 				console.log("connected to:", res[0].network_name, "network");
-				return bitshares_js.bitshares_ws.Apis.instance(node)
+				/*return bitshares_js.bitshares_ws.Apis.instance(node)
 					.db_api()
 					.exec("get_ticker", [base, quote]);
-			})
+			})*/
 			.then((res) => {
 				console.log(res);
 			});
 	}
 
 	async function get_account_balances(account_id, assets) {
-		return bitshares_js.bitshares_ws.Apis.instance(node, true)
+		bitshares_js.bitshares_ws.Apis.instance(node, true)
 			.init_promise.then((res) => {
 				console.log("connected to:", res[0].network_name, "network");
-				return bitshares_js.bitshares_ws.Apis.instance(node)
+				/*return bitshares_js.bitshares_ws.Apis.instance(node)
 					.db_api()
 					.exec("get_account_balances", [account_id, assets]);
-			})
+			})*/
 			.then((res) => {
 				console.log(res);
 			});

@@ -119,6 +119,7 @@ window.ethereum ?
   
     // Get network ID
     let n = ethereum.chainId // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
+    console.log(n)
     
   }).catch((err) => console.log(err))
 : console.log("Please install MetaMask")

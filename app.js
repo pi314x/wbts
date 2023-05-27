@@ -196,11 +196,11 @@ var obj;
 var ticker;
 var balances;
 
-function get_objects(objects) {
+async function get_objects(objects) {
 		bitshares_js.bitshares_ws.Apis.instance(node, true)
 			.init_promise.then((res) => {
 				console.log("connected to:", res[0].network_name, "network");
-				return bitshares_js.bitshares_ws.Apis.instance(node)
+				var obj= bitshares_js.bitshares_ws.Apis.instance(node)
 					.db_api()
 					.exec("get_objects", [objects]);
 			})
@@ -209,11 +209,11 @@ function get_objects(objects) {
 			});
 	}
 
-	function get_ticker(base, quote) {
+	async function get_ticker(base, quote) {
 		bitshares_js.bitshares_ws.Apis.instance(node, true)
 			.init_promise.then((res) => {
 				console.log("connected to:", res[0].network_name, "network");
-				return bitshares_js.bitshares_ws.Apis.instance(node)
+				var ticker= bitshares_js.bitshares_ws.Apis.instance(node)
 					.db_api()
 					.exec("get_ticker", [base, quote]);
 			})
@@ -222,11 +222,11 @@ function get_objects(objects) {
 			});
 	}
 
-	function get_account_balances(account_id, assets) {
+	async function get_account_balances(account_id, assets) {
 		bitshares_js.bitshares_ws.Apis.instance(node, true)
 			.init_promise.then((res) => {
 				console.log("connected to:", res[0].network_name, "network");
-				return bitshares_js.bitshares_ws.Apis.instance(node)
+				var balances = bitshares_js.bitshares_ws.Apis.instance(node)
 					.db_api()
 					.exec("get_account_balances", [account_id, assets]);
 			})
@@ -241,9 +241,9 @@ async function BitShares() {
     console.log("connected to:", res[0].network);
   });
 
-  obj = get_objects(['1.3.0']);
-  ticker = get_ticker('1.3.0','1.3.22');
-  balances = get_account_balances(CUSTODIAN,["1.3.0"]);
+  await get_objects(['1.3.0']);
+  await get_ticker('1.3.0','1.3.22');
+  await get_account_balances(CUSTODIAN,["1.3.0"]);
 
   var total = Number(balances[0]["amount"]);
   let symbol = obj[0]['symbol'];

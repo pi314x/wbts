@@ -1,8 +1,8 @@
+import { Apis } from 'bitsharesjs-ws';
+
 // https://blog.devvivek.tech/build-your-first-web-30-application-with-html-css-javascript-and-remix-ide
 // https://github.com/bitshares/bitsharesjs/issues/19
 // https://github.com/bitshares/bitsharesjs/issues/9
-
-import { Apis } from 'bitsharesjs-ws';
 
 const CONTRACT_ADDRESS = "0x296EADeA7A8Ff8CcF7a0292D6856607DA9718bdf";
 const CHAINID_ETHEREUM = 1;

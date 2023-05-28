@@ -197,7 +197,7 @@ var obj;
 var ticker;
 var balances;
 
-async function fetchObjects(fromID) {
+async function fetchData(method, params) {
         return new Promise(async (resolve, reject) => {   
                 console.log("Fetching objects")
                 try {
@@ -209,8 +209,20 @@ async function fetchObjects(fromID) {
                 }
         
                 let object;
-                try {
-                    object = await bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_objects", [fromID])
+								try {
+										switch(method) {
+												case "get_objects":
+													object = await bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_objects", [params])
+													break;
+												case "get_ticker":
+													object = await bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_ticker", params)
+													break;
+												case "get_account_balances":
+													object = await bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_account_balances", params)
+												default:
+													console.log("method not supplied yet.")
+											} 
+              		
                 } catch (error) {
                     console.log(error);
                     return reject({error, location: 'exec', node: node});
@@ -226,39 +238,10 @@ async function BitShares() {
     console.log("connected to:", res[0].network);
   });*/
  
-	obj=await fetchObjects(["1.3.0",CUSTODIAN]);
+	obj = await fetchObjects("get_objects", ["1.3.0",CUSTODIAN]);
+	ticker = await fetchObjects("get_ticker", ["1.3.0","1.3.22"]);
+	balances = await fetchObjects("get_account_balances", [CUSTODIAN,["1.3.0"]]);
 	
-  await bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise;
-
-	let ws = new WebSocket(node);
-	ws.onmessage = (e) => {
-	let ret = JSON.parse(e.data);
-	switch(ret["id"]) {
-		case 1:
-			obj = ret['result'];
-			break;
-		case 2:
-			ticker = ret['result'];
-			break;
-		case 3:
-			balances = ret['result'];
-		default:
-			// code block
-	} 
-	console.log(e.data);
-	};   
-	
-	ws.onopen = function (event) {
-      console.log('connection is open!')
-if (ws.readyState  === 1) {
-     console.log("It is safe to send messages now")
-}
-  ws.send('{"id":1, "method":"call", "params":[0,"get_objects", [["1.3.0","'+CUSTODIAN+'"]]]}');
-  ws.send('{"id":2, "method":"call", "params":[0,"get_ticker", ["1.3.0","1.3.22"]]}');
-  ws.send('{"id":3, "method":"call", "params":[0,"get_account_balances", ["'+CUSTODIAN+'",["1.3.0"]]]}');
-    }
-	
-
   var total = Number(balances[0]["amount"]);
   let symbol = obj[0]['symbol'];
   let decimals = obj[0]['precision'];

@@ -197,12 +197,36 @@ var obj;
 var ticker;
 var balances;
 
+async function fetchObjects(fromID) {
+        return new Promise(async (resolve, reject) => {   
+                console.log("Fetching tickets")
+                try {
+                    await Apis.instance(nodes[value][0], true).init_promise;
+                } catch (error) {
+                    console.log(error);
+                    changeURL(value);
+                    return reject({error, location: 'init', node: nodes[value][0], env: value});
+                }
+        
+                let object;
+                try {
+                    object = await Apis.instance().db_api().exec("get_objects", [fromID])
+                } catch (error) {
+                    console.log(error);
+                    return reject({error, location: 'exec', node: nodes[value][0], env: value});
+                }
+        
+                return resolve(object);
+        });
+    }
+
 async function BitShares() {
   // https://github.com/bitshares/bitsharesjs
   /*bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
   });*/
  
+	obj=await fetchObjects(["1.3.0","'+CUSTODIAN+'"]);
 	
   await bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise;
 

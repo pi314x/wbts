@@ -190,13 +190,17 @@ async function totalSupply() {
   total = total / Math.pow(10, decimals);
   document.getElementById("ctotal").innerHTML =
     "Total Supply of " + name + ": " + total + " " + symbol;
-  await ContractAddress();
-  await BitShares();
 }
 
 var obj;
 var ticker;
 var balances;
+
+async function main() {
+	await totalSupply();
+	await BitShares();
+	await ContractAddress();
+}
 
 async function fetchObjects(method, params) {
   return new Promise(async (resolve, reject) => {
@@ -295,4 +299,4 @@ async function unwrap() {
   //history.go(0);
 }
 
-window.addEventListener("load", totalSupply);
+window.addEventListener("load", main);

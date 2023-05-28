@@ -116,7 +116,7 @@ input[type=number] {
 .tabcontent {
   display: none;
   padding: 6px 12px;
-  border: 1px solid #ccc;
+  border: none; /*px solid #ccc;*/
   border-top: none;
   border-radius: 0px 8px 8px 8px;
   transition: 0.3s;

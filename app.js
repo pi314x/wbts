@@ -226,7 +226,7 @@ async function BitShares() {
     console.log("connected to:", res[0].network);
   });*/
  
-	obj=await fetchObjects(["1.3.0","'+CUSTODIAN+'"]);
+	obj=await fetchObjects(["1.3.0",CUSTODIAN]);
 	
   await bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise;
 

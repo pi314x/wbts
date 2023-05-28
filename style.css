@@ -76,7 +76,7 @@ input[type=number] {
   border-width: thin;
 }
 .input:hover{
-  /*background-color: #408EC5;*/
+  background-color: #408EC5;
 }
 
 /* Style the tab */

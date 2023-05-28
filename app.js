@@ -111,26 +111,6 @@ if (TEST == true) {
   var node = NODE_MAIN;
 }
 
-window.ethereum ?
-  ethereum.request({method: "eth_requestAccounts"}).then((accounts) => {
-  
-    // Log public address of user
-    console.log(accounts[0])
-  
-    // Get network ID
-    let n = ethereum.chainId // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
-    console.log(n)
-    
-  }).catch((err) => console.log(err))
-: console.log("Please install MetaMask")
-
-var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
-
-const provider = new ethers.providers.Web3Provider(window.ethereum);
-const network = provider.getNetwork();
-const networkName = network['name'];
-const chainId = network['chainId'];
-
 async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);
   account = await toChecksumAddress(accountList[0]);
@@ -240,7 +220,6 @@ async function fetchObjects(method, params) {
         node: node
       });
     }
-
     return resolve(object);
   });
 }
@@ -298,5 +277,25 @@ async function unwrap() {
   await txn.wait();
   //history.go(0);
 }
+
+window.ethereum ?
+  ethereum.request({method: "eth_requestAccounts"}).then((accounts) => {
+  
+    // Log public address of user
+    console.log(accounts[0])
+  
+    // Get network ID
+    let n = ethereum.chainId // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
+    console.log(n)
+    
+  }).catch((err) => console.log(err))
+: console.log("Please install MetaMask")
+
+var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
+
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+const network = provider.getNetwork();
+const networkName = network['name'];
+const chainId = network['chainId'];
 
 window.addEventListener("load", main);

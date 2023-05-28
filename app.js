@@ -1,6 +1,6 @@
 // https://blog.devvivek.tech/build-your-first-web-30-application-with-html-css-javascript-and-remix-ide
 // https://github.com/bitshares/bitsharesjs/issues/19
-// https://github.com/bitshares/bitsharesjs/issues/9
+// https://github.com/BTS-CM/airdrop_tool/blob/main/src/pages/Fetch.jsx
 
 const CONTRACT_ADDRESS = "0x296EADeA7A8Ff8CcF7a0292D6856607DA9718bdf";
 const CHAINID_ETHEREUM = 1;
@@ -241,11 +241,7 @@ async function fetchObjects(method, params) {
 }
 
 async function BitShares() {
-  // https://github.com/bitshares/bitsharesjs
-  /*bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise.then((res) => {
-    console.log("connected to:", res[0].network);
-  });*/
- 
+
   obj = await fetchObjects("get_objects", ["1.3.0",CUSTODIAN]);
   ticker = await fetchObjects("get_ticker", ["1.3.0","1.3.22"]);
   balances = await fetchObjects("get_account_balances", [CUSTODIAN,["1.3.0"]]);

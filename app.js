@@ -201,7 +201,7 @@ async function fetchObjects(fromID) {
         return new Promise(async (resolve, reject) => {   
                 console.log("Fetching tickets")
                 try {
-                    await Apis.instance(nodes[value][0], true).init_promise;
+                    await bitshares_js.bitshares_ws.Apis.instance(nodes[value][0], true).init_promise;
                 } catch (error) {
                     console.log(error);
                     changeURL(value);
@@ -210,7 +210,7 @@ async function fetchObjects(fromID) {
         
                 let object;
                 try {
-                    object = await Apis.instance().db_api().exec("get_objects", [fromID])
+                    object = await bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_objects", [fromID])
                 } catch (error) {
                     console.log(error);
                     return reject({error, location: 'exec', node: nodes[value][0], env: value});

@@ -287,11 +287,13 @@ async function unwrap() {
   //history.go(0);
 }
 
-const provider = new ethers.providers.Web3Provider(window.ethereum);
-const network = provider.getNetwork();
-const networkName = network["name"];
-const chainIdHex = network["chainId"];
-const chainIdDec = hexToDecimal(chainIdHex);
+function evmInit(){
+  
+var provider = new ethers.providers.Web3Provider(window.ethereum);
+var network = provider.getNetwork();
+var networkName = network["name"];
+var chainIdHex = network["chainId"];
+var chainIdDec = hexToDecimal(chainIdHex);
 /*console.log(chainIdHex);
 console.log(chainIdDec);*/
 
@@ -338,10 +340,11 @@ try {
     }
   }
 }
+}
 
 async function main() {
   await BitShares();
-  /*evmInit();*/
+  evmInit();
   await totalSupply();
   ContractAddress();
 }

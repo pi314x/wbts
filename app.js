@@ -255,7 +255,8 @@ async function BitShares() {
   let showcust = document.getElementById("ccust");
   let a = document.createElement("a");
   a.href = `wallet.bitshares.org/#/account/${custName}`;
-  a.innerHTML = "Custodian Wallet: " + ccust;
+  a.outerHTML = "Custodian Wallet: ";
+  a.innerHTML = custName;
   a.setAttribute("target", "_blank");
   showcust.append(a);
   

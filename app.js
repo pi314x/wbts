@@ -114,12 +114,15 @@ if (TEST == true) {
 }
 
 async function connectWallet() {
+  prev_account = account;
   let accountList = await provider.send("eth_requestAccounts", []);
   account = await toChecksumAddress(accountList[0]);
   document.getElementById("caccount").innerHTML =
     "Current Account is: " + account;
   await balanceOf(account);
-  document.getElementById("txnhash").innerHTML = "";
+  if (prev_account != account) {
+    document.getElementById("txnhash").innerHTML = "";
+  }
 }
 
 function ContractAddress() {

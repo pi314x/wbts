@@ -293,6 +293,7 @@ async function unwrap() {
 
 async function evmInit() {
 	
+  await SwitchChainSepolia();
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const network = provider.getNetwork();
   const networkName = network['name'];

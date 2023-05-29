@@ -12,103 +12,102 @@ const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
 const NODE_TEST = "wss://testnet.xbts.io/ws";
 const CUSTODIAN = "1.2.26650";
 const account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
-const hexToDecimal = hex => parseInt(hex, 16);
+const hexToDecimal = (hex) => parseInt(hex, 16);
 
 const ABI = [
   {
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "wallet",
-				"type": "string"
-			}
-		],
-		"name": "unwrap",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			}
-		],
-		"name": "balanceOf",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "name",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "symbol",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "totalSupply",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "decimals",
-		"outputs": [
-			{
-				"internalType": "uint8",
-				"name": "",
-				"type": "uint8"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+      {
+        internalType: "string",
+        name: "wallet",
+        type: "string",
+      },
+    ],
+    name: "unwrap",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "balanceOf",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "name",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "symbol",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "totalSupply",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "decimals",
+    outputs: [
+      {
+        internalType: "uint8",
+        name: "",
+        type: "uint8",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
 ];
 
 if (TEST == true) {
   var node = NODE_TEST;
-
 } else {
   var node = NODE_MAIN;
 }
@@ -116,7 +115,8 @@ if (TEST == true) {
 async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);
   account = await toChecksumAddress(accountList[0]);
-  document.getElementById("caccount").innerHTML = "Current Account is: " + account;
+  document.getElementById("caccount").innerHTML =
+    "Current Account is: " + account;
   await balanceOf(account);
 }
 
@@ -125,8 +125,8 @@ function ContractAddress() {
   let contractaddr = document.getElementById("contractaddr");
   let a = document.createElement("a");
   a.href = `https://sepolia.etherscan.io/address/${CONTRACT_ADDRESS}`;
-  a.innerHTML = CONTRACT_ADDRESS
-  a.setAttribute('target', '_blank');
+  a.innerHTML = CONTRACT_ADDRESS;
+  a.setAttribute("target", "_blank");
   contractaddr.append(a);
 }
 
@@ -159,7 +159,7 @@ async function balanceOfSlider(account) {
   let name = await contract.name();
   let decimals = await contract.decimals();
   balance = balance / Math.pow(10, decimals);
-  const val = document.querySelector('input').balance;
+  const val = document.querySelector("input").balance;
   console.log(val);
 }
 
@@ -180,7 +180,7 @@ var balances;
 
 async function fetchObjects(method, params) {
   return new Promise(async (resolve, reject) => {
-    console.log("Fetching objects")
+    console.log("Fetching objects");
     try {
       await bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise;
     } catch (error) {
@@ -188,8 +188,8 @@ async function fetchObjects(method, params) {
       changeURL(value);
       return reject({
         error,
-        location: 'init',
-        node: node
+        location: "init",
+        node: node,
       });
     }
 
@@ -197,23 +197,28 @@ async function fetchObjects(method, params) {
     try {
       switch (method) {
         case "get_objects":
-          object = await bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_objects", [params])
+          object = await bitshares_js.bitshares_ws.Apis.instance()
+            .db_api()
+            .exec("get_objects", [params]);
           break;
         case "get_ticker":
-          object = await bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_ticker", params)
+          object = await bitshares_js.bitshares_ws.Apis.instance()
+            .db_api()
+            .exec("get_ticker", params);
           break;
         case "get_account_balances":
-          object = await bitshares_js.bitshares_ws.Apis.instance().db_api().exec("get_account_balances", params)
+          object = await bitshares_js.bitshares_ws.Apis.instance()
+            .db_api()
+            .exec("get_account_balances", params);
         default:
-          console.log("method not supplied yet.")
+          console.log("method not supplied yet.");
       }
-
     } catch (error) {
       console.log(error);
       return reject({
         error,
-        location: 'exec',
-        node: node
+        location: "exec",
+        node: node,
       });
     }
     return resolve(object);
@@ -221,25 +226,32 @@ async function fetchObjects(method, params) {
 }
 
 async function BitShares() {
-
-  obj = await fetchObjects("get_objects", ["1.3.0",CUSTODIAN]);
-  ticker = await fetchObjects("get_ticker", ["1.3.0","1.3.22"]);
-  balances = await fetchObjects("get_account_balances", [CUSTODIAN,["1.3.0"]]);
+  obj = await fetchObjects("get_objects", ["1.3.0", CUSTODIAN]);
+  ticker = await fetchObjects("get_ticker", ["1.3.0", "1.3.22"]);
+  balances = await fetchObjects("get_account_balances", [CUSTODIAN, ["1.3.0"]]);
 
   var total = Number(balances[0]["amount"]);
-  let symbol = obj[0]['symbol'];
-  let decimals = obj[0]['precision'];
-  let custName = obj[1]['name'];
+  let symbol = obj[0]["symbol"];
+  let decimals = obj[0]["precision"];
+  let custName = obj[1]["name"];
   let fees = Number(ticker["highest_bid"]).toFixed(0);
   let minimum = Number(fees) + 1;
   var total = total / Math.pow(10, decimals);
-	
-  document.getElementById("custname").innerHTML = "Send token to wallet address <b>" + custName + "</b> and add the destination ERC20 wallet into the memo field.";
-  document.getElementById("fees").innerHTML = "Please be aware that " + fees + " token equals 1 USDT will be deducted as a gateway fee.";
-  document.getElementById("minimum").innerHTML = "Minimun wrap or deposit amount to Binance Smart Chain is " + minimum + " token.";
+
+  document.getElementById("custname").innerHTML =
+    "Send token to wallet address <b>" +
+    custName +
+    "</b> and add the destination ERC20 wallet into the memo field.";
+  document.getElementById("fees").innerHTML =
+    "Please be aware that " +
+    fees +
+    " token equals 1 USDT will be deducted as a gateway fee.";
+  document.getElementById("minimum").innerHTML =
+    "Minimun wrap or deposit amount to Binance Smart Chain is " +
+    minimum +
+    " token.";
   document.getElementById("cbalcust").innerHTML =
     "Custodian Wallet Treasury: " + total + " " + symbol;
-
 }
 
 async function unwrap() {
@@ -268,14 +280,13 @@ async function unwrap() {
   let a = document.createElement("a");
   a.href = `https://sepolia.etherscan.io/tx/${txn.hash}`;
   a.innerHTML = txn.hash;
-  a.setAttribute('target', '_blank');
+  a.setAttribute("target", "_blank");
   showhash.append(a);
   await txn.wait();
   //history.go(0);
 }
 
 async function evmInit() {
-	
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const network = provider.getNetwork();
   const networkName = network["name"];
@@ -297,7 +308,7 @@ async function evmInit() {
         })
         .catch((err) => console.log(err))
     : console.log("Please install MetaMask");
-	
+
   try {
     await ethereum.request({
       method: "wallet_switchEthereumChain",
@@ -305,7 +316,7 @@ async function evmInit() {
     });
   } catch (switchError) {
     if (switchError.code === 4902) {
-try {
+      try {
         await web3.currentProvider.request({
           method: "wallet_addEthereumChain",
           params: [
@@ -329,12 +340,11 @@ try {
   }
 }
 
-
 async function main() {
-	await evmInit();
-	await totalSupply();
-	await BitShares();
-	await ContractAddress();
+  await evmInit();
+  await totalSupply();
+  await BitShares();
+  await ContractAddress();
 }
 
 window.addEventListener("load", main);

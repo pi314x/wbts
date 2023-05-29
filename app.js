@@ -15,7 +15,7 @@ const hexToDecimal = (hex) => parseInt(hex, 16);
 const decToHeximal = (dec) => dec.toString(16);
 var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 
-try {
+
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const network = provider.getNetwork();
   const networkName = network["name"];
@@ -67,9 +67,7 @@ try {
       }
     }
   }
-} catch (error) {
-  console.log(error);
-}
+
 
 const ABI = [
   {

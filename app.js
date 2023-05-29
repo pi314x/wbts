@@ -343,11 +343,11 @@ try {
 }
 }
 
-async function main() {
-  await BitShares();
+function main() {
+  BitShares();
   evmInit();
-  await totalSupply();
-  await ContractAddress();
+  totalSupply();
+  ContractAddress();
 }
 
 window.addEventListener("load", main);

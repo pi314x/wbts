@@ -279,10 +279,7 @@ async function evmInit() {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const network = provider.getNetwork();
   const networkName = network['name'];
-  const chainId = network['chainId'];
-  const chainId = await web3.eth.getChainId();
-
-  const chainIdHex = web3.currentProvider.chainId;
+  const chainIdHex = network['chainId'];
   const chainIdDec = hexToDecimal(chainIdHex);
   /*console.log(chainIdHex);
   console.log(chainIdDec);*/
@@ -301,8 +298,6 @@ async function evmInit() {
 	: console.log("Please install MetaMask")
 
 }
-
-
 
 async function main() {
 	await evmInit();

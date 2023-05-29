@@ -10,7 +10,7 @@ const CHAINID_BSC_TEST = 97;
 const TEST = new Boolean(true);
 const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
 const NODE_TEST = "wss://testnet.xbts.io/ws";
-const CUSTODIAN = "1.2.26650";
+const CUSTODIAN = "1.2.26653";
 const hexToDecimal = (hex) => parseInt(hex, 16);
 const decToHeximal = (dec) => dec.toString(16);
 var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";

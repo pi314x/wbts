@@ -1,10 +1,14 @@
 /* https://blog.hubspot.com/website/center-text-in-css*/
 /*https://www.w3schools.com/howto/howto_js_tabs.asp */
+body {
+  background-image: url("https://images.pexels.com/photos/1933316/pexels-photo-1933316.jpeg"); 
+  background-size: cover; 
+  background-position: center center;
+}
 body, button, input, div, form, p {
   font-family: monaco,Consolas,Lucida Console,monospace; 
   font-size: 100%;
   color: #333;
-  background-image: url("https://images.pexels.com/photos/1933316/pexels-photo-1933316.jpeg"); background-size: cover; background-position: center center
 }
 .inverse {
   background-color: #333;

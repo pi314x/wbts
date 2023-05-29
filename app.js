@@ -11,6 +11,8 @@ const TEST = new Boolean(true);
 const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
 const NODE_TEST = "wss://testnet.xbts.io/ws";
 const CUSTODIAN = "1.2.26650";
+const account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
+const hexToDecimal = hex => parseInt(hex, 16); 
 
 const ABI = [
   {
@@ -176,12 +178,6 @@ var obj;
 var ticker;
 var balances;
 
-async function main() {
-	await totalSupply();
-	await BitShares();
-	await ContractAddress();
-}
-
 async function fetchObjects(method, params) {
   return new Promise(async (resolve, reject) => {
     console.log("Fetching objects")
@@ -278,24 +274,41 @@ async function unwrap() {
   //history.go(0);
 }
 
-window.ethereum ?
-  ethereum.request({method: "eth_requestAccounts"}).then((accounts) => {
-  
-    // Log public address of user
-    console.log(accounts[0])
-  
-    // Get network ID
-    let n = ethereum.chainId // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
-    console.log(n)
-    
-  }).catch((err) => console.log(err))
-: console.log("Please install MetaMask")
+async function evmInit() {
+	
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const network = provider.getNetwork();
+  const networkName = network['name'];
+  const chainId = network['chainId'];
+  const chainId = await web3.eth.getChainId();
 
-var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
+  const chainIdHex = web3.currentProvider.chainId;
+  const chainIdDec = hexToDecimal(chainIdHex);
+  /*console.log(chainIdHex);
+  console.log(chainIdDec);*/
+	
+	window.ethereum ?
+		ethereum.request({method: "eth_requestAccounts"}).then((accounts) => {
 
-const provider = new ethers.providers.Web3Provider(window.ethereum);
-const network = provider.getNetwork();
-const networkName = network['name'];
-const chainId = network['chainId'];
+			// Log public address of user
+			console.log(accounts[0])
+
+			// Get network ID
+			let n = ethereum.chainId // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
+			console.log(n)
+
+		}).catch((err) => console.log(err))
+	: console.log("Please install MetaMask")
+
+}
+
+
+
+async function main() {
+	await evmInit();
+	await totalSupply();
+	await BitShares();
+	await ContractAddress();
+}
 
 window.addEventListener("load", main);

@@ -355,10 +355,10 @@ if (window.ethereum !== undefined) {
   a.href = `https://metamask.io/`;
   a.innerHTML = "MetaMask";
   a.setAttribute("target", "_blank");
-  showmetamaskinfo.append("<style='background-color:#931314;'>");
+  showmetamaskinfo.append("<p style='background-color:#931314;'>");
   showmetamaskinfo.append("For full functionality please install ");
   showmetamaskinfo.append(a);
-showmetamaskinfo.append("</style>");
+showmetamaskinfo.append("</p>");
 };
 
 

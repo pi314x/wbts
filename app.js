@@ -288,7 +288,7 @@ async function unwrap() {
 
 async function evmInit() {
   var provider = new ethers.providers.Web3Provider(window.ethereum);
-  var network = provider.getNetwork();
+  var network = await provider.getNetwork();
   var networkName = network["name"];
   var chainIdHex = network["chainId"];
   var chainIdDec = hexToDecimal(chainIdHex);

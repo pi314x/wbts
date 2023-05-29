@@ -113,6 +113,7 @@ if (TEST == true) {
   var node = NODE_MAIN;
 }
 
+try {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const network = provider.getNetwork();
   const networkName = network["name"];
@@ -164,6 +165,10 @@ if (TEST == true) {
       }
     }
   }
+} catch (error) {
+  console.log(error);
+  alert(error.message);
+}
 
 async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);

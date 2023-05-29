@@ -15,6 +15,12 @@ const hexToDecimal = (hex) => parseInt(hex, 16);
 const decToHeximal = (dec) => dec.toString(16);
 var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 
+try {
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+} catch (error) {
+  console.log(error);
+}
+
 const ABI = [
   {
     inputs: [
@@ -288,8 +294,8 @@ async function unwrap() {
 }
 
 async function evmInit() {
-  var provider = new ethers.providers.Web3Provider(window.ethereum);
-  var network = await provider.getNetwork();
+  
+  var network = provider.getNetwork();
   var networkName = network["name"];
   var chainIdHex = network["chainId"];
   var chainIdDec = hexToDecimal(chainIdHex);
@@ -342,9 +348,9 @@ async function evmInit() {
 }
 
 async function main() {
+  await BitShares();
   await evmInit();
   await totalSupply();
-  await BitShares();
   await ContractAddress();
 }
 

@@ -119,6 +119,7 @@ async function connectWallet() {
   document.getElementById("caccount").innerHTML =
     "Current Account is: " + account;
   await balanceOf(account);
+  document.getElementById("txnhash").innerHTML = "";
 }
 
 function ContractAddress() {

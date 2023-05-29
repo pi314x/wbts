@@ -131,6 +131,10 @@ input[type=number] {
   from {opacity: 0;}
   to {opacity: 1;}
 }
+div.list {
+  display:list-item
+};
+
 
 #Wrap {background-color: #ccc;}
 #Unwrap {background-color: #ccc;}

@@ -14,6 +14,23 @@ const CUSTODIAN = "1.2.26650";
 const account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 const hexToDecimal = hex => parseInt(hex, 16); 
 
+const SwitchChainSepolia = () => {
+	const { ethereum } = window;
+    if (typeof ethereum !== 'undefined' && ethereum.isMetaMask) return;
+    
+    try {
+      await ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: '0xaa36a7' }],
+      });
+    } catch (switchError) {
+      if (switchError.code === 4902) {
+        // You can make a request to add the chain to wallet here
+        console.log('Sepolia hasn't been added to the wallet!')
+      }
+    }
+}
+
 const ABI = [
   {
 		"inputs": [

@@ -289,10 +289,9 @@ async function unwrap() {
   let showhash = document.getElementById("txnhash");
   let a = document.createElement("a");
   a.href = `https://sepolia.etherscan.io/tx/${txn.hash}`;
-  a.innerHTML = txn.hash;
+  a.innerHTML = txn.hash + "<br>";
   a.setAttribute("target", "_blank");
   showhash.append(a);
-  showhash.append("<br />");
   await txn.wait();
   //history.go(0);
 }

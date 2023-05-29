@@ -305,8 +305,26 @@ async function evmInit() {
     });
   } catch (switchError) {
     if (switchError.code === 4902) {
-      // You can make a request to add the chain to wallet here
-      console.log("Sepolia Chain hasnt been added to the wallet!");
+try {
+        await web3.currentProvider.request({
+          method: "wallet_addEthereumChain",
+          params: [
+            {
+              chainId: "0xaa36a7",
+              chainName: "Sepolia",
+              rpcUrls: ["https://rpc2.sepolia.org"],
+              nativeCurrency: {
+                name: "Ethereum",
+                symbol: "ETH",
+                decimals: 18,
+              },
+              blockExplorerUrls: ["https://sepolia.etherscan.io/"],
+            },
+          ],
+        });
+      } catch (error) {
+        alert(error.message);
+      }
     }
   }
 }

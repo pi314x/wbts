@@ -287,8 +287,6 @@ async function unwrap() {
   //history.go(0);
 }
 
-function evmInit(){
-  
 var provider = new ethers.providers.Web3Provider(window.ethereum);
 var network = provider.getNetwork();
 var networkName = network["name"];
@@ -340,11 +338,9 @@ try {
     }
   }
 }
-}
 
 async function main() {
   await BitShares();
-  evmInit();
   await totalSupply();
   ContractAddress();
 }

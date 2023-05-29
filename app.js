@@ -16,7 +16,57 @@ const decToHeximal = (dec) => dec.toString(16);
 var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 
 try {
-var provider = new ethers.providers.Web3Provider(window.ethereum);
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const network = provider.getNetwork();
+  const networkName = network["name"];
+  const chainIdHex = network["chainId"];
+  const chainIdDec = hexToDecimal(chainIdHex);
+  /*console.log(chainIdHex);
+  console.log(chainIdDec);*/
+
+  window.ethereum
+    ? ethereum
+        .request({ method: "eth_requestAccounts" })
+        .then((accounts) => {
+          // Log public address of user
+          console.log(accounts[0]);
+
+          // Get network ID
+          let n = ethereum.chainId; // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
+          console.log(n);
+        })
+        .catch((err) => console.log(err))
+    : console.log("Please install MetaMask");
+
+  try {
+    ethereum.request({
+      method: "wallet_switchEthereumChain",
+      params: [{ chainId: "0xaa36a7" }],
+    });
+  } catch (switchError) {
+    if (switchError.code === 4902) {
+      try {
+        ethereum.request({
+          method: "wallet_addEthereumChain",
+          params: [
+            {
+              chainId: "0xaa36a7",
+              chainName: "Sepolia",
+              rpcUrls: ["https://rpc2.sepolia.org"],
+              nativeCurrency: {
+                name: "Ethereum",
+                symbol: "ETH",
+                decimals: 18,
+              },
+              blockExplorerUrls: ["https://sepolia.etherscan.io/"],
+            },
+          ],
+        });
+      } catch (error) {
+        alert(error.message);
+      }
+    }
+  }
 } catch (error) {
   console.log(error);
 }
@@ -293,63 +343,9 @@ async function unwrap() {
   //history.go(0);
 }
 
-async function evmInit() {
-  
-  var network = provider.getNetwork();
-  var networkName = network["name"];
-  var chainIdHex = network["chainId"];
-  var chainIdDec = hexToDecimal(chainIdHex);
-  /*console.log(chainIdHex);
-  console.log(chainIdDec);*/
-
-  window.ethereum
-    ? ethereum
-        .request({ method: "eth_requestAccounts" })
-        .then((accounts) => {
-          // Log public address of user
-          console.log(accounts[0]);
-
-          // Get network ID
-          let n = ethereum.chainId; // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
-          console.log(n);
-        })
-        .catch((err) => console.log(err))
-    : console.log("Please install MetaMask");
-
-  try {
-    await ethereum.request({
-      method: "wallet_switchEthereumChain",
-      params: [{ chainId: "0xaa36a7" }],
-    });
-  } catch (switchError) {
-    if (switchError.code === 4902) {
-      try {
-        await web3.currentProvider.request({
-          method: "wallet_addEthereumChain",
-          params: [
-            {
-              chainId: "0xaa36a7",
-              chainName: "Sepolia",
-              rpcUrls: ["https://rpc2.sepolia.org"],
-              nativeCurrency: {
-                name: "Ethereum",
-                symbol: "ETH",
-                decimals: 18,
-              },
-              blockExplorerUrls: ["https://sepolia.etherscan.io/"],
-            },
-          ],
-        });
-      } catch (error) {
-        alert(error.message);
-      }
-    }
-  }
-}
-
 async function main() {
   await BitShares();
-  await evmInit();
+  //await evmInit();
   await totalSupply();
   await ContractAddress();
 }

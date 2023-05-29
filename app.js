@@ -357,6 +357,7 @@ if (window.ethereum !== undefined) {
   a.setAttribute("target", "_blank");
   showmetamaskinfo.append("For full functionality please install ");
   showmetamaskinfo.append(a);
+  showmetamaskinfo.append("!");
 };
 
 

@@ -132,6 +132,10 @@ input[type=number] {
   to {opacity: 1;}
 }
 
+.alert {
+  
+}
+
 #Wrap {background-color: #ccc;}
 #Unwrap {background-color: #ccc;}
 #PoR {background-color: #ccc;}

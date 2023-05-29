@@ -113,58 +113,6 @@ if (TEST == true) {
   var node = NODE_MAIN;
 }
 
-const provider = new ethers.providers.Web3Provider(window.ethereum);
-const network = provider.getNetwork();
-const networkName = network["name"];
-const chainIdHex = network["chainId"];
-const chainIdDec = hexToDecimal(chainIdHex);
-/*console.log(chainIdHex);
-console.log(chainIdDec);*/
-
-window.ethereum
-  ? ethereum
-      .request({ method: "eth_requestAccounts" })
-      .then((accounts) => {
-        // Log public address of user
-        console.log(accounts[0]);
-
-        // Get network ID
-        let n = ethereum.chainId; // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
-        console.log(n);
-      })
-      .catch((err) => console.log(err))
-  : console.log("Please install MetaMask");
-
-try {
-  ethereum.request({
-    method: "wallet_switchEthereumChain",
-    params: [{ chainId: "0xaa36a7" }],
-  });
-} catch (switchError) {
-  if (switchError.code === 4902) {
-    try {
-      ethereum.request({
-        method: "wallet_addEthereumChain",
-        params: [
-          {
-            chainId: "0xaa36a7",
-            chainName: "Sepolia",
-            rpcUrls: ["https://rpc2.sepolia.org"],
-            nativeCurrency: {
-              name: "Ethereum",
-              symbol: "ETH",
-              decimals: 18,
-            },
-            blockExplorerUrls: ["https://sepolia.etherscan.io/"],
-          },
-        ],
-      });
-    } catch (error) {
-      alert(error.message);
-    }
-  }
-}
-
 async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);
   account = await toChecksumAddress(accountList[0]);
@@ -339,11 +287,8 @@ async function unwrap() {
   //history.go(0);
 }
 
-if (TEST == true) {
-  var node = NODE_TEST;
-} else {
-  var node = NODE_MAIN;
-}
+
+function evmInit() {
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const network = provider.getNetwork();
@@ -396,10 +341,11 @@ try {
     }
   }
 }
+}
 
 async function main() {
   await BitShares();
-  //await evmInit();
+  evmInit();
   await totalSupply();
   await ContractAddress();
 }

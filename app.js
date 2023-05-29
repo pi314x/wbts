@@ -287,57 +287,62 @@ async function unwrap() {
   //history.go(0);
 }
 
-var provider = new ethers.providers.Web3Provider(window.ethereum);
-var network = provider.getNetwork();
-var networkName = network["name"];
-var chainIdHex = network["chainId"];
-var chainIdDec = hexToDecimal(chainIdHex);
-/*console.log(chainIdHex);
-console.log(chainIdDec);*/
+if (window.ethereum !== undefined) {
+  var provider = new ethers.providers.Web3Provider(window.ethereum);
+  var network = provider.getNetwork();
+  var networkName = network["name"];
+  var chainIdHex = network["chainId"];
+  var chainIdDec = hexToDecimal(chainIdHex);
+  /*console.log(chainIdHex);
+  console.log(chainIdDec);*/
 
-window.ethereum
-  ? ethereum
-      .request({ method: "eth_requestAccounts" })
-      .then((accounts) => {
-        // Log public address of user
-        console.log(accounts[0]);
+  window.ethereum
+    ? ethereum
+        .request({ method: "eth_requestAccounts" })
+        .then((accounts) => {
+          // Log public address of user
+          console.log(accounts[0]);
 
-        // Get network ID
-        let n = ethereum.chainId; // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
-        console.log(n);
-      })
-      .catch((err) => console.log(err))
-  : console.log("Please install MetaMask");
+          // Get network ID
+          let n = ethereum.chainId; // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
+          console.log(n);
+        })
+        .catch((err) => console.log(err))
+    : console.log("Please install MetaMask");
 
-try {
-  ethereum.request({
-    method: "wallet_switchEthereumChain",
-    params: [{ chainId: "0xaa36a7" }],
-  });
-} catch (switchError) {
-  if (switchError.code === 4902) {
-    try {
-      ethereum.request({
-        method: "wallet_addEthereumChain",
-        params: [
-          {
-            chainId: "0xaa36a7",
-            chainName: "Sepolia",
-            rpcUrls: ["https://rpc2.sepolia.org"],
-            nativeCurrency: {
-              name: "Ethereum",
-              symbol: "ETH",
-              decimals: 18,
+  try {
+    ethereum.request({
+      method: "wallet_switchEthereumChain",
+      params: [{ chainId: "0xaa36a7" }],
+    });
+  } catch (switchError) {
+    if (switchError.code === 4902) {
+      try {
+        ethereum.request({
+          method: "wallet_addEthereumChain",
+          params: [
+            {
+              chainId: "0xaa36a7",
+              chainName: "Sepolia",
+              rpcUrls: ["https://rpc2.sepolia.org"],
+              nativeCurrency: {
+                name: "Ethereum",
+                symbol: "ETH",
+                decimals: 18,
+              },
+              blockExplorerUrls: ["https://sepolia.etherscan.io/"],
             },
-            blockExplorerUrls: ["https://sepolia.etherscan.io/"],
-          },
-        ],
-      });
-    } catch (error) {
-      alert(error.message);
+          ],
+        });
+      } catch (error) {
+        alert(error.message);
+      }
     }
   }
-}
+} else {
+  console.log("Please install MetaMask");
+};
+
 
 async function main() {
   await BitShares();

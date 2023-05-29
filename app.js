@@ -114,7 +114,7 @@ if (TEST == true) {
 }
 
 async function connectWallet() {
-  prev_account = account;
+  var prev_account = account;
   let accountList = await provider.send("eth_requestAccounts", []);
   account = await toChecksumAddress(accountList[0]);
   document.getElementById("caccount").innerHTML =

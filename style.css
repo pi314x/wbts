@@ -135,6 +135,7 @@ input[type=number] {
 
 .alert {
   color:#931314;
+  background-color: #F4BB44;
 }
 
 #Wrap {background-color: #ccc;}

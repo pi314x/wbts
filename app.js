@@ -16,7 +16,7 @@ const decToHeximal = (dec) => dec.toString(16);
 var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 
 try {
-const provider = new ethers.providers.Web3Provider(window.ethereum);
+var provider = new ethers.providers.Web3Provider(window.ethereum);
 } catch (error) {
   console.log(error);
 }

@@ -297,6 +297,20 @@ async function unwrap() {
   //history.go(0);
 }
 
+window.ethereum
+  ? ethereum
+      .request({ method: "eth_requestAccounts" })
+      .then((accounts) => {
+        // Log public address of user
+        console.log(accounts[0]);
+
+        // Get network ID
+        let n = ethereum.chainId; // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
+        console.log(n);
+      })
+      .catch((err) => console.log(err))
+  : console.log("Please install MetaMask");
+
 if (window.ethereum !== undefined) {
   var provider = new ethers.providers.Web3Provider(window.ethereum);
   var network = provider.getNetwork();
@@ -305,21 +319,7 @@ if (window.ethereum !== undefined) {
   var chainIdDec = hexToDecimal(chainIdHex);
   /*console.log(chainIdHex);
   console.log(chainIdDec);*/
-
-  window.ethereum
-    ? ethereum
-        .request({ method: "eth_requestAccounts" })
-        .then((accounts) => {
-          // Log public address of user
-          console.log(accounts[0]);
-
-          // Get network ID
-          let n = ethereum.chainId; // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
-          console.log(n);
-        })
-        .catch((err) => console.log(err))
-    : console.log("Please install MetaMask");
-
+  
   try {
     ethereum.request({
       method: "wallet_switchEthereumChain",

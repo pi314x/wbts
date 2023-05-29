@@ -252,12 +252,12 @@ async function BitShares() {
     minimum +
     " token.";
   
-  let ccust = document.getElementById("ccust");
+  let ccustr = document.getElementById("ccust");
   let a = document.createElement("a");
   a.href = `wallet.bitshares.org/#/account/${custName}`;
   a.innerHTML = custName;
   a.setAttribute("target", "_blank");
-  ccust.append(a);
+  ccustr.append(a);
   document.getElementById("ccust").innerHTML =
     "Custodian Wallet: " + ccust;
   

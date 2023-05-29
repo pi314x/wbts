@@ -125,7 +125,7 @@ function ContractAddress() {
   /*document.getElementById("contractaddr").innerHTML = "Contract address: " + CONTRACT_ADDRESS;*/
   let contractaddr = document.getElementById("contractaddr");
   let a = document.createElement("a");
-  a.href = `https://sepolia.etherscan.io/address/${CONTRACT_ADDRESS}`;
+  a.href = `https://sepolia.etherscan.io/token/${CONTRACT_ADDRESS}`;
   a.innerHTML = CONTRACT_ADDRESS;
   a.setAttribute("target", "_blank");
   contractaddr.append(a);

@@ -350,6 +350,15 @@ if (window.ethereum !== undefined) {
   }
 } else {
   console.log("Please install MetaMask");
+  let showmetamaskinfo = document.getElementById("installmetamask");
+  let a = document.createElement("a");
+  a.href = `https://metamask.io/`;
+  a.innerHTML = "MetaMask";
+  a.setAttribute("target", "_blank");
+  showmetamaskinfo.append("<style='background-color:#931314;'>");
+  showmetamaskinfo.append("For full functionality please install ");
+  showmetamaskinfo.append(a);
+showmetamaskinfo.append("</style>");
 };
 
 

@@ -251,8 +251,10 @@ async function BitShares() {
     "Minimun wrap or deposit amount to Binance Smart Chain is " +
     minimum +
     " token.";
-  document.getElementById("cbalcust").innerHTML =
-    "Custodian Wallet Treasury: " + total + " " + symbol;
+  document.getElementById("ccust").innerHTML =
+    "Custodian Wallet: " + CUSTODIAN;
+ocument.getElementById("cbalcust").innerHTML =
+    "Custodian Treasury amount: " + total + " " + symbol;
 }
 
 async function unwrap() {

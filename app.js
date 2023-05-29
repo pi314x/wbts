@@ -292,6 +292,7 @@ async function unwrap() {
   a.innerHTML = txn.hash;
   a.setAttribute("target", "_blank");
   showhash.append(a);
+  showhash.append("<br />");
   await txn.wait();
   //history.go(0);
 }

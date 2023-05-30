@@ -144,7 +144,7 @@ input[type=number] {
 
 .responsive {
   width: 100%;
-  max-width: 400px;
+  max-width: 24px;
   height: auto;
 }
 

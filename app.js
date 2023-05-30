@@ -246,7 +246,7 @@ async function BitShares() {
   document.getElementById("custname").innerHTML =
     "Send token to wallet address <b>" +
     custName +
-    "</b> and add the ERC20 wallet into the memo field where you want to received the wrapped tokens.";
+    "</b> and add the ERC20 wallet into the memo field where you want to receive the wrapped tokens.";
   document.getElementById("fees").innerHTML =
     "Please be aware that " +
     fees +

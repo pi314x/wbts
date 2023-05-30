@@ -339,7 +339,7 @@ if (window.ethereum !== undefined) {
               chainName: "Sepolia",
               rpcUrls: ["https://rpc2.sepolia.org"],
               nativeCurrency: {
-                name: "Ethereum",
+                name: "SepoliaETH",
                 symbol: "ETH",
                 decimals: 18,
               },

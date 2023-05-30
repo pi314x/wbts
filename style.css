@@ -140,6 +140,8 @@ input[type=number] {
 .alert {
   color:#931314;
   background-color: #F4BB44;
+  border-radius: 8px;
+  padding: 4px;
 }
 
 .responsive {

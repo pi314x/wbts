@@ -138,10 +138,11 @@ input[type=number] {
 }
 
 .alert {
+  display: none;
+  padding: 6px 12px;
   color:#931314;
   background-color: #F4BB44;
   border-radius: 8px;
-  padding: 8px;
 }
 
 .responsive {

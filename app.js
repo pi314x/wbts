@@ -361,7 +361,7 @@ if (window.ethereum !== undefined) {
   a.href = `https://metamask.io/`;
   a.innerHTML = "MetaMask";
   a.setAttribute("target", "_blank");
-  showmetamaskinfo.append("For the full experience, <br>please install ");
+  showmetamaskinfo.append("For the full experience, \nplease install ");
   showmetamaskinfo.append(a);
   showmetamaskinfo.append("!");
 };

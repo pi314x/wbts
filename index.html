@@ -19,7 +19,7 @@
  <nav class="navbar">
   <div class="container-fluid">
     <div class="navbar-header">
-      <p class="fs-6" id="caccount"></p>
+      <div id="caccount"></div>
       <!--<a class="navbar-brand" href="#"></a>-->
     </div>
     <div class="nav">
@@ -110,14 +110,14 @@
     var networkValue = localStorage.getItem("networkValue");
     if(networkValue != null) {
         $("select[name=network]").val(networkValue);
-    } else {
+    } /*else {
       networkValue = "sepolia";
-    }
+    }*/
     $("select[name=network]").on("change", function() {
         localStorage.setItem("networkValue", $(this).val());
     });
-    document.getElementById("wrappertext").innerHTML =
-    "Wrap and unwrap token between blockchain and " + networkValue + "."
+    /*document.getElementById("wrappertext").innerHTML =
+    "Wrap and unwrap token between blockchain and " + networkValue + "."*/
   })
   
   document.getElementById("defaultOpen").click();

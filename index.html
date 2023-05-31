@@ -110,6 +110,8 @@
     var networkValue = localStorage.getItem("networkValue");
     if(networkValue != null) {
         $("select[name=network]").val(networkValue);
+    } else {
+      networkValue = "sepolia";
     }
     $("select[name=network]").on("change", function() {
         localStorage.setItem("networkValue", $(this).val());

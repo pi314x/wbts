@@ -26,14 +26,14 @@ const ABI = [
   {
     inputs: [
       {
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
-      },
-      {
         internalType: "string",
         name: "wallet",
         type: "string",
+      },
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
       },
     ],
     name: "unwrap",
@@ -308,7 +308,7 @@ async function unwrap() {
   let contract = getContract();
   let decimals = await contract.decimals();
   let unwrapAmount = amount.value * Math.pow(10, decimals);
-  let txn = await contract.unwrap(unwrapAmount, wallet.value);
+  let txn = await contract.unwrap(wallet.value, unwrapAmount);
   let showhash = document.getElementById("txnhash");
   let a = document.createElement("a");
   a.href = `${switchExplorer}tx/${txn.hash}`;

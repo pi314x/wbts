@@ -14,6 +14,9 @@ body, button, input, div, form, p {
   background-color: #333;
   color: white;
 }
+h {
+    font-family: monaco,Consolas,Lucida Console,monospace; 
+}
 * {
 text-align: center;
 }

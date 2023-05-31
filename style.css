@@ -162,9 +162,11 @@ input[type=number] {
 .memoformat {
   font-size: 80%;
 }
-.memoformat black {
+.memoformat-black {
+  font-size: 80%;
   background-color:#333;
   color: #fff;
+  width: fit-content;
 }
 
 #Wrap {background-color: #ccc;}

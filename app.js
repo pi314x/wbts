@@ -135,7 +135,7 @@ function ContractAddress() {
   /*document.getElementById("contractaddr").innerHTML = "Contract address: " + CONTRACT_ADDRESS;*/
   let contractaddr = document.getElementById("contractaddr");
   let a = document.createElement("a");
-  a.href = `${switchExplorer}/${CONTRACT_ADDRESS}`;
+  a.href = `${switchExplorer}token/${CONTRACT_ADDRESS}`;
   a.innerHTML = CONTRACT_ADDRESS;
   a.setAttribute("target", "_blank");
   contractaddr.append(a);
@@ -310,7 +310,7 @@ async function unwrap() {
   let txn = await contract.unwrap(unwrapAmount, wallet.value);
   let showhash = document.getElementById("txnhash");
   let a = document.createElement("a");
-  a.href = `https://sepolia.etherscan.io/tx/${txn.hash}`;
+  a.href = `${switchExplorer}tx/${txn.hash}`;
   a.innerHTML = "Open transaction<br>";
   a.setAttribute("target", "_blank");
   showhash.append(a);

@@ -16,6 +16,9 @@ const CUSTODIAN = "1.2.26653";
 const hexToDecimal = (hex) => parseInt(hex, 16);
 const decToHeximal = (dec) => dec.toString(16);
 var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
+const SEPOLIA_EXPLORER = "https://sepolia.etherscan.io/"
+const BSC_EXPLORER = "https://testnet.bscscan.com/"
+const EOS_EXPLORER = "https://explorer.testnet.evm.eosnetwork.com/"
 
 const ABI = [
   {

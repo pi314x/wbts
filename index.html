@@ -39,7 +39,7 @@
   </nav>
   <div class = "container">
    <h1>Token Wrapper/Unwrapper (Beta)</h1>
-   <p>Wrap and unwrap token between blockchain and Binance Smart Chain.</p>
+   <p><div id = "wrappertext"></p>
    <div id = "installmetamask" class = "alert"></div>
   <p></p>
   <div class="tab">
@@ -116,6 +116,8 @@
     });
   })
   
+  document.getElementById("wrappertext").innerHTML =
+    "Wrap and unwrap token between blockchain and " + networkValue + "."
   document.getElementById("defaultOpen").click();
    
   </script>

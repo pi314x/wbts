@@ -167,6 +167,8 @@ input[type=number] {
   background-color:#333;
   color: #fff;
   width: fit-content;
+  font-style: italic;
+  margin: auto;
 }
 
 #Wrap {background-color: #ccc;}

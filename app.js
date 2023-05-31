@@ -265,7 +265,7 @@ async function BitShares() {
   a.setAttribute("target", "_blank");
   showcust.append("Custodian Wallet: ")
   showcust.append(a);
-  
+
   document.getElementById("cbalcust").innerHTML =
     "Custodian Treasury amount: " + total + " " + symbol;
 }

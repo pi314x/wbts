@@ -372,6 +372,22 @@ if(networkValue != null) {
 } else {
   networkValue = "sepolia";
 }
+
+switch (networkValue)
+{
+  case "sepolia":
+    var swichChainId = CHAINID_SEPOLIA
+  break;
+  case "eos":
+    var swichChainId = CHAINID_EOSEVM_TEST
+  break;
+  case "bsc":
+    var swichChainId = CHAINID_EOSEVM_TEST
+  break;
+  default:
+    var swichChainId = CHAINID_SEPOLIA
+}
+      
 document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token between blockchain and " + networkValue + ".";
 
 async function main() {

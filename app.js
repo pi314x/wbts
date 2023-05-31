@@ -382,7 +382,7 @@ switch (networkValue)
     var swichChainId = CHAINID_EOSEVM_TEST
   break;
   case "bsc":
-    var swichChainId = CHAINID_EOSEVM_TEST
+    var swichChainId = CHAINID_BSC_TEST
   break;
   default:
     var swichChainId = CHAINID_SEPOLIA

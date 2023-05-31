@@ -113,11 +113,11 @@
     } /*else {
       networkValue = "sepolia";
     }*/
+document.getElementById("wrappertext").innerHTML =
+    "Wrap and unwrap token between blockchain and " + networkValue + "."
     $("select[name=network]").on("change", function() {
         localStorage.setItem("networkValue", $(this).val());
     });
-    /*document.getElementById("wrappertext").innerHTML =
-    "Wrap and unwrap token between blockchain and " + networkValue + "."*/
   })
   
   document.getElementById("defaultOpen").click();

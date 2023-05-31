@@ -265,8 +265,8 @@ async function BitShares() {
     minimum +
     " token.";
   
-  let showcust = document.getElementById("ccust");
-  let a = document.createElement("a");
+  var showcust = document.getElementById("ccust");
+  var a = document.createElement("a");
   a.href = `https://wallet.bitshares.org/#/account/${custName}`;
   a.innerHTML = custName;
   a.setAttribute("target", "_blank");

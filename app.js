@@ -125,6 +125,7 @@ async function connectWallet() {
   if (prev_account != account) {
     document.getElementById("txnhash").innerHTML = "";
   }
+  await BitShares();
 }
 
 function ContractAddress() {

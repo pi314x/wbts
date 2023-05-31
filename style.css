@@ -160,10 +160,10 @@ input[type=number] {
 }
 
 .memoformat {
-  font-size: 90%;
+  font-size: 80%;
 }
 .memoformat-black {
-  font-size: 90%;
+  font-size: 80%;
   background-color:#333;
   color: #fff;
   width: fit-content;

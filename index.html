@@ -39,7 +39,7 @@
   </nav>
   <div class = "container">
    <h1>Token Wrapper/Unwrapper (Beta)</h1>
-   <p><div id = "wrappertext"></p>
+   <p>Wrap and unwrap token between blockchains.</p>
    <div id = "installmetamask" class = "alert"></div>
   <p></p>
   <div class="tab">
@@ -116,9 +116,8 @@
         $("select[name=network]").val(networkValue);
     } /*else {
       networkValue = "sepolia";
-    }*/
-document.getElementById("wrappertext").innerHTML =
-    "Wrap and unwrap token between blockchain and " + networkValue + ".";
+    }document.getElementById("wrappertext").innerHTML =
+    "Wrap and unwrap token between blockchain and " + networkValue + ".";*/
     $("select[name=network]").on("change", function() {
         localStorage.setItem("networkValue", $(this).val());
     });

@@ -383,15 +383,19 @@ switch (networkValue)
 {
   case "sepolia":
     var swichChainId = CHAINID_SEPOLIA
+    var networkTxt = "Sepolia"
   break;
   case "eos":
     var swichChainId = CHAINID_EOSEVM_TEST
+    var networkTxt = "EOS"
   break;
   case "bsc":
     var swichChainId = CHAINID_BSC_TEST
+    var networkTxt = "Binance Smart Chain"
   break;
   default:
     var swichChainId = CHAINID_SEPOLIA
+    var networkTxt = "Sepolia"
 }
       
 document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token between blockchain and " + networkValue + ".";

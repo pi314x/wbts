@@ -260,7 +260,7 @@ async function BitShares() {
     fees +
     " token which equals approximately 1 USDT will be deducted as a gateway fee.";
   document.getElementById("minimum").innerHTML =
-    "Minimun wrap amount are " +
+    "Minimum wrap amount: " +
     minimum +
     " token.";
   

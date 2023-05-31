@@ -162,6 +162,7 @@ input[type=number] {
 .memoformat {
   font-size: 0.875rem;
   background-color: #0068B1;
+  color: white;
   float: None;
   border-width: thin;
   padding-top: 0.25rem;
@@ -171,8 +172,8 @@ input[type=number] {
 
 .memoformat-black {
   font-size: 0.875rem;
-  background-color:#333;
-  color: #fff;
+  background-color: #0068B1;
+  color: white;
   width: fit-content;
   font-style: italic;
   margin: auto;

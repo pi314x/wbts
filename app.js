@@ -248,7 +248,7 @@ async function BitShares() {
   document.getElementById("custname").innerHTML =
     "Send token to wallet address <b>" +
     custName +
-    "</b> and add the ERC20 wallet into the memo field where you want to receive the wrapped tokens.";
+    "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive the wrapped tokens.";
   if (account != "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95") {
     document.getElementById("memo").innerHTML =
       "If you are using the connected wallet, your memo must look like this:"

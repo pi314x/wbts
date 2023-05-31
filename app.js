@@ -120,7 +120,7 @@ async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);
   account = await toChecksumAddress(accountList[0]);
   document.getElementById("caccount").innerHTML =
-    "Current Account is: " + account;
+    "Active account: " + account;
   await balanceOf(account);
   if (prev_account != account) {
     document.getElementById("txnhash").innerHTML = "";
@@ -295,7 +295,7 @@ async function unwrap() {
   let showhash = document.getElementById("txnhash");
   let a = document.createElement("a");
   a.href = `https://sepolia.etherscan.io/tx/${txn.hash}`;
-  a.innerHTML = txn.hash + "<br>";
+  a.innerHTML = "Open transaction<br>";
   a.setAttribute("target", "_blank");
   showhash.append(a);
   await txn.wait();

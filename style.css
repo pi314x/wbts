@@ -14,7 +14,7 @@ body, button, input, div, form, p {
   background-color: #333;
   color: white;
 }
-h 
+h1, h2 { 
   margin-top: .5rem;
   font-family: monaco,Consolas,Lucida Console,monospace; 
 }

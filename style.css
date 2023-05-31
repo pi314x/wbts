@@ -157,7 +157,7 @@ input[type=number] {
 }
 
 .memoformat {
-  style = "font-size:80%;
+  style = font-size: 80%;
 }
 
 #Wrap {background-color: #ccc;}

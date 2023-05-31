@@ -34,6 +34,7 @@ body {
 }
 label {
   font-weight: 900;
+  padding: 15px;
 }
 p.normal {
   font-weight: normal;

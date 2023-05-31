@@ -412,6 +412,14 @@ switch (networkValue)
     var networkTxt = "Sepolia"
 }
 
+function copyToClipboard() {
+    var copyText = document.getElementById("memoformat").value;
+    navigator.clipboard.writeText(copyText).then(() => {
+        // Alert the user that the action took place.
+        // Nobody likes hidden stuff being done under the hood!
+        alert("Copied to clipboard");
+    });
+  }
 document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token between blockchain and " + networkTxt + ".";
 
 async function main() {

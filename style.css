@@ -170,6 +170,10 @@ input[type=number] {
   padding-left: 0.5rem; 
 }
 
+.memoformat:empty {
+  display: none;
+}
+
 .memoformat-black {
   font-size: 0.875rem;
   background-color: #0068B1;

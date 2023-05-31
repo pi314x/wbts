@@ -156,10 +156,6 @@ input[type=number] {
   height: auto;
 }
 
-.container {
-  padding-top: 10px;
-}
-
 #Wrap {background-color: #ccc;}
 #Unwrap {background-color: #ccc;}
 #PoR {background-color: #ccc;}

@@ -398,7 +398,7 @@ switch (networkValue)
     var networkTxt = "Sepolia"
 }
       
-document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token between blockchain and " + networkValue + ".";
+document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token between blockchain and " + networkTxt + ".";
 
 async function main() {
   await BitShares();

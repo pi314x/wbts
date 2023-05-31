@@ -18,7 +18,7 @@ const decToHeximal = (dec) => dec.toString(16);
 var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 const SEPOLIA_EXPLORER = "https://sepolia.etherscan.io/"
 const BSC_EXPLORER = "https://testnet.bscscan.com/"
-const EOS_EXPLORER = "https://explorer.testnet.evm.eosnetwork.com/"
+const EOSEVM_EXPLORER = "https://explorer.testnet.evm.eosnetwork.com/"
 
 const ABI = [
   {
@@ -386,19 +386,23 @@ if(networkValue != null) {
 switch (networkValue)
 {
   case "sepolia":
-    var swichChainId = CHAINID_SEPOLIA
+    var switchChainId = CHAINID_SEPOLIA
+    var switchExplorer = SEPOLIA_EXPLORER
     var networkTxt = "Sepolia"
   break;
   case "eos":
-    var swichChainId = CHAINID_EOSEVM_TEST
+    var switchChainId = CHAINID_EOSEVM_TEST
+    var switchExplorer = EOSEVM_EXPLORER
     var networkTxt = "EOS"
   break;
   case "bsc":
-    var swichChainId = CHAINID_BSC_TEST
+    var switchChainId = CHAINID_BSC_TEST
+    var switchExplorer = BSC_EXPLORER
     var networkTxt = "Binance Smart Chain"
   break;
   default:
-    var swichChainId = CHAINID_SEPOLIA
+    var switchChainId = CHAINID_SEPOLIA
+    var switchExplorer = SEPOLIA_EXPLORER
     var networkTxt = "Sepolia"
 }
       

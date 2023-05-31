@@ -135,7 +135,7 @@ function ContractAddress() {
   /*document.getElementById("contractaddr").innerHTML = "Contract address: " + CONTRACT_ADDRESS;*/
   let contractaddr = document.getElementById("contractaddr");
   let a = document.createElement("a");
-  a.href = switchExplorer/${CONTRACT_ADDRESS};
+  a.href = `{$switchExplorer}/${CONTRACT_ADDRESS}`;
   a.innerHTML = CONTRACT_ADDRESS;
   a.setAttribute("target", "_blank");
   contractaddr.append(a);
@@ -411,7 +411,7 @@ switch (networkValue)
     var switchExplorer = SEPOLIA_EXPLORER
     var networkTxt = "Sepolia"
 }
-      
+
 document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token between blockchain and " + networkTxt + ".";
 
 async function main() {

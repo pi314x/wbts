@@ -2,9 +2,9 @@
 // https://github.com/bitshares/bitsharesjs/issues/19
 // https://github.com/BTS-CM/airdrop_tool/blob/main/src/pages/Fetch.jsx
 
-const CONTRACT_ADDRESS = "0xc34417D8E2A9504D7BdD4A798bd3EAa30b350Bd5";
-const BSC_CONTRACT_ADDRESS = "0x71001b593e770A879b3EbF4712a3E389d369F656";
-const EOSEVM_CONTRACT_ADDRESS = "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc";
+const SEPOLIA_CONTRACT = "0xc34417D8E2A9504D7BdD4A798bd3EAa30b350Bd5";
+const BSC_CONTRACT = "0x71001b593e770A879b3EbF4712a3E389d369F656";
+const EOSEVM_CONTRACT = "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc";
 const CHAINID_ETHEREUM = 1;
 const CHAINID_SEPOLIA = 11155111;
 const CHAINID_BSC_MAIN = 56;
@@ -134,18 +134,17 @@ async function connectWallet() {
 }
 
 function ContractAddress() {
-  /*document.getElementById("contractaddr").innerHTML = "Contract address: " + CONTRACT_ADDRESS;*/
   let contractaddr = document.getElementById("contractaddr");
   let a = document.createElement("a");
-  a.href = `${switchExplorer}token/${CONTRACT_ADDRESS}`;
-  a.innerHTML = CONTRACT_ADDRESS;
+  a.href = `${switchExplorer}token/${switchContract}`;
+  a.innerHTML = switchContract;
   a.setAttribute("target", "_blank");
   contractaddr.append(a);
 }
 
 function getContract() {
   let signer = provider.getSigner(account);
-  let contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
+  let contract = new ethers.Contract(switchContract, ABI, signer);
   return contract;
 }
 
@@ -396,21 +395,25 @@ switch (networkValue)
   case "sepolia":
     var switchChainId = CHAINID_SEPOLIA
     var switchExplorer = SEPOLIA_EXPLORER
+    var switchContract = SEPOLIA_CONTRACT
     var networkTxt = "Sepolia"
   break;
   case "eos":
     var switchChainId = CHAINID_EOSEVM_TEST
     var switchExplorer = EOSEVM_EXPLORER
+    var switchContract = EOSEVM_CONTRACT
     var networkTxt = "EOS"
   break;
   case "bsc":
     var switchChainId = CHAINID_BSC_TEST
     var switchExplorer = BSC_EXPLORER
+    var switchContract = BSC_CONTRACT
     var networkTxt = "Binance Smart Chain"
   break;
   default:
     var switchChainId = CHAINID_SEPOLIA
     var switchExplorer = SEPOLIA_EXPLORER
+    var switchContract = SEPOLIA_CONTRACT
     var networkTxt = "Sepolia"
 }
 

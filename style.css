@@ -156,6 +156,10 @@ input[type=number] {
   height: auto;
 }
 
+.memoformat {
+  style = "font-size:80%;
+}
+
 #Wrap {background-color: #ccc;}
 #Unwrap {background-color: #ccc;}
 #PoR {background-color: #ccc;}

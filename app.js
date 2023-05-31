@@ -366,6 +366,13 @@ if (window.ethereum !== undefined) {
   showmetamaskinfo.append("!");
 };
 
+var networkValue = localStorage.getItem("networkValue");
+if(networkValue != null) {
+    $("select[name=network]").val(networkValue);
+} else {
+  networkValue = "sepolia";
+}
+document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token between blockchain and " + networkValue + ".";
 
 async function main() {
   await BitShares();

@@ -299,6 +299,11 @@ async function unwrap() {
     amount.setAttribute("placeholder", "Amount must be positive.");
     return;
   }
+  if (amount.value == 1) {
+    amount.style.border = "2px solid red";
+    amount.setAttribute("placeholder", "Amount too low.");
+    return;
+  }
   let contract = getContract();
   let decimals = await contract.decimals();
   let unwrapAmount = amount.value * Math.pow(10, decimals);

@@ -337,7 +337,6 @@ window.ethereum
         console.log(accounts[0]);
         // Get network ID
         let n = ethereum.chainId; // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
-        switchChainId = n;
         console.log(n);
       })
       .catch((err) => console.log(err))

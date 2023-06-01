@@ -329,6 +329,46 @@ async function unwrap() {
   //history.go(0);
 }
 
+var networkValue = localStorage.getItem("networkValue");
+if(networkValue != null) {
+    $("select[name=network]").val(networkValue);
+} else {
+  networkValue = "sepolia";
+}
+
+switch (networkValue)
+{
+  case "sepolia":
+    var switchChainId = CHAINID_SEPOLIA
+    var switchExplorer = SEPOLIA_EXPLORER
+    var switchContract = SEPOLIA_CONTRACT
+    var networkTxt = "Sepolia"
+  break;
+  case "eos":
+    var switchChainId = CHAINID_EOSEVM_TEST
+    var switchExplorer = EOSEVM_EXPLORER
+    var switchContract = EOSEVM_CONTRACT
+    var networkTxt = "EOS"
+  break;
+  case "bsc":
+    var switchChainId = CHAINID_BSC_TEST
+    var switchExplorer = BSC_EXPLORER
+    var switchContract = BSC_CONTRACT
+    var networkTxt = "Binance Smart Chain"
+  break;
+  case "arb":
+    var switchChainId = CHAINID_ARB_TEST
+    var switchExplorer = ARB_EXPLORER
+    var switchContract = ARB_CONTRACT
+    var networkTxt = "Arbitrum"
+  break;
+  default:
+    var switchChainId = CHAINID_SEPOLIA
+    var switchExplorer = SEPOLIA_EXPLORER
+    var switchContract = SEPOLIA_CONTRACT
+    var networkTxt = "Sepolia"
+}
+
 window.ethereum
   ? ethereum
       .request({ method: "eth_requestAccounts" })
@@ -395,46 +435,6 @@ if (window.ethereum !== undefined) {
   showmetamaskinfo.append(a);
   showmetamaskinfo.append("!");
 };
-
-var networkValue = localStorage.getItem("networkValue");
-if(networkValue != null) {
-    $("select[name=network]").val(networkValue);
-} else {
-  networkValue = "sepolia";
-}
-
-switch (networkValue)
-{
-  case "sepolia":
-    var switchChainId = CHAINID_SEPOLIA
-    var switchExplorer = SEPOLIA_EXPLORER
-    var switchContract = SEPOLIA_CONTRACT
-    var networkTxt = "Sepolia"
-  break;
-  case "eos":
-    var switchChainId = CHAINID_EOSEVM_TEST
-    var switchExplorer = EOSEVM_EXPLORER
-    var switchContract = EOSEVM_CONTRACT
-    var networkTxt = "EOS"
-  break;
-  case "bsc":
-    var switchChainId = CHAINID_BSC_TEST
-    var switchExplorer = BSC_EXPLORER
-    var switchContract = BSC_CONTRACT
-    var networkTxt = "Binance Smart Chain"
-  break;
-  case "arb":
-    var switchChainId = CHAINID_ARB_TEST
-    var switchExplorer = ARB_EXPLORER
-    var switchContract = ARB_CONTRACT
-    var networkTxt = "Arbitrum"
-  break;
-  default:
-    var switchChainId = CHAINID_SEPOLIA
-    var switchExplorer = SEPOLIA_EXPLORER
-    var switchContract = SEPOLIA_CONTRACT
-    var networkTxt = "Sepolia"
-}
 
 function copyToClipboard() {
     var copyText = document.getElementById("memoformat").value;

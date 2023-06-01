@@ -350,13 +350,14 @@ if (window.ethereum !== undefined) {
   var networkName = network["name"];
   var chainIdHex = network["chainId"];
   var chainIdDec = hexToDecimal(chainIdHex);
+  var switchChainIdHex = ethers.utils.hexlify(switchChainId);
   /*console.log(chainIdHex);
   console.log(chainIdDec);*/
   
   try {
     ethereum.request({
       method: "wallet_switchEthereumChain",
-      params: [{ chainId: ethers.utils.hexlify(switchChainId) }], //"0xaa36a7" }],
+      params: [{ chainId: "0xaa36a7" }],
     });
   } catch (switchError) {
     if (switchError.code === 4902) {

@@ -337,7 +337,7 @@ window.ethereum
         console.log(accounts[0]);
         // Get network ID
         let n = ethereum.chainId; // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
-        var switchChainId = n;
+        switchChainId = n;
         console.log(n);
       })
       .catch((err) => console.log(err))
@@ -350,9 +350,9 @@ if (window.ethereum !== undefined) {
   var chainIdHex = network["chainId"];
   var chainIdDec = hexToDecimal(chainIdHex);
   try {
-    var switchChainIdHex = ethers.utils.hexlify(switchChainId);
+    switchChainIdHex = ethers.utils.hexlify(switchChainId);
   } catch (error) {
-    var switchChainIdHex = "0xaa36a7";
+    switchChainIdHex = "0xaa36a7";
   }     
   console.log(switchChainIdHex);
   

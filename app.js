@@ -400,6 +400,7 @@ if (window.ethereum !== undefined) {
       method: "wallet_switchEthereumChain",
       params: [{ chainId: switchChainIdHex }],
     });
+    location.reload();
   } catch (switchError) {
     if (switchError.code === 4902) {
       try {
@@ -424,7 +425,6 @@ if (window.ethereum !== undefined) {
       }
     }
   } 
-  location.reload();
 } else {
   console.log("Please install MetaMask");
   let showmetamaskinfo = document.getElementById("installmetamask");

@@ -389,7 +389,7 @@ if (window.ethereum !== undefined) {
   var chainIdHex = network["chainId"];
   var chainIdDec = hexToDecimal(chainIdHex);
   try {
-    switchChainIdHex = switchChainId; //"Web3.utils.DecToHex(switchChainId);
+    switchChainIdHex = switchChainId; //"Web3.utils.toHex(switchChainId);
   } catch (error) {
     switchChainIdHex = "0xaa36a7";
   }     

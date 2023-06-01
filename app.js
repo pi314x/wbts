@@ -13,7 +13,7 @@ const CHAINID_BSC_TEST = 97;
 const CHAINID_EOSEVM_MAIN = 17777;
 const CHAINID_EOSEVM_TEST = 15557;
 const CHAINID_ARB_MAIN = 42161;
-const CHAINID_ARB_TEST = 421613;
+const CHAINID_ARB_TEST = 0x66eeb; #421613;
 const TEST = new Boolean(true);
 const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
 const NODE_TEST = "wss://testnet.xbts.io/ws";
@@ -389,7 +389,7 @@ if (window.ethereum !== undefined) {
   var chainIdHex = network["chainId"];
   var chainIdDec = hexToDecimal(chainIdHex);
   try {
-    switchChainIdHex = ethers.utils.hexlify(switchChainId);
+    switchChainIdHex = switchChainId; //"Web3.utils.DecToHex(switchChainId);
   } catch (error) {
     switchChainIdHex = "0xaa36a7";
   }     

@@ -148,6 +148,7 @@ function ContractAddress() {
 }
 
 function getContract() {
+  console.log(switchContract);
   let signer = provider.getSigner(account);
   let contract = new ethers.Contract(switchContract, ABI, signer);
   return contract;
@@ -354,7 +355,7 @@ if (window.ethereum !== undefined) {
   try {
     ethereum.request({
       method: "wallet_switchEthereumChain",
-      params: [{ chainId: "0xaa36a7" }],
+      params: [{ chainId: switchChainId }], //"0xaa36a7" }],
     });
   } catch (switchError) {
     if (switchError.code === 4902) {

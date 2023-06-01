@@ -5,6 +5,7 @@
 const SEPOLIA_CONTRACT = "0x3AFdF2088eFA3d2b7423d33B9452995C987F9fb1";
 const BSC_CONTRACT = "0x558d198723a52691EAeaD4EfEA96761f0801cfcB";
 const EOSEVM_CONTRACT = "0xb472E03c1ae96610984d3bBAE7A4A67bCc466f78";
+const ARB_CONTRACT = "";
 const CHAINID_ETHEREUM = 1;
 const CHAINID_SEPOLIA = 11155111;
 const CHAINID_BSC_MAIN = 56;
@@ -21,6 +22,7 @@ var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 const SEPOLIA_EXPLORER = "https://sepolia.etherscan.io/"
 const BSC_EXPLORER = "https://testnet.bscscan.com/"
 const EOSEVM_EXPLORER = "https://explorer.testnet.evm.eosnetwork.com/"
+const ARB_EXPLORER = "https://arbiscan.io/"
 
 const ABI = [
   {

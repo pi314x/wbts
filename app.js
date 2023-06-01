@@ -355,7 +355,7 @@ if (window.ethereum !== undefined) {
   try {
     ethereum.request({
       method: "wallet_switchEthereumChain",
-      params: [{ chainId: switchChainId }], //"0xaa36a7" }],
+      params: [{ chainId: decToHeximal(switchChainId) }], //"0xaa36a7" }],
     });
   } catch (switchError) {
     if (switchError.code === 4902) {

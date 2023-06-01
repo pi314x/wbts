@@ -335,7 +335,6 @@ window.ethereum
       .then((accounts) => {
         // Log public address of user
         console.log(accounts[0]);
-
         // Get network ID
         let n = ethereum.chainId; // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
         var switchChainId = n;
@@ -351,8 +350,7 @@ if (window.ethereum !== undefined) {
   var chainIdHex = network["chainId"];
   var chainIdDec = hexToDecimal(chainIdHex);
   var switchChainIdHex = ethers.utils.hexlify(switchChainId);
-  /*console.log(chainIdHex);
-  console.log(chainIdDec);*/
+  console.log('switchChainIdHex: ' + switchChainIdHex);
   
   try {
     ethereum.request({

@@ -286,25 +286,25 @@ async function unwrap() {
   let wallet = document.getElementById("wallet");
   let amount = document.getElementById("amount");
   if (wallet.value === "") {
-    wallet.style.border = "1px solid #880808";
+    wallet.style.border = "2px solid #880808";
     wallet.style.font = "#880808";
     wallet.setAttribute("placeholder", "Wallet mustn't be empty.");
     return;
   }
   if (amount.value == null || amount.value === "") {
-    amount.style.border = "1px solid #880808";
+    amount.style.border = "2px solid #880808";
     amount.style.font = "#880808";
     amount.setAttribute("placeholder", "Amount mustn't be empty.");
     return;
   }
   if (amount.value < 0) {
-    amount.style.border = "1px solid #880808";
+    amount.style.border = "2px solid #880808";
     amount.style.font = "#880808";
     amount.setAttribute("placeholder", "Amount must be positive.");
     return;
   }
   if (amount.value == 1) {
-    amount.style.border = "1px solid #880808";
+    amount.style.border = "2px solid #880808";
     amount.style.font = "#880808";
     amount.setAttribute("placeholder", "Amount too low.");
     return;

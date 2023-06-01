@@ -400,7 +400,7 @@ if (window.ethereum !== undefined) {
       method: "wallet_switchEthereumChain",
       params: [{ chainId: switchChainIdHex }],
     });
-    window.location.reload();
+    //window.location.reload();
   } catch (switchError) {
     if (switchError.code === 4902) {
       try {

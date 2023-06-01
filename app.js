@@ -139,6 +139,7 @@ function ContractAddress() {
   a.href = `${switchExplorer}token/${switchContract}`;
   a.innerHTML = switchContract;
   a.setAttribute("target", "_blank");
+  contractaddr.append("Contract address:\n");
   contractaddr.append(a);
 }
 

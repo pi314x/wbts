@@ -447,10 +447,6 @@ document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token betwee
 
 document.getElementById("maintenance").innerHTML = "UNDER MAINTENANCE!";
 
-const setListener = provider => {
-  provider.on("chainChanged", _ => window.location.reload());
-};
-
 async function main() {
   await BitShares();
   await totalSupply();

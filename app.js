@@ -338,6 +338,7 @@ window.ethereum
 
         // Get network ID
         let n = ethereum.chainId; // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
+        var switchChainId = n;
         console.log(n);
       })
       .catch((err) => console.log(err))
@@ -355,7 +356,7 @@ if (window.ethereum !== undefined) {
   try {
     ethereum.request({
       method: "wallet_switchEthereumChain",
-      params: [{ chainId: Web3.utils.toHex(switchChainId) }], //"0xaa36a7" }],
+      params: [{ chainId: ethers.utils.hexlify(switchChainId) }], //"0xaa36a7" }],
     });
   } catch (switchError) {
     if (switchError.code === 4902) {

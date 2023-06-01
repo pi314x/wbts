@@ -135,6 +135,7 @@ async function connectWallet() {
     document.getElementById("txnhash").innerHTML = "";
   }
   await BitShares();
+  location.reload(); 
 }
 
 function ContractAddress() {

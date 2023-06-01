@@ -351,10 +351,10 @@ if (window.ethereum !== undefined) {
   var chainIdDec = hexToDecimal(chainIdHex);
   try {
     var switchChainIdHex = ethers.utils.hexlify(switchChainId);
-    console.log(switchChainIdHex);
   } catch (error) {
     var switchChainIdHex = "0xaa36a7";
-  }
+  }     
+  console.log(switchChainIdHex);
   
   try {
     ethereum.request({

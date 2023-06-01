@@ -148,7 +148,7 @@ function ContractAddress() {
 }
 
 function getContract() {
-  console.log("switchContract: " + switchContract);
+  console.log(switchContract);
   let signer = provider.getSigner(account);
   let contract = new ethers.Contract(switchContract, ABI, signer);
   return contract;
@@ -349,13 +349,17 @@ if (window.ethereum !== undefined) {
   var networkName = network["name"];
   var chainIdHex = network["chainId"];
   var chainIdDec = hexToDecimal(chainIdHex);
-  var switchChainIdHex = ethers.utils.hexlify(switchChainId);
-  console.log('switchChainIdHex: ' + switchChainIdHex);
+  try {
+    var switchChainIdHex = ethers.utils.hexlify(switchChainId);
+    console.log(switchChainIdHex);
+  } catch (error) {
+    var switchChainIdHex = "0xaa36a7";
+  }
   
   try {
     ethereum.request({
       method: "wallet_switchEthereumChain",
-      params: [{ chainId: "0xaa36a7" }],
+      params: [{ chainId: switchChainIdHex }],
     });
   } catch (switchError) {
     if (switchError.code === 4902) {

@@ -440,7 +440,10 @@ function copyToClipboard() {
         alert("Copied to clipboard");
     });
   }
+
 document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token between blockchain and " + networkTxt + ".";
+
+document.getElementById("maintenance").innerHTML = "UNDER MAINTENANCE!";
 
 async function main() {
   await BitShares();

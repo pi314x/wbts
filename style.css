@@ -184,6 +184,11 @@ input[type=number] {
   margin: auto;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #cc1100;
+  opacity: 1; /* Firefox */
+}
+
 #Wrap {background-color: #ccc;}
 #Unwrap {background-color: #ccc;}
 #PoR {background-color: #ccc;}

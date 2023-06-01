@@ -22,7 +22,7 @@ var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 const SEPOLIA_EXPLORER = "https://sepolia.etherscan.io/"
 const BSC_EXPLORER = "https://testnet.bscscan.com/"
 const EOSEVM_EXPLORER = "https://explorer.testnet.evm.eosnetwork.com/"
-const ARB_EXPLORER = "https://arbiscan.io/"
+const ARB_EXPLORER = "https://goerli.arbiscan.io/"
 
 const ABI = [
   {

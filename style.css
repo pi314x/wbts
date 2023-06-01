@@ -48,6 +48,11 @@ p.thicker {
   font-weight: 900;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #cc1100;
+  opacity: 1; /* Firefox */
+}
+
 .btn {
   background-color: #0068B1; 
   color: white;
@@ -182,11 +187,6 @@ input[type=number] {
   width: fit-content;
   font-style: italic;
   margin: auto;
-}
-
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #cc1100;
-  opacity: 1; /* Firefox */
 }
 
 #Wrap {background-color: #ccc;}

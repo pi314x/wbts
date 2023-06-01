@@ -195,6 +195,21 @@ input[type=number] {
   border-radius: 8px;
 }
 
+.maintenance {
+  font-size: 0.875rem;
+  background-color: #cc1100;
+  color: white;
+  float: None;
+  border-width: thin;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem; 
+}
+
+.maintenance:empty {
+  display: none;
+}
+
 #Wrap {background-color: #ccc;}
 #Unwrap {background-color: #ccc;}
 #PoR {background-color: #ccc;}

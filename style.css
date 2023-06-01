@@ -190,6 +190,10 @@ input[type=number] {
   margin: auto;
 }
 
+.form-select-sm {
+  border-radius: 8px;
+}
+
 #Wrap {background-color: #ccc;}
 #Unwrap {background-color: #ccc;}
 #PoR {background-color: #ccc;}

@@ -108,7 +108,7 @@ input[type=number] {
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
+  padding: 8px 16px;
   transition: 0.3s;
   font-size: 100%;
   border-radius: 8px 8px 0px 0px;
@@ -135,7 +135,7 @@ input[type=number] {
 }
 
 .tabcontent {
-  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+  animation: fadeEffect 0.3s; /* Fading effect takes 1 second */
 }
 
 /* Go from zero to full opacity */

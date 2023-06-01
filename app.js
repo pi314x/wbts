@@ -447,7 +447,9 @@ document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token betwee
 
 document.getElementById("maintenance").innerHTML = "UNDER MAINTENANCE!";
 
-window.ethereum.on('chainChanged', (chainId) => window.location.reload());
+const setListener = provider => {
+  provider.on("chainChanged", _ => window.location.reload());
+};
 
 async function main() {
   await BitShares();

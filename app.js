@@ -129,6 +129,7 @@ if (TEST == true) {
 }
 
 async function connectWallet() {
+  window.location.reload());
   var prev_account = account;
   let accountList = await provider.send("eth_requestAccounts", []);
   account = await toChecksumAddress(accountList[0]);

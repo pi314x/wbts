@@ -12,6 +12,8 @@ const CHAINID_BSC_MAIN = 56;
 const CHAINID_BSC_TEST = 97;
 const CHAINID_EOSEVM_MAIN = 17777;
 const CHAINID_EOSEVM_TEST = 15557;
+const CHAINID_ARB_MAIN = 42161;
+const CHAINID_ARB_TEST = 421613;
 const TEST = new Boolean(true);
 const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
 const NODE_TEST = "wss://testnet.xbts.io/ws";
@@ -416,6 +418,12 @@ switch (networkValue)
     var switchExplorer = BSC_EXPLORER
     var switchContract = BSC_CONTRACT
     var networkTxt = "Binance Smart Chain"
+  break;
+  case "arb":
+    var switchChainId = CHAINID_ARB_TEST
+    var switchExplorer = ARB_EXPLORER
+    var switchContract = ARB_CONTRACT
+    var networkTxt = "Arbitrum"
   break;
   default:
     var switchChainId = CHAINID_SEPOLIA

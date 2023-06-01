@@ -450,6 +450,10 @@ document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token betwee
 
 document.getElementById("maintenance").innerHTML = "UNDER MAINTENANCE!";
 
+window.ethereum.on('chainChanged', () => {
+  document.location.reload()
+})
+
 async function main() {
   await BitShares();
   await totalSupply();

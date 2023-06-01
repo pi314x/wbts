@@ -148,7 +148,7 @@ function ContractAddress() {
 }
 
 function getContract() {
-  console.log(switchContract);
+  console.log("switchContract: " + switchContract);
   let signer = provider.getSigner(account);
   let contract = new ethers.Contract(switchContract, ABI, signer);
   return contract;

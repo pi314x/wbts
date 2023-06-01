@@ -6,7 +6,7 @@
   background-position: center center;
 }*/
 body, button, input, div, form, p {
-  font-family: math;/*monaco,Consolas,Lucida Console,monospace; */
+  font-family: monaco,Consolas,Lucida Console,monospace;
   font-size: 100%;
   color: #333;
 }

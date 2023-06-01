@@ -26,6 +26,10 @@ const BSC_EXPLORER = "https://testnet.bscscan.com/"
 const EOSEVM_EXPLORER = "https://explorer.testnet.evm.eosnetwork.com/"
 const ARB_EXPLORER = "https://goerli.arbiscan.io/"
 
+const setListener = provider => {
+  provider.on("chainChanged", _ => window.location.reload());
+};
+
 const ABI = [
   {
     inputs: [
@@ -400,7 +404,7 @@ if (window.ethereum !== undefined) {
       method: "wallet_switchEthereumChain",
       params: [{ chainId: switchChainIdHex }],
     });
-    location.reload();
+    //location.reload();
   } catch (switchError) {
     if (switchError.code === 4902) {
       try {

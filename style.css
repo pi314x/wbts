@@ -52,6 +52,7 @@ p.thicker {
   background-color: #cc1100;
   color: white;
   opacity: 1; /* Firefox */
+  width: fit-content;
 }
 
 .btn {

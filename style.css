@@ -16,7 +16,7 @@ body, button, input, div, form, p {
 }
 h1, h2 { 
   margin-top: .5rem;
-  font-family: math;/*monaco,Consolas,Lucida Console,monospace; */
+  font-family: MATH,monaco,Consolas,Lucida Console,monospace;
 }
 * {
 text-align: center;

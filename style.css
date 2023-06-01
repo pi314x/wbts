@@ -7,7 +7,7 @@
 }*/
 body, button, input, div, form, p {
   font-family: monaco,Consolas,Lucida Console,monospace;
-  font-size: 100%;
+  font-size: 0.95rem;
   color: #333;
 }
 .inverse {
@@ -117,7 +117,7 @@ input[type=number] {
   cursor: pointer;
   padding: 8px 16px;
   transition: 0.3s;
-  font-size: 100%;
+  font-size: 0.95%;
   border-radius: 8px 8px 0px 0px;
 }
 

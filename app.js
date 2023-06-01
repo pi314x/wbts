@@ -135,7 +135,6 @@ async function connectWallet() {
     document.getElementById("txnhash").innerHTML = "";
   }
   await BitShares();
-  location.reload();
 }
 
 function ContractAddress() {
@@ -424,7 +423,8 @@ if (window.ethereum !== undefined) {
         alert(error.message);
       }
     }
-  }
+  } 
+  location.reload();
 } else {
   console.log("Please install MetaMask");
   let showmetamaskinfo = document.getElementById("installmetamask");

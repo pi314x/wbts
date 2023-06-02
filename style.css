@@ -210,6 +210,10 @@ input[type=number] {
   display: none;
 }
 
+.container, .container-md, .container-sm {
+    max-width: 100%;
+}
+
 #Wrap {background-color: #ccc;}
 #Unwrap {background-color: #ccc;}
 #PoR {background-color: #ccc;}

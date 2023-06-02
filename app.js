@@ -28,7 +28,7 @@ const SEPOLIA_EXPLORER = "https://sepolia.etherscan.io/";
 const BSC_EXPLORER = "https://testnet.bscscan.com/";
 const EOSEVM_EXPLORER = "https://explorer.testnet.evm.eosnetwork.com/";
 const ARB_EXPLORER = "https://goerli.arbiscan.io/";
-const ARB_EXPLORER = "https://goerli-optimism.etherscan.io/";
+const OP_EXPLORER = "https://goerli-optimism.etherscan.io/";
 
 const ABI = [
   {

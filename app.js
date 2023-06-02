@@ -437,6 +437,11 @@ try {
     showmetamaskinfo.append(a);
     showmetamaskinfo.append("!");
   };
+  
+  ethereum.on('chainChanged', () => {
+  document.location.reload()
+})
+  
 } catch (error) {
   console.log(error.message);
 }
@@ -451,12 +456,7 @@ function copyToClipboard() {
   }
 
 document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token between blockchain and " + networkTxt + ".";
-
 document.getElementById("maintenance").innerHTML = "UNDER MAINTENANCE!";
-
-ethereum.on('chainChanged', () => {
-  document.location.reload()
-})
 
 async function main() {
   await BitShares();

@@ -130,10 +130,11 @@ if (TEST == true) {
 
 async function chainData() {
   try {
-    chainlist = (await fetch('https://chainid.network/chains_mini.json')).json() 
-    console.log(chainlist)
+    var chainlist = (await fetch('https://chainid.network/chains_mini.json')).json();
+    console.log(chainlist);
   } catch (error) {
     console.log(error);
+  }
 }
 
 async function connectWallet() {

@@ -14,6 +14,8 @@ const CHAINID_EOSEVM_MAIN = 17777;
 const CHAINID_EOSEVM_TEST = 15557;
 const CHAINID_ARB_MAIN = 42161;
 const CHAINID_ARB_TEST = 421613; ///0x66eed
+const CHAINID_OP_MAIN = 10;
+const CHAINID_OP_TEST = 420;
 const TEST = new Boolean(true);
 const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
 const NODE_TEST = "wss://testnet.xbts.io/ws";
@@ -25,6 +27,7 @@ const SEPOLIA_EXPLORER = "https://sepolia.etherscan.io/"
 const BSC_EXPLORER = "https://testnet.bscscan.com/"
 const EOSEVM_EXPLORER = "https://explorer.testnet.evm.eosnetwork.com/"
 const ARB_EXPLORER = "https://goerli.arbiscan.io/"
+const ARB_EXPLORER = "https://goerli-optimism.etherscan.io/
 
 const ABI = [
   {

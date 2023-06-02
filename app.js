@@ -128,8 +128,12 @@ if (TEST == true) {
   var node = NODE_MAIN;
 }
 
-async function chainData(chainId) {
-  null;
+async function chainData() {
+  try {
+    chainlist = (await fetch('https://chainid.network/chains_mini.json')).json() 
+    console.log(chainlist)
+  } catch (error) {
+    console.log(error);
 }
 
 async function connectWallet() {

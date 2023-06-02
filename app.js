@@ -387,6 +387,12 @@ switch (networkValue)
     var switchContract = ARB_CONTRACT
     var networkTxt = "Arbitrum"
   break;
+  case "op":
+    var switchChainId = CHAINID_OP_TEST
+    var switchExplorer = OP_EXPLORER
+    var switchContract = OP_CONTRACT
+    var networkTxt = "Optimism"
+  break;
   default:
     var switchChainId = CHAINID_SEPOLIA
     var switchExplorer = SEPOLIA_EXPLORER

@@ -196,96 +196,101 @@ var obj;
 var ticker;
 var balances;
 
-async function fetchObjects(method, params) {
-  return new Promise(async (resolve, reject) => {
-    console.log("Fetching objects");
-    try {
-      await bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise;
-    } catch (error) {
-      console.log(error);
-      changeURL(value);
-      return reject({
-        error,
-        location: "init",
-        node: node,
-      });
-    }
-
-    let object;
-    try {
-      switch (method) {
-        case "get_objects":
-          object = await bitshares_js.bitshares_ws.Apis.instance()
-            .db_api()
-            .exec("get_objects", [params]);
-          break;
-        case "get_ticker":
-          object = await bitshares_js.bitshares_ws.Apis.instance()
-            .db_api()
-            .exec("get_ticker", params);
-          break;
-        case "get_account_balances":
-          object = await bitshares_js.bitshares_ws.Apis.instance()
-            .db_api()
-            .exec("get_account_balances", params);
-        default:
-          console.log("method not supplied yet.");
-      }
-    } catch (error) {
-      console.log(error);
-      return reject({
-        error,
-        location: "exec",
-        node: node,
-      });
-    }
-    return resolve(object);
-  });
-}
-
 async function BitShares() {
-  obj = await fetchObjects("get_objects", ["1.3.0", CUSTODIAN]);
-  ticker = await fetchObjects("get_ticker", ["1.3.0", "1.3.22"]);
-  balances = await fetchObjects("get_account_balances", [CUSTODIAN, ["1.3.0"]]);
+  try {
+    async function fetchObjects(method, params) {
+      return new Promise(async (resolve, reject) => {
+        console.log("Fetching objects");
+        try {
+          await bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise;
+        } catch (error) {
+          console.log(error);
+          changeURL(value);
+          return reject({
+            error,
+            location: "init",
+            node: node,
+          });
+        }
 
-  var total = Number(balances[0]["amount"]);
-  let symbol = obj[0]["symbol"];
-  let decimals = obj[0]["precision"];
-  let custName = obj[1]["name"];
-  let fees = Number(ticker["highest_bid"]).toFixed(0);
-  let minimum = Number(fees) + 1;
-  var total = total / Math.pow(10, decimals);
-
-  document.getElementById("custname").innerHTML =
-    "Send token to wallet address <b>" +
-    custName +
-    "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive the wrapped tokens. Connect wallet for more.";
-  if (account != "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95") {
-    document.getElementById("memo").innerHTML =
-      "If you are using the connected wallet, your memo must look like this:"
-    document.getElementById("memoformat").innerHTML =
-      networkValue + ":" + account;
-  }
-  document.getElementById("fees").innerHTML =
-    "Please be aware that " +
-    fees +
-    " token which equals approximately 1 USDT will be deducted as a gateway fee.";
-  document.getElementById("minimum").innerHTML =
-    "Minimum wrap amount: " +
-    minimum +
-    " token.";
+        let object;
+        try {
+          switch (method) {
+            case "get_objects":
+              object = await bitshares_js.bitshares_ws.Apis.instance()
+                .db_api()
+                .exec("get_objects", [params]);
+              break;
+            case "get_ticker":
+              object = await bitshares_js.bitshares_ws.Apis.instance()
+                .db_api()
+                .exec("get_ticker", params);
+              break;
+            case "get_account_balances":
+              object = await bitshares_js.bitshares_ws.Apis.instance()
+                .db_api()
+                .exec("get_account_balances", params);
+            default:
+              console.log("method not supplied yet.");
+          }
+        } catch (error) {
+          console.log(error);
+          return reject({
+            error,
+            location: "exec",
+            node: node,
+          });
+        }
+        return resolve(object);
+      });
+    }
   
-  document.getElementById("ccust").innerHTML = "";
-  var showcust = document.getElementById("ccust");
-  var a = document.createElement("a");
-  a.href = `https://wallet.bitshares.org/#/account/${custName}`;
-  a.innerHTML = custName;
-  a.setAttribute("target", "_blank");
-  showcust.append("Custodian Wallet: ")
-  showcust.append(a);
+    obj = await fetchObjects("get_objects", ["1.3.0", CUSTODIAN]);
+    ticker = await fetchObjects("get_ticker", ["1.3.0", "1.3.22"]);
+    balances = await fetchObjects("get_account_balances", [CUSTODIAN, ["1.3.0"]]);
 
-  document.getElementById("cbalcust").innerHTML =
-    "Custodian Treasury amount: " + total + " " + symbol;
+    var total = Number(balances[0]["amount"]);
+    let symbol = obj[0]["symbol"];
+    let decimals = obj[0]["precision"];
+    let custName = obj[1]["name"];
+    let fees = Number(ticker["highest_bid"]).toFixed(0);
+    let minimum = Number(fees) + 1;
+    var total = total / Math.pow(10, decimals);
+
+    document.getElementById("custname").innerHTML =
+      "Send token to wallet address <b>" +
+      custName +
+      "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive the wrapped tokens. Connect wallet for more.";
+    if (account != "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95") {
+      document.getElementById("memo").innerHTML =
+        "If you are using the connected wallet, your memo must look like this:"
+      document.getElementById("memoformat").innerHTML =
+        networkValue + ":" + account;
+    }
+    document.getElementById("fees").innerHTML =
+      "Please be aware that " +
+      fees +
+      " token which equals approximately 1 USDT will be deducted as a gateway fee.";
+    document.getElementById("minimum").innerHTML =
+      "Minimum wrap amount: " +
+      minimum +
+      " token.";
+
+    document.getElementById("ccust").innerHTML = "";
+    var showcust = document.getElementById("ccust");
+    var a = document.createElement("a");
+    a.href = `https://wallet.bitshares.org/#/account/${custName}`;
+    a.innerHTML = custName;
+    a.setAttribute("target", "_blank");
+    showcust.append("Custodian Wallet: ")
+    showcust.append(a);
+
+    document.getElementById("cbalcust").innerHTML =
+      "Custodian Treasury amount: " + total + " " + symbol;
+    
+  } catch (error) {
+    console.log(error.message);
+  } 
 }
 
 async function unwrap() {

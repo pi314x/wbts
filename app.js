@@ -132,10 +132,13 @@ if (TEST == true) {
   var node = NODE_MAIN;
 }
 
-async function chainList() {
+async function chainList(short = null) {
   try {
     let url = 'https://chainid.network/chains_mini.json';
-    let obj = await (await fetch(url)).json();
+    var obj = await (await fetch(url)).json();
+    if (short != null) {
+      obj = obj.filter(({shortName}) => shortName === short);
+    }
     return obj;
   } catch (error) {
     console.log(error);

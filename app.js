@@ -289,7 +289,7 @@ async function BitShares() {
       "Custodian Treasury amount: " + total + " " + symbol;
     
   } catch (error) {
-    console.log(error.message);
+    console.log('BitShares()\n' + error.message);
   } 
 }
 
@@ -448,7 +448,7 @@ try {
 })
   
 } catch (error) {
-  console.log(error.message);
+  console.log('window.ethereum()\n' + error.message);
 }
 
 function copyToClipboard() {

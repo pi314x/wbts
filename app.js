@@ -491,6 +491,7 @@ document.getElementById("maintenance").innerHTML = "UNDER MAINTENANCE!";
 
 async function main() {
   await BitShares();
+  await chainData();
   await totalSupply();
   ContractAddress();
 }

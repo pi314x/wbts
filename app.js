@@ -135,7 +135,9 @@ if (TEST == true) {
 
 async function chainData() {
   try {
-    chainlist = (await fetch('https://chainid.network/chains_mini.json')).json();
+    let url = 'https://chainid.network/chains_mini.json';
+    let obj = await (await fetch(url)).json();
+    return obj;
     console.log(chainlist);
   } catch (error) {
     console.log(error);

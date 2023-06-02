@@ -296,6 +296,8 @@ async function BitShares() {
     
   } catch (error) {
     console.log('BitShares()\n' + error.message);
+    document.getElementById("custname").innerHTML =
+      "There might be a problem connecting the node: " + node;
   } 
 }
 

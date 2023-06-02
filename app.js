@@ -34,6 +34,9 @@ var obj;
 var ticker;
 var balances;
 
+let chainListURL = 'https://chainid.network/chains_mini.json';
+let chainList = (await fetch(chainListURL)).json();
+
 const ABI = [
   {
     inputs: [
@@ -130,17 +133,6 @@ if (TEST == true) {
   var node = NODE_TEST;
 } else {
   var node = NODE_MAIN;
-}
-
-async function chainList() {
-  try {
-    let url = 'https://chainid.network/chains_mini.json';
-    let obj = await (await fetch(url)).json();
-    console.log(obj);
-    return obj;
-  } catch (error) {
-    console.log(error);
-  }
 }
 
 async function connectWallet() {

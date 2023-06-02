@@ -137,8 +137,8 @@ async function chainData() {
   try {
     let url = 'https://chainid.network/chains_mini.json';
     let obj = await (await fetch(url)).json();
+    console.log(obj);
     return obj;
-    console.log(chainlist);
   } catch (error) {
     console.log(error);
   }

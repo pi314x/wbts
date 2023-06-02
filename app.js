@@ -197,54 +197,56 @@ var ticker;
 var balances;
 
 async function BitShares() {
-  try {
-    async function fetchObjects(method, params) {
-      return new Promise(async (resolve, reject) => {
-        console.log("Fetching objects");
-        try {
-          await bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise;
-        } catch (error) {
-          console.log(error);
-          changeURL(value);
-          return reject({
-            error,
-            location: "init",
-            node: node,
-          });
-        }
 
-        let object;
-        try {
-          switch (method) {
-            case "get_objects":
-              object = await bitshares_js.bitshares_ws.Apis.instance()
-                .db_api()
-                .exec("get_objects", [params]);
-              break;
-            case "get_ticker":
-              object = await bitshares_js.bitshares_ws.Apis.instance()
-                .db_api()
-                .exec("get_ticker", params);
-              break;
-            case "get_account_balances":
-              object = await bitshares_js.bitshares_ws.Apis.instance()
-                .db_api()
-                .exec("get_account_balances", params);
-            default:
-              console.log("method not supplied yet.");
-          }
-        } catch (error) {
-          console.log(error);
-          return reject({
-            error,
-            location: "exec",
-            node: node,
-          });
+  async function fetchObjects(method, params) {
+    return new Promise(async (resolve, reject) => {
+      console.log("Fetching objects");
+      try {
+        await bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise;
+      } catch (error) {
+        console.log(error);
+        changeURL(value);
+        return reject({
+          error,
+          location: "init",
+          node: node,
+        });
+      }
+
+      let object;
+      try {
+        switch (method) {
+          case "get_objects":
+            object = await bitshares_js.bitshares_ws.Apis.instance()
+              .db_api()
+              .exec("get_objects", [params]);
+            break;
+          case "get_ticker":
+            object = await bitshares_js.bitshares_ws.Apis.instance()
+              .db_api()
+              .exec("get_ticker", params);
+            break;
+          case "get_account_balances":
+            object = await bitshares_js.bitshares_ws.Apis.instance()
+              .db_api()
+              .exec("get_account_balances", params);
+          default:
+            console.log("method not supplied yet.");
         }
-        return resolve(object);
-      });
-    }
-  
+      } catch (error) {
+        console.log(error);
+        return reject({
+          error,
+          location: "exec",
+          node: node,
+        });
+      }
+      return resolve(object);
+    });
+  }
+
+  try {
+    
     obj = await fetchObjects("get_objects", ["1.3.0", CUSTODIAN]);
     ticker = await fetchObjects("get_ticker", ["1.3.0", "1.3.22"]);
     balances = await fetchObjects("get_account_balances", [CUSTODIAN, ["1.3.0"]]);

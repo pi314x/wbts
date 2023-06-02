@@ -35,8 +35,8 @@ var ticker;
 var balances;
 
 let chainListURL = 'https://chainid.network/chains_mini.json';
-let chainList = await fetch(chainListURL);
-chainList = chainList.json();
+let chainList = (await fetch(chainListURL)).json();
+
 
 const ABI = [
   {

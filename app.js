@@ -209,6 +209,8 @@ async function BitShares() {
         await bitshares_js.bitshares_ws.Apis.instance(node, true).init_promise;
       } catch (error) {
         console.log(error);
+        document.getElementById("custname").innerHTML =
+          "There might be a problem connecting the node: " + node;
         changeURL(value);
         return reject({
           error,
@@ -239,8 +241,6 @@ async function BitShares() {
         }
       } catch (error) {
         console.log(error);
-        document.getElementById("custname").innerHTML =
-          "There might be a problem connecting the node: " + node;
         return reject({
           error,
           location: "exec",

@@ -23,12 +23,17 @@ const NODE_TEST = "wss://testnet.xbts.io/ws";
 const CUSTODIAN = "1.2.26653";
 const hexToDecimal = (hex) => parseInt(hex, 16);
 const decToHeximal = (dec) => dec.toString(16);
-var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 const SEPOLIA_EXPLORER = "https://sepolia.etherscan.io/";
 const BSC_EXPLORER = "https://testnet.bscscan.com/";
 const EOSEVM_EXPLORER = "https://explorer.testnet.evm.eosnetwork.com/";
 const ARB_EXPLORER = "https://goerli.arbiscan.io/";
 const OP_EXPLORER = "https://goerli-optimism.etherscan.io/";
+
+var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
+var obj;
+var ticker;
+var balances;
+var chainlist;
 
 const ABI = [
   {
@@ -130,7 +135,7 @@ if (TEST == true) {
 
 async function chainData() {
   try {
-    var chainlist = (await fetch('https://chainid.network/chains_mini.json')).json();
+    chainlist = (await fetch('https://chainid.network/chains_mini.json')).json();
     console.log(chainlist);
   } catch (error) {
     console.log(error);
@@ -204,10 +209,6 @@ async function totalSupply() {
   document.getElementById("ctotal").innerHTML =
     "Total Supply of " + name + ": " + total + " " + symbol;
 }
-
-var obj;
-var ticker;
-var balances;
 
 async function BitShares() {
 

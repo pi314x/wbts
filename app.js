@@ -369,73 +369,77 @@ switch (networkValue)
     var networkTxt = "Sepolia"
 }
 
-window.ethereum
-  ? ethereum
-      .request({ method: "eth_requestAccounts" })
-      .then((accounts) => {
-        // Log public address of user
-        console.log(accounts[0]);
-        // Get network ID
-        let n = ethereum.chainId; // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
-        console.log(n);
-      })
-      .catch((err) => console.log(err))
-  : console.log("Please install MetaMask");
+try {
+  window.ethereum
+    ? ethereum
+        .request({ method: "eth_requestAccounts" })
+        .then((accounts) => {
+          // Log public address of user
+          console.log(accounts[0]);
+          // Get network ID
+          let n = ethereum.chainId; // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
+          console.log(n);
+        })
+        .catch((err) => console.log(err))
+    : console.log("Please install MetaMask");
 
-if (window.ethereum !== undefined) {
-  var provider = new ethers.providers.Web3Provider(window.ethereum);
-  var network = provider.getNetwork();
-  var networkName = network["name"];
-  var chainIdHex = network["chainId"];
-  var chainIdDec = hexToDecimal(chainIdHex);
-  try {
-    switchChainIdHex = Web3.utils.toHex(switchChainId);
-  } catch (error) {
-    switchChainIdHex = "0xaa36a7";
-  }     
-  console.log(switchChainIdHex);
-  
-  try {
-    ethereum.request({
-      method: "wallet_switchEthereumChain",
-      params: [{ chainId: switchChainIdHex }],
-    });
-    //window.location.reload();
-  } catch (switchError) {
-    if (switchError.code === 4902) {
-      try {
-        ethereum.request({
-          method: "wallet_addEthereumChain",
-          params: [
-            {
-              chainId: "0xaa36a7",
-              chainName: "Sepolia",
-              rpcUrls: ["https://rpc2.sepolia.org"],
-              nativeCurrency: {
-                name: "SepoliaETH",
-                symbol: "ETH",
-                decimals: 18,
+  if (window.ethereum !== undefined) {
+    var provider = new ethers.providers.Web3Provider(window.ethereum);
+    var network = provider.getNetwork();
+    var networkName = network["name"];
+    var chainIdHex = network["chainId"];
+    var chainIdDec = hexToDecimal(chainIdHex);
+    try {
+      switchChainIdHex = Web3.utils.toHex(switchChainId);
+    } catch (error) {
+      switchChainIdHex = "0xaa36a7";
+    }     
+    console.log(switchChainIdHex);
+
+    try {
+      ethereum.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: switchChainIdHex }],
+      });
+      //window.location.reload();
+    } catch (switchError) {
+      if (switchError.code === 4902) {
+        try {
+          ethereum.request({
+            method: "wallet_addEthereumChain",
+            params: [
+              {
+                chainId: "0xaa36a7",
+                chainName: "Sepolia",
+                rpcUrls: ["https://rpc2.sepolia.org"],
+                nativeCurrency: {
+                  name: "SepoliaETH",
+                  symbol: "ETH",
+                  decimals: 18,
+                },
+                blockExplorerUrls: ["https://sepolia.etherscan.io/"],
               },
-              blockExplorerUrls: ["https://sepolia.etherscan.io/"],
-            },
-          ],
-        });
-      } catch (error) {
-        alert(error.message);
+            ],
+          });
+        } catch (error) {
+          alert(error.message);
+        }
       }
-    }
-  } 
-} else {
-  console.log("Please install MetaMask");
-  let showmetamaskinfo = document.getElementById("installmetamask");
-  let a = document.createElement("a");
-  a.href = `https://metamask.io/`;
-  a.innerHTML = "MetaMask";
-  a.setAttribute("target", "_blank");
-  showmetamaskinfo.append("For the full experience, \nplease install ");
-  showmetamaskinfo.append(a);
-  showmetamaskinfo.append("!");
-};
+    } 
+  } else {
+    console.log("Please install MetaMask");
+    let showmetamaskinfo = document.getElementById("installmetamask");
+    let a = document.createElement("a");
+    a.href = `https://metamask.io/`;
+    a.innerHTML = "MetaMask";
+    a.setAttribute("target", "_blank");
+    showmetamaskinfo.append("For the full experience, \nplease install ");
+    showmetamaskinfo.append(a);
+    showmetamaskinfo.append("!");
+  };
+} catch (error) {
+  console.log(error.message);
+}
 
 function copyToClipboard() {
     var copyText = document.getElementById("memoformat").value;

@@ -124,6 +124,10 @@ if (TEST == true) {
   var node = NODE_MAIN;
 }
 
+async function chainData(chainId) {
+  null;
+}
+
 async function connectWallet() {
   var prev_account = account;
   let accountList = await provider.send("eth_requestAccounts", []);

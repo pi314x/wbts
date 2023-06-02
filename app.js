@@ -33,7 +33,6 @@ var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 var obj;
 var ticker;
 var balances;
-var chainlist;
 
 const ABI = [
   {
@@ -133,7 +132,7 @@ if (TEST == true) {
   var node = NODE_MAIN;
 }
 
-async function chainData() {
+async function chainList() {
   try {
     let url = 'https://chainid.network/chains_mini.json';
     let obj = await (await fetch(url)).json();

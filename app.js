@@ -7,6 +7,14 @@ const BSC_CONTRACT = "0x558d198723a52691EAeaD4EfEA96761f0801cfcB";
 const EOSEVM_CONTRACT = "0x5143E5f225EA83bCb9b93eD6039C0Dfc9826f7Ec";
 const ARB_CONTRACT = "0x948F857C55eb5475deDA42BEfb31db9748aFFED5";
 const OP_CONTRACT = "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc";
+const CONTRACTS = {"contracts": { "sep": "0x3AFdF2088eFA3d2b7423d33B9452995C987F9fb1",
+                                  "bnbt": "0x558d198723a52691EAeaD4EfEA96761f0801cfcB",
+                                  "eos-testnet": "0x5143E5f225EA83bCb9b93eD6039C0Dfc9826f7Ec",
+                                  "arb-goerli": "0x948F857C55eb5475deDA42BEfb31db9748aFFED5",
+                                  "ogor": "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc",
+                                  "chi": ""
+                                }
+                  }
 const CHAINID_ETHEREUM = 1;
 const CHAINID_SEPOLIA = 11155111;
 const CHAINID_BSC_MAIN = 56;
@@ -132,7 +140,7 @@ if (TEST == true) {
   var node = NODE_MAIN;
 }
 
-async function chainList(short = null) {
+async function chainData(short = null) {
   try {
     let url = 'https://chainid.network/chains.json';
     var obj = await (await fetch(url)).json();
@@ -141,7 +149,7 @@ async function chainList(short = null) {
     }
     return obj;
   } catch (error) {
-    console.log("chainList()\n" + error.message);
+    console.log("chainData()\n" + error.message);
     $.getJSON("include/chains.json", function(json) {
       console.log(json);
       return json;
@@ -368,7 +376,13 @@ if(networkValue != null) {
   networkValue = "sep";
 }
 
-switch (networkValue)
+chaindata = (await chainData(networkValue))[0];
+var switchChainId = chaindata['chainId']
+var switchExplorer = chaindata['explorers'][0]['url']
+var switchContract = contracts['contracts'][networkValue]
+var networkTxt = chaindata['title']
+    
+/*switch (networkValue)
 {
   case "sep":
     var switchChainId = CHAINID_SEPOLIA
@@ -405,7 +419,7 @@ switch (networkValue)
     var switchExplorer = SEPOLIA_EXPLORER
     var switchContract = SEPOLIA_CONTRACT
     var networkTxt = "Sepolia"
-}
+}*/
 
 try {
   window.ethereum
@@ -503,7 +517,7 @@ document.getElementById("maintenance").innerHTML = "UNDER MAINTENANCE!";
 
 async function main() {
   await BitShares();
-  await chainList();
+  await chainData();
   await totalSupply();
   ContractAddress();
 }

@@ -166,6 +166,7 @@ async function chainList(short = null) {
     try { var switchExplorer = chaindata['explorers'][0]['url'] } catch (e) { var switchExplorer = "" }
     try { var switchContract = contracts['contracts'][networkValue] } catch (e) { var switchContract = "" }
     try { var networkTxt = chaindata['title'] } catch (e) { var networkTxt = "" }
+    try { document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token between blockchain and " + networkTxt + "."; } catch(e) { console.log(e); }
     return json;
   }
 }
@@ -605,7 +606,6 @@ function darkMode() {
    element.classList.toggle("inverse");
 }
 
-document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token between blockchain and " + networkTxt + ".";
 document.getElementById("maintenance").innerHTML = "UNDER MAINTENANCE!";
 
 async function main() {

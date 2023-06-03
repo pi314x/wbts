@@ -491,7 +491,7 @@ function copyToClipboard() {
   
 function darkMode() {
    var element = document.body;
-   element.classList.toggle("dark-mode");
+   element.classList.toggle("inverse");
 }
 
 document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token between blockchain and " + networkTxt + ".";

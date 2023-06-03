@@ -167,6 +167,7 @@ async function chainList(short = null) {
     try { switchContract = contracts['contracts'][networkValue] } catch (e) { var switchContract = "" }
     try { networkTxt = chaindata['title'] } catch (e) { var networkTxt = "" }
     return json;
+  }
 }
 
 async function connectWallet() {

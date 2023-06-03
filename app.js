@@ -488,6 +488,11 @@ function copyToClipboard() {
         alert("Copied to clipboard");
     });
   }
+  
+function darkMode() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
 
 document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token between blockchain and " + networkTxt + ".";
 document.getElementById("maintenance").innerHTML = "UNDER MAINTENANCE!";

@@ -134,7 +134,7 @@ if (TEST == true) {
 
 async function chainList(short = null) {
   try {
-    let url = 'https://chainid.network/cahains.json';
+    let url = 'https://chainid.network/chains.json';
     var obj = await (await fetch(url)).json();
     if (short != null) {
       obj = obj.filter(({shortName}) => shortName === short);

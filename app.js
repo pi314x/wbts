@@ -27,7 +27,7 @@ var switchChainId;
 var switchExplorer;
 var switchContract;
 var networkTxt;
-var provider;
+//var provider;
 
 const ABI = [
   {

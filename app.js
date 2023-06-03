@@ -377,10 +377,10 @@ if(networkValue != null) {
 }
 
 chaindata = (await chainData(networkValue))[0];
-var switchChainId = chaindata['chainId']
-var switchExplorer = chaindata['explorers'][0]['url']
-var switchContract = contracts['contracts'][networkValue]
-var networkTxt = chaindata['title']
+try { var switchChainId = chaindata['chainId'] } catch (e) { var switchChainId = -1 }
+try { var switchExplorer = chaindata['explorers'][0]['url'] } catch (e) { var switchExplorer = "" }
+try { var switchContract = contracts['contracts'][networkValue] } catch (e) { var switchContract = "" }
+try { var networkTxt = chaindata['title'] } catch (e) { var networkTxt = "" }
     
 /*switch (networkValue)
 {

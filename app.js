@@ -143,10 +143,10 @@ async function chainList(short = null) {
       json = json.filter(({shortName}) => shortName === short);
     }
     var chaindata = json[0];
-    try { var switchChainId = chaindata['chainId'] } catch (e) { var switchChainId = -1 }
-    try { var switchExplorer = chaindata['explorers'][0]['url'] } catch (e) { var switchExplorer = "" }
-    try { var switchContract = CONTRACTS['contracts'][networkValue] } catch (e) { var switchContract = "" }
-    try { var networkTxt = chaindata['title'] } catch (e) { var networkTxt = "" }
+    try { switchChainId = chaindata['chainId'] } catch (e) { var switchChainId = -1 }
+    try { switchExplorer = chaindata['explorers'][0]['url'] } catch (e) { var switchExplorer = "" }
+    try { switchContract = CONTRACTS['contracts'][networkValue] } catch (e) { var switchContract = "" }
+    try { networkTxt = chaindata['title'] } catch (e) { var networkTxt = "" }
     try { document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token between blockchain and " + networkTxt + "."; } catch(e) { console.log(e); }
     return json;
   }
@@ -168,7 +168,7 @@ async function eth() {
     : console.log("Please install MetaMask");
 
   if (window.ethereum !== undefined) {
-    var provider = new ethers.providers.Web3Provider(window.ethereum);
+    provider = new ethers.providers.Web3Provider(window.ethereum);
     var network = await provider.getNetwork();
     var networkName = network["name"];
     var chainIdHex = network["chainId"];

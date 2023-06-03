@@ -22,10 +22,10 @@ var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 var obj;
 var ticker;
 var balances;
-/*var switchChainId;
+var switchChainId;
 var switchExplorer;
 var switchContract;
-var networkTxt;*/
+var networkTxt;
 
 const ABI = [
   {

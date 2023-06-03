@@ -134,14 +134,18 @@ if (TEST == true) {
 
 async function chainList(short = null) {
   try {
-    let url = 'https://chainid.network/chains.json';
+    let url = 'https://chainid.network/cahains.json';
     var obj = await (await fetch(url)).json();
     if (short != null) {
       obj = obj.filter(({shortName}) => shortName === short);
     }
     return obj;
   } catch (error) {
-    console.log(error);
+    console.log("chainList()\n" + error.message);
+    $.getJSON("include/chains.json", function(json) {
+      console.log(json);
+      return json;
+    });
   }
 }
 

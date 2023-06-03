@@ -42,10 +42,10 @@ var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 var obj;
 var ticker;
 var balances;
-var switchChainId;
+/*var switchChainId;
 var switchExplorer;
 var switchContract;
-var networkTxt;
+var networkTxt;*/
 
 const ABI = [
   {
@@ -162,10 +162,10 @@ async function chainList(short = null) {
       json = json.filter(({shortName}) => shortName === short);
     }
     var chaindata = json[0];
-    try { switchChainId = chaindata['chainId'] } catch (e) { var switchChainId = -1 }
-    try { switchExplorer = chaindata['explorers'][0]['url'] } catch (e) { var switchExplorer = "" }
-    try { switchContract = contracts['contracts'][networkValue] } catch (e) { var switchContract = "" }
-    try { networkTxt = chaindata['title'] } catch (e) { var networkTxt = "" }
+    try { var switchChainId = chaindata['chainId'] } catch (e) { var switchChainId = -1 }
+    try { var switchExplorer = chaindata['explorers'][0]['url'] } catch (e) { var switchExplorer = "" }
+    try { var switchContract = contracts['contracts'][networkValue] } catch (e) { var switchContract = "" }
+    try { var networkTxt = chaindata['title'] } catch (e) { var networkTxt = "" }
     return json;
   }
 }

@@ -375,7 +375,7 @@ async function BitShares() {
       "Send token to wallet address <b>" +
       custName +
       "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive the wrapped tokens. Connect wallet for more.";
-    if (account != "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95") {
+    if (account != "0xB75cCf9ddE9825C31cd02c970Ae8Aa5AD6164559") {
       document.getElementById("memo").innerHTML =
         "If you are using the connected wallet, your memo must look like this:"
       document.getElementById("memoformat").innerHTML =
@@ -457,128 +457,6 @@ if(networkValue != null) {
   networkValue = "sep";
 }
 
-/*var chainlist = await chainList(networkValue);
-var chaindata = chainlist[0];
-try { var switchChainId = chaindata['chainId'] } catch (e) { var switchChainId = -1 }
-try { var switchExplorer = chaindata['explorers'][0]['url'] } catch (e) { var switchExplorer = "" }
-try { var switchContract = contracts['contracts'][networkValue] } catch (e) { var switchContract = "" }
-try { var networkTxt = chaindata['title'] } catch (e) { var networkTxt = "" }*/
-    
-/*switch (networkValue)
-{
-  case "sep":
-    var switchChainId = CHAINID_SEPOLIA
-    var switchExplorer = SEPOLIA_EXPLORER
-    var switchContract = SEPOLIA_CONTRACT
-    var networkTxt = "Sepolia"
-  break;
-  case "eos":
-    var switchChainId = CHAINID_EOSEVM_TEST
-    var switchExplorer = EOSEVM_EXPLORER
-    var switchContract = EOSEVM_CONTRACT
-    var networkTxt = "EOS"
-  break;
-  case "bsc":
-    var switchChainId = CHAINID_BSC_TEST
-    var switchExplorer = BSC_EXPLORER
-    var switchContract = BSC_CONTRACT
-    var networkTxt = "Binance Smart Chain"
-  break;
-  case "arb":
-    var switchChainId = CHAINID_ARB_TEST
-    var switchExplorer = ARB_EXPLORER
-    var switchContract = ARB_CONTRACT
-    var networkTxt = "Arbitrum"
-  break;
-  case "op":
-    var switchChainId = CHAINID_OP_TEST
-    var switchExplorer = OP_EXPLORER
-    var switchContract = OP_CONTRACT
-    var networkTxt = "Optimism"
-  break;
-  default:
-    var switchChainId = CHAINID_SEPOLIA
-    var switchExplorer = SEPOLIA_EXPLORER
-    var switchContract = SEPOLIA_CONTRACT
-    var networkTxt = "Sepolia"
-}*/
-/*
-try {
-  window.ethereum
-    ? ethereum
-        .request({ method: "eth_requestAccounts" })
-        .then((accounts) => {
-          // Log public address of user
-          console.log(accounts[0]);
-          // Get network ID
-          let n = ethereum.chainId; // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
-          console.log(n);
-        })
-        .catch((err) => console.log(err))
-    : console.log("Please install MetaMask");
-
-  if (window.ethereum !== undefined) {
-    var provider = new ethers.providers.Web3Provider(window.ethereum);
-    var network = provider.getNetwork();
-    var networkName = network["name"];
-    var chainIdHex = network["chainId"];
-    var chainIdDec = hexToDecimal(chainIdHex);
-    try {
-      switchChainIdHex = Web3.utils.toHex(switchChainId);
-    } catch (error) {
-      switchChainIdHex = "0xaa36a7";
-    }     
-    console.log(switchChainIdHex);
-
-    try {
-      ethereum.request({
-        method: "wallet_switchEthereumChain",
-        params: [{ chainId: switchChainIdHex }],
-      });
-      //window.location.reload();
-    } catch (switchError) {
-      if (switchError.code === 4902) {
-        try {
-          ethereum.request({
-            method: "wallet_addEthereumChain",
-            params: [
-              {
-                chainId: "0xaa36a7",
-                chainName: "Sepolia",
-                rpcUrls: ["https://rpc2.sepolia.org"],
-                nativeCurrency: {
-                  name: "SepoliaETH",
-                  symbol: "ETH",
-                  decimals: 18,
-                },
-                blockExplorerUrls: ["https://sepolia.etherscan.io/"],
-              },
-            ],
-          });
-        } catch (error) {
-          alert(error.message);
-        }
-      }
-    } 
-  } else {
-    console.log("Please install MetaMask");
-    let showmetamaskinfo = document.getElementById("installmetamask");
-    let a = document.createElement("a");
-    a.href = `https://metamask.io/`;
-    a.innerHTML = "MetaMask";
-    a.setAttribute("target", "_blank");
-    showmetamaskinfo.append("For the full experience, \nplease install ");
-    showmetamaskinfo.append(a);
-    showmetamaskinfo.append("!");
-  };
-  
-  ethereum.on('chainChanged', () => {
-  document.location.reload()
-})
-  
-} catch (error) {
-  console.log('window.ethereum()\n' + error.message);
-}*/
 
 function copyToClipboard() {
     var copyText = document.getElementById("memoformat").value;

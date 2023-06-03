@@ -17,10 +17,13 @@ const NODE_TEST = "wss://testnet.xbts.io/ws";
 const CUSTODIAN = "1.2.26653";
 const hexToDecimal = (hex) => parseInt(hex, 16);
 const decToHeximal = (dec) => dec.toString(16);
+try {
 const provider = new ethers.providers.Web3Provider(window.ethereum);
+} catch(e) {
+  console.log(e)
+}
 
-var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
-
+var account = "0xB75cCf9ddE9825C31cd02c970Ae8Aa5AD6164559";
 var global = this; // in global scope.
 var obj;
 var ticker;

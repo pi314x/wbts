@@ -17,10 +17,10 @@ const NODE_TEST = "wss://testnet.xbts.io/ws";
 const CUSTODIAN = "1.2.26653";
 const hexToDecimal = (hex) => parseInt(hex, 16);
 const decToHeximal = (dec) => dec.toString(16);
-try {
-const provider = new ethers.providers.Web3Provider(window.ethereum);
-} catch(e) {
-  console.log(e)
+if (window.ethereum !== undefined) {
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+} else {
+  console.log('MetaMask missing!');
 }
 
 var account = "0xB75cCf9ddE9825C31cd02c970Ae8Aa5AD6164559";

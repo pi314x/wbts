@@ -9,7 +9,7 @@ const ARB_CONTRACT = "0x948F857C55eb5475deDA42BEfb31db9748aFFED5";
 const OP_CONTRACT = "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc";
 const CONTRACTS = {"contracts": { "arb-goerli": "0x948F857C55eb5475deDA42BEfb31db9748aFFED5", 
                                   "bnbt": "0x558d198723a52691EAeaD4EfEA96761f0801cfcB",
-                                  "chi": ""
+                                  "chi": "",
                                   "eos-testnet": "0x5143E5f225EA83bCb9b93eD6039C0Dfc9826f7Ec",
                                   "maticmum": "",
                                   "ogor": "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc",

@@ -42,6 +42,10 @@ var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 var obj;
 var ticker;
 var balances;
+var switchChainId;
+var switchExplorer;
+var switchContract;
+var networkTxt;
 
 const ABI = [
   {
@@ -141,21 +145,28 @@ if (TEST == true) {
   var node = NODE_MAIN;
 }
 
-async function chainData(short = null) {
+async function chainList(short = null) {
   try {
     let url = 'https://chainid.network/chains.json';
-    var obj = await (await fetch(url)).json();
-    if (short != null) {
-      obj = obj.filter(({shortName}) => shortName === short);
-    }
-    return obj;
+    var json = await (await fetch(url)).json();
+    //return cobj;
   } catch (error) {
-    console.log("chainData()\n" + error.message);
-    $.getJSON("include/chains.json", function(json) {
-      console.log(json);
-      return json;
+    console.log("chainList()\n" + error.message);
+    $.getJSON("include/chains.json", function(obj) {
+      console.log(obj);
+      var json = obj;
+      //return obj;
     });
-  }
+  } finally {
+    if (short != null) {
+      json = json.filter(({shortName}) => shortName === short);
+    }
+    var chaindata = json[0];
+    try { switchChainId = chaindata['chainId'] } catch (e) { var switchChainId = -1 }
+    try { switchExplorer = chaindata['explorers'][0]['url'] } catch (e) { var switchExplorer = "" }
+    try { switchContract = contracts['contracts'][networkValue] } catch (e) { var switchContract = "" }
+    try { networkTxt = chaindata['title'] } catch (e) { var networkTxt = "" }
+    return json;
 }
 
 async function connectWallet() {
@@ -377,12 +388,12 @@ if(networkValue != null) {
   networkValue = "sep";
 }
 
-var chaindata = await chainData(networkValue);
-chaindata = chaindata[0];
+/*var chainlist = await chainList(networkValue);
+var chaindata = chainlist[0];
 try { var switchChainId = chaindata['chainId'] } catch (e) { var switchChainId = -1 }
 try { var switchExplorer = chaindata['explorers'][0]['url'] } catch (e) { var switchExplorer = "" }
 try { var switchContract = contracts['contracts'][networkValue] } catch (e) { var switchContract = "" }
-try { var networkTxt = chaindata['title'] } catch (e) { var networkTxt = "" }
+try { var networkTxt = chaindata['title'] } catch (e) { var networkTxt = "" }*/
     
 /*switch (networkValue)
 {
@@ -519,7 +530,7 @@ document.getElementById("maintenance").innerHTML = "UNDER MAINTENANCE!";
 
 async function main() {
   await BitShares();
-  await chainData();
+  await chainList(networkValue);
   await totalSupply();
   ContractAddress();
 }

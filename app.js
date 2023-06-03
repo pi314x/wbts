@@ -376,7 +376,8 @@ if(networkValue != null) {
   networkValue = "sep";
 }
 
-chaindata = (await chainData(networkValue))[0];
+var chaindata = await chainData(networkValue);
+chaindata = chaindata[0];
 try { var switchChainId = chaindata['chainId'] } catch (e) { var switchChainId = -1 }
 try { var switchExplorer = chaindata['explorers'][0]['url'] } catch (e) { var switchExplorer = "" }
 try { var switchContract = contracts['contracts'][networkValue] } catch (e) { var switchContract = "" }

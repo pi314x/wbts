@@ -365,12 +365,12 @@ var networkValue = localStorage.getItem("networkValue");
 if(networkValue != null) {
     $("select[name=network]").val(networkValue);
 } else {
-  networkValue = "sepolia";
+  networkValue = "sep";
 }
 
 switch (networkValue)
 {
-  case "sepolia":
+  case "sep":
     var switchChainId = CHAINID_SEPOLIA
     var switchExplorer = SEPOLIA_EXPLORER
     var switchContract = SEPOLIA_CONTRACT

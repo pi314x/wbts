@@ -608,6 +608,19 @@ function darkMode() {
 
 document.getElementById("maintenance").innerHTML = "UNDER MAINTENANCE!";
 
+  $(function() {
+    var networkValue = localStorage.getItem("networkValue");
+    if(networkValue != null) {
+      $("select[name=network]").val(networkValue);
+    } 
+    $("select[name=network]").on("change", function() {
+      localStorage.setItem("networkValue", $(this).val());
+      await chainList(networkValue);
+      await eth();
+      //location.reload(); 
+    });
+  })
+
 async function main() {
   await BitShares();
   await chainList(networkValue);

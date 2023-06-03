@@ -162,7 +162,7 @@ async function eth() {
     ? ethereum
         .request({ method: "eth_requestAccounts" })
         .then((accounts) => {
-          // Log public address of user
+          // Log public address of user((
           console.log(accounts[0]);
           // Get network ID
           let n = ethereum.chainId; // 0x1 Ethereum, 0x2 testnet, 0x89 Polygon, etc.
@@ -251,7 +251,7 @@ async function connectWallet() {
 function ContractAddress() {
   let contractaddr = document.getElementById("contractaddr");
   let a = document.createElement("a");
-  a.href = `${switchExplorer}token/${switchContract}`;
+  a.href = `${switchExplorer}/token/${switchContract}`;
   a.innerHTML = switchContract;
   a.setAttribute("target", "_blank");
   contractaddr.append("Contract address:\n\n");
@@ -439,7 +439,7 @@ async function unwrap() {
   let txn = await contract.unwrap(wallet.value, unwrapAmount);
   let showhash = document.getElementById("txnhash");
   let a = document.createElement("a");
-  a.href = `${switchExplorer}tx/${txn.hash}`;
+  a.href = `${switchExplorer}/tx/${txn.hash}`;
   a.innerHTML = "Open transaction<br>";
   a.setAttribute("target", "_blank");
   showhash.append(a);

@@ -2,11 +2,6 @@
 // https://github.com/bitshares/bitsharesjs/issues/19
 // https://github.com/BTS-CM/airdrop_tool/blob/main/src/pages/Fetch.jsx
 
-const SEPOLIA_CONTRACT = "0x3AFdF2088eFA3d2b7423d33B9452995C987F9fb1";
-const BSC_CONTRACT = "0x558d198723a52691EAeaD4EfEA96761f0801cfcB";
-const EOSEVM_CONTRACT = "0x5143E5f225EA83bCb9b93eD6039C0Dfc9826f7Ec";
-const ARB_CONTRACT = "0x948F857C55eb5475deDA42BEfb31db9748aFFED5";
-const OP_CONTRACT = "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc";
 const CONTRACTS = {"contracts": { "arb-goerli": "0x948F857C55eb5475deDA42BEfb31db9748aFFED5", 
                                   "bnbt": "0x558d198723a52691EAeaD4EfEA96761f0801cfcB",
                                   "chi": "",
@@ -16,27 +11,12 @@ const CONTRACTS = {"contracts": { "arb-goerli": "0x948F857C55eb5475deDA42BEfb31d
                                   "sep": "0x3AFdF2088eFA3d2b7423d33B9452995C987F9fb1"
                                 }
                   }
-const CHAINID_ETHEREUM = 1;
-const CHAINID_SEPOLIA = 11155111;
-const CHAINID_BSC_MAIN = 56;
-const CHAINID_BSC_TEST = 97;
-const CHAINID_EOSEVM_MAIN = 17777;
-const CHAINID_EOSEVM_TEST = 15557;
-const CHAINID_ARB_MAIN = 42161;
-const CHAINID_ARB_TEST = 421613; ///0x66eed
-const CHAINID_OP_MAIN = 10;
-const CHAINID_OP_TEST = 420;
 const TEST = new Boolean(true);
 const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
 const NODE_TEST = "wss://testnet.xbts.io/ws";
 const CUSTODIAN = "1.2.26653";
 const hexToDecimal = (hex) => parseInt(hex, 16);
 const decToHeximal = (dec) => dec.toString(16);
-const SEPOLIA_EXPLORER = "https://sepolia.etherscan.io/";
-const BSC_EXPLORER = "https://testnet.bscscan.com/";
-const EOSEVM_EXPLORER = "https://explorer.testnet.evm.eosnetwork.com/";
-const ARB_EXPLORER = "https://goerli.arbiscan.io/";
-const OP_EXPLORER = "https://goerli-optimism.etherscan.io/";
 
 var account = "0xaFF9578C3c7DFD634926c5Bc8c5e0E7EFf98fD95";
 var obj;

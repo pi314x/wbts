@@ -22,6 +22,8 @@ const CONTRACTS = {"contracts": { "arb-goerli": "0x948F857C55eb5475deDA42BEfb31d
 const TEST = new Boolean(true);
 const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
 const NODE_TEST = "wss://testnet.xbts.io/ws";
+const BTSDOMAIN_MAIN = "wss://bts.exchange";
+const BTSDOMAIN_TEST = "wss://test.xbts.io";
 const CUSTODIAN = "1.2.26653";
 const hexToDecimal = (hex) => parseInt(hex, 16);
 const decToHeximal = (dec) => dec.toString(16);
@@ -133,8 +135,10 @@ const ABI = [
 
 if (TEST == true) {
   var node = NODE_TEST;
+  var btsDomain = BTSDOMAIN_TEST;
 } else {
   var node = NODE_MAIN;
+  var btsDomain = BTSDOMAIN_MAIN;
 }
 
 async function chainList(short = null) {
@@ -403,7 +407,7 @@ async function BitShares() {
     document.getElementById("ccust").innerHTML = "";
     var showcust = document.getElementById("ccust");
     var a = document.createElement("a");
-    a.href = `https://wallet.bitshares.org/#/account/${custName}`;
+    a.href = `${btsDomain}/#/account/${custName}`;
     a.innerHTML = custName;
     a.setAttribute("target", "_blank");
     showcust.append("Custodian Wallet: ")

@@ -39,7 +39,7 @@ var switchExplorer;
 var switchContract;
 var networkTxt;
 
-document.getElementById("maintenance").innerHTML = "UNDER MAINTENANCE, DO NOT USE!";
+document.getElementById("maintenance").innerHTML = "IN DEVELOPMENT, DO NOT USE!";
 
 const ABI = [
   {

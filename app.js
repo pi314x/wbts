@@ -141,7 +141,7 @@ if (TEST == true) {
   var btsDomain = BTSDOMAIN_MAIN;
 }
 
-async function chainList(short = null) {
+async function chainList(short = null, chainid = null) {
   try {
     let url = 'https://chainid.network/chains.json';
     var json = await (await fetch(url)).json();
@@ -157,6 +157,10 @@ async function chainList(short = null) {
     if (short != null) {
       json = json.filter(({shortName}) => shortName === short);
     }
+    if (chainid != null) {
+      json = json.filter(({chainId}) => chainId === chainid);
+      return json[0];
+    }
     var chaindata = json[0];
     try { global.switchChainId = chaindata['chainId'] } catch (e) { global.switchChainId = -1 }
     try { global.switchExplorer = chaindata['explorers'][0]['url'] } catch (e) { global.switchExplorer = "" }
@@ -165,6 +169,20 @@ async function chainList(short = null) {
     try { document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token between blockchain and " + networkTxt + "."; } catch(e) { console.log(e); }
     return json;
   }
+}
+
+async function metamaskData(chainid = null) {
+   j = await chainList(chainid = chainid);
+   return [{ chainId: chainid,
+             chainName: j[],
+             rpcUrls: j[],
+             nativeCurrency: {
+               name: j[], 
+               symbol: j[], 
+               decimals: j[]
+               },
+             blockExplorerUrls: j[],
+           }]
 }
 
 async function eth() {

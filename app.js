@@ -255,8 +255,8 @@ async function eth() {
                 },
                 blockExplorerUrls: ["https://sepolia.etherscan.io/"],
               },
-            ],*/
-            ,
+            ],
+            ,*/
        /*   });
         } catch (error) {
           alert(error.message);

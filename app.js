@@ -173,7 +173,7 @@ async function chainList(short = null, chain = null) {
 
 async function metamaskData(chainId = null) {
    var j = await chainList(short = null, chain = chainId);
-   return [{ chainId: chainId,
+   return [{ chainId: Web3.utils.toHex(chainId),
              chainName: j['name'],
              rpcUrls: j['rpc'],
              nativeCurrency: {

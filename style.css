@@ -187,7 +187,7 @@ input[type=number] {
   background-color: #0068B1;
   color: white;
   width: fit-content;
-  font-style: bold;
+  /*font-style: italic;*/
   margin: auto;
 }
 

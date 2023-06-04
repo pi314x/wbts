@@ -181,7 +181,7 @@ async function metamaskData(chainId = null) {
                symbol: j['nativeCurrency']['symbol'],
                decimals: j['nativeCurrency']['decimals'],
                },
-             blockExplorerUrls: j['explorers'],
+             blockExplorerUrls: j['explorers'][0]['url'],
            }]
 }
 

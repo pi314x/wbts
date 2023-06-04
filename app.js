@@ -211,9 +211,26 @@ async function eth() {
     } catch (error) {
       switchChainIdHex = "0xaa36a7";
     }     
+    
     console.log(switchChainIdHex);
-
+    
     try {
+      const res = await window.ethereum.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: switchChainIdHex }],
+      });
+    } catch (switchError) {
+      if (switchError.code === 4902) {
+        try {
+          await window.ethereum.request({
+            id: 1,
+            jsonrpc: "2.0",
+            method: "wallet_addEthereumChain",
+            params: await metamaskData(chainid = hexToDecimal(switchChainIdHex)),
+          });
+        } catch (addError) {
+        }
+      }/*
       ethereum.request({
         method: "wallet_switchEthereumChain",
         params: [{ chainId: switchChainIdHex }],
@@ -228,23 +245,23 @@ async function eth() {
             params: await metamaskData(chainid = hexToDecimal(switchChainIdHex))
             /*[
               {
-                chainId: "0xaa36a7",
-                chainName: "Sepolia",
-                rpcUrls: ["https://rpc2.sepolia.org"],
-                nativeCurrency: {
-                  name: "SepoliaETH",
-                  symbol: "ETH",
-                  decimals: 18,
+                 chainId: "0x13881",
+                 rpcUrls: ["https://rpc-mumbai.maticvigil.com"],
+                 chainName: "Polygon Testnet Mumbai",
+                 nativeCurrency: {
+                   name: "tMATIC",
+                   symbol: "tMATIC", // 2-6 characters long
+                   decimals: 18,
                 },
                 blockExplorerUrls: ["https://sepolia.etherscan.io/"],
               },
             ],*/
             ,
-          });
+       /*   });
         } catch (error) {
           alert(error.message);
         }
-      }
+      }*/
     } 
   } else {
     console.log("Please install MetaMask");

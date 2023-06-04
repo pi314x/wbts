@@ -262,7 +262,8 @@ function ContractAddress() {
   a.innerHTML = switchContract;
   a.setAttribute("target", "_blank");
   contractaddr.append("Contract address:\n\n");
-  contractaddr.append(a);
+  contractaddr.
+  ;
 }
 
 function getContract() {
@@ -382,6 +383,7 @@ async function BitShares() {
     if (account != "0xB75cCf9ddE9825C31cd02c970Ae8Aa5AD6164559") {
       document.getElementById("memo").innerHTML =
         "If you are using the connected wallet, your memo must look like this:"
+      document.getElementById("memoformat").innerHTML = "";
       var copyaddr = document.getElementById("memoformat");
       var a = document.createElement("a");
       a.href = `#`;

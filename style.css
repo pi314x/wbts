@@ -187,9 +187,8 @@ input[type=number] {
   background-color: #0068B1;
   color: white;
   width: fit-content;
-  font-style: italic;
+  font-style: bold;
   margin: auto;
-  padding: 0.25rem;
 }
 
 .form-select-sm {

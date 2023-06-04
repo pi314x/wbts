@@ -172,7 +172,7 @@ async function chainList(short = null, chain = null) {
 }
 
 async function metamaskData(chainId = null) {
-   j = await chainList(short = null, chain = chainId);
+   var j = await chainList(short = null, chain = chainId);
    return [{ chainId: chainId,
              chainName: j['name'],
              rpcUrls: j['rpc'],

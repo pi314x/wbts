@@ -176,7 +176,6 @@ input[type=number] {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   padding-left: 0.5rem; 
-  margin:0.1rem;
 }
 
 .memoformat:empty {
@@ -190,6 +189,7 @@ input[type=number] {
   width: fit-content;
   font-style: italic;
   margin: auto;
+  padding: 0.25rem;
 }
 
 .form-select-sm {

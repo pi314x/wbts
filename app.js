@@ -157,7 +157,7 @@ async function chainList(short = null, chain = null) {
     if (short != null) {
       json = json.filter(({shortName}) => shortName === short);
     }
-    if (chai != null) {
+    if (chain != null) {
       json = json.filter(({chainId}) => chainId === chain);
       return json[0];
     }

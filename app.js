@@ -262,8 +262,7 @@ function ContractAddress() {
   a.innerHTML = switchContract;
   a.setAttribute("target", "_blank");
   contractaddr.append("Contract address:\n\n");
-  contractaddr.
-  ;
+  contractaddr.append(a);
 }
 
 function getContract() {

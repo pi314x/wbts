@@ -39,7 +39,7 @@ var switchExplorer;
 var switchContract;
 var networkTxt;
 
-document.getElementById("maintenance").innerHTML = "IN DEVELOPMENT! DON'T USE IF YOU DON'T KNOW WHAT YOU DO.";
+document.getElementById("maintenance").innerHTML = "IN DEVELOPMENT, DO NOT USE!";
 
 const ABI = [
   {

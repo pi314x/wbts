@@ -173,15 +173,15 @@ async function chainList(short = null, chainid = null) {
 
 async function metamaskData(chainid = null) {
    j = await chainList(chainid = chainid);
-   return [{ chainId: chainid,
-             chainName: j[],
-             rpcUrls: j[],
+   return [{ chainId: Web3.utils.toHex(chainid),
+             chainName: j['name'],
+             rpcUrls: j['rpc'],
              nativeCurrency: {
-               name: j[], 
-               symbol: j[], 
-               decimals: j[]
+               name: j['nativeCurrency']['name'], 
+               symbol: j['nativeCurrency']['symbol'],
+               decimals: j['nativeCurrency']['decimals'],
                },
-             blockExplorerUrls: j[],
+             blockExplorerUrls: j['explorers'],
            }]
 }
 
@@ -224,7 +224,8 @@ async function eth() {
         try {
           ethereum.request({
             method: "wallet_addEthereumChain",
-            params: [
+            params: await metamaskData(chainIdDec) 
+            /*[
               {
                 chainId: "0xaa36a7",
                 chainName: "Sepolia",
@@ -236,7 +237,7 @@ async function eth() {
                 },
                 blockExplorerUrls: ["https://sepolia.etherscan.io/"],
               },
-            ],
+            ],*/
           });
         } catch (error) {
           alert(error.message);

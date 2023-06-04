@@ -22,8 +22,8 @@ const CONTRACTS = {"contracts": { "arb-goerli": "0x948F857C55eb5475deDA42BEfb31d
 const TEST = new Boolean(true);
 const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
 const NODE_TEST = "wss://testnet.xbts.io/ws";
-const BTSDOMAIN_MAIN = "wss://bts.exchange";
-const BTSDOMAIN_TEST = "wss://test.xbts.io";
+const BTSDOMAIN_MAIN = "https://bts.exchange";
+const BTSDOMAIN_TEST = "https://test.xbts.io";
 const CUSTODIAN = "1.2.26653";
 const hexToDecimal = (hex) => parseInt(hex, 16);
 const decToHeximal = (dec) => dec.toString(16);

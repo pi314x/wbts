@@ -482,15 +482,15 @@ function checkResource(url) {
   request.onreadystatechange = function(){
       if (request.readyState === 4){
           if (request.status === 404) {  
-              return False;
+              return false;
           }  
           if (request.status === 403) {  
-              return False;
+              return false;
           }          
       }
   };
   //request.send();
-  return True;
+  return true;
 };
   
 function darkMode() {

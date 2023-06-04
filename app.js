@@ -480,7 +480,7 @@ function checkResource (url) {
   var req = new XMLHttpRequest();
   req.open('HEAD', true);
   req.send();
-  if (req.status in (403, 404) {
+  if (req.status in (403, 404)) {
     return False;
   } else {
     return True;

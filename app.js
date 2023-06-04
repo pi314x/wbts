@@ -375,8 +375,16 @@ async function BitShares() {
     if (account != "0xB75cCf9ddE9825C31cd02c970Ae8Aa5AD6164559") {
       document.getElementById("memo").innerHTML =
         "If you are using the connected wallet, your memo must look like this:"
-      document.getElementById("memoformat").innerHTML =
-        networkValue + ":" + account;
+      <a href="#" onclick="CopyToClipboard('memoformat');return false;"><img src="img/clipboard.svg" class="responsive" alt="Copy address"></img></a>
+      var copyaddr = document.getElementById("memoformat");
+      var a document.createElement("a");
+      a.href = `#`;
+      a.innerHTML = `<img src="img/clipboard.svg" class="responsive" alt="Copy address"></img>`;
+      a.setAttribute("onclick", "CopyToClipboard('memoformat');return false;");
+      copyaddr.append(account);
+      copyaddr.append(a);
+      /*document.getElementById("memoformat").innerHTML =
+        networkValue + ":" + account;*/
     }
     document.getElementById("fees").innerHTML =
       "Please be aware that " +

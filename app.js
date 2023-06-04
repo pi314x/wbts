@@ -475,6 +475,17 @@ function CopyToClipboard(id) {
   document.execCommand('copy');
   window.getSelection().removeAllRanges();
 }
+
+function checkResource (url) {
+  var req = new XMLHttpRequest();
+  req.open('HEAD', true);
+  req.send();
+  if (req.status in (403, 404) {
+    return False;
+  } else {
+    return True;
+  }
+};
   
 function darkMode() {
    var element = document.body;

@@ -410,7 +410,7 @@ async function BitShares() {
     showcust.append(a);
 
     document.getElementById("cbalcust").innerHTML =
-      "Custodian Treasury amount: " + total + " " + symbol;
+      "Custodian Reserve: " + total + " " + symbol;
     
   } catch (error) {
     console.log('BitShares()\n' + error.message);

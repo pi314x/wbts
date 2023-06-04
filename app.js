@@ -230,38 +230,7 @@ async function eth() {
           });
         } catch (addError) {
         }
-      }/*
-      ethereum.request({
-        method: "wallet_switchEthereumChain",
-        params: [{ chainId: switchChainIdHex }],
-      });
-      //window.location.reload();
-    } catch (switchError) {
-      if (switchError.code === 4902) {
-        try {
-          
-          ethereum.request({
-            method: "wallet_addEthereumChain",
-            params: await metamaskData(chainid = hexToDecimal(switchChainIdHex))
-            /*[
-              {
-                 chainId: "0x13881",
-                 rpcUrls: ["https://rpc-mumbai.maticvigil.com"],
-                 chainName: "Polygon Testnet Mumbai",
-                 nativeCurrency: {
-                   name: "tMATIC",
-                   symbol: "tMATIC", // 2-6 characters long
-                   decimals: 18,
-                },
-                blockExplorerUrls: ["https://sepolia.etherscan.io/"],
-              },
-            ],
-            ,*/
-       /*   });
-        } catch (error) {
-          alert(error.message);
-        }
-      }*/
+      }
     } 
   } else {
     console.log("Please install MetaMask");
@@ -288,8 +257,15 @@ async function connectWallet() {
   var prev_account = account;
   let accountList = await provider.send("eth_requestAccounts", []);
   account = await toChecksumAddress(accountList[0]);
-  document.getElementById("caccount").innerHTML =
-    "Active account: " + account;
+  document.getElementById("caccount").innerHTML = "";
+    //"Active account: " + account;
+  let caccount = document.getElementById("caccount");
+  let a = document.createElement("a");
+  a.href = `${switchExplorer}/address/${account}`;
+  a.innerHTML = account;
+  a.setAttribute("target", "_blank");
+  contractaddr.append("Active account:\n");
+  contractaddr.append(a);
   await balanceOf(account);
   if (prev_account != account) {
     document.getElementById("txnhash").innerHTML = "";

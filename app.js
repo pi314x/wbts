@@ -476,15 +476,21 @@ function CopyToClipboard(id) {
   window.getSelection().removeAllRanges();
 }
 
-function checkResource (url) {
-  var req = new XMLHttpRequest();
-  req.open('HEAD', true);
-  req.send();
-  if (req.status in (403, 404)) {
-    return False;
-  } else {
-    return True;
-  }
+function checkResource(url) {
+  var request = new XMLHttpRequest();  
+  request.open('GET', url, true);
+  request.onreadystatechange = function(){
+      if (request.readyState === 4){
+          if (request.status === 404) {  
+              return False;
+          }  
+          if (request.status === 403) {  
+              return False;
+          }          
+      }
+  };
+  //request.send();
+  return True;
 };
   
 function darkMode() {

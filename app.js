@@ -11,6 +11,7 @@ const CONTRACTS = {"contracts": { "arb-goerli": "0x948F857C55eb5475deDA42BEfb31d
                                   "sep": "0x3AFdF2088eFA3d2b7423d33B9452995C987F9fb1"
                                 }
                   }
+
 const TEST = new Boolean(true);
 const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
 const NODE_TEST = "wss://testnet.xbts.io/ws";
@@ -29,7 +30,7 @@ var switchExplorer;
 var switchContract;
 var networkTxt;
 
-//var provider;
+document.getElementById("maintenance").innerHTML = "UNDER MAINTENANCE, DO NOT USE!";
 
 const ABI = [
   {
@@ -466,8 +467,6 @@ function darkMode() {
    var element = document.body;
    element.classList.toggle("inverse");
 }
-
-document.getElementById("maintenance").innerHTML = "UNDER MAINTENANCE!";
 
 async function main() {
   await BitShares();

@@ -141,7 +141,7 @@ if (TEST == true) {
   var btsDomain = BTSDOMAIN_MAIN;
 }
 
-async function chainList(short = null, chainid = null) {
+async function chainList(short = null, chain = null) {
   try {
     let url = 'https://chainid.network/chains.json';
     var json = await (await fetch(url)).json();
@@ -157,8 +157,8 @@ async function chainList(short = null, chainid = null) {
     if (short != null) {
       json = json.filter(({shortName}) => shortName === short);
     }
-    if (chainid != null) {
-      json = json.filter(({chainId}) => chainId === chainid);
+    if (chai != null) {
+      json = json.filter(({chainId}) => chainId === chain);
       return json[0];
     }
     var chaindata = json[0];
@@ -171,9 +171,9 @@ async function chainList(short = null, chainid = null) {
   }
 }
 
-async function metamaskData(chainid = null) {
-   j = await chainList(chainid = chainid);
-   return [{ chainId: Web3.utils.toHex(chainid),
+async function metamaskData(chainId = null) {
+   j = await chainList(chain = chainId);
+   return [{ chainId: Web3.utils.toHex(chainId),
              chainName: j['name'],
              rpcUrls: j['rpc'],
              nativeCurrency: {
@@ -224,7 +224,7 @@ async function eth() {
         try {
           ethereum.request({
             method: "wallet_addEthereumChain",
-            params: await metamaskData(chainIdDec) 
+            params: await metamaskData(chainid = chainIdDec) 
             /*[
               {
                 chainId: "0xaa36a7",

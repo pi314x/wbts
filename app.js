@@ -224,7 +224,7 @@ async function eth() {
         try {
           ethereum.request({
             method: "wallet_addEthereumChain",
-            params: await metamaskData(chainid = chainIdDec) 
+            params: await metamaskData(chainid = hexToDecimal(switchChainIdHex))
             /*[
               {
                 chainId: "0xaa36a7",

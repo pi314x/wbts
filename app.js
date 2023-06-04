@@ -222,11 +222,11 @@ async function eth() {
     } catch (switchError) {
       if (switchError.code === 4902) {
         try {
-          await metamaskData(chainid = hexToDecimal(switchChainIdHex))
+          
           ethereum.request({
             method: "wallet_addEthereumChain",
-            params: 
-            [
+            params: await metamaskData(chainid = hexToDecimal(switchChainIdHex))
+            /*[
               {
                 chainId: "0xaa36a7",
                 chainName: "Sepolia",
@@ -238,7 +238,8 @@ async function eth() {
                 },
                 blockExplorerUrls: ["https://sepolia.etherscan.io/"],
               },
-            ],
+            ],*/
+            ,
           });
         } catch (error) {
           alert(error.message);

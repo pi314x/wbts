@@ -475,23 +475,6 @@ function CopyToClipboard(id) {
   document.execCommand('copy');
   window.getSelection().removeAllRanges();
 }
-
-function checkResource(url) {
-  var request = new XMLHttpRequest();  
-  request.open('GET', url, true);
-  request.onreadystatechange = function(){
-      if (request.readyState === 4){
-          if (request.status === 404) {  
-              return false;
-          }  
-          if (request.status === 403) {  
-              return false;
-          }          
-      }
-  };
-  //request.send();
-  return true;
-};
   
 function darkMode() {
    var element = document.body;

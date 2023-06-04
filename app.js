@@ -380,7 +380,7 @@ async function BitShares() {
       a.href = `#`;
       a.innerHTML = `<img src="img/clipboard.svg" class="responsive" alt="Copy address" style="background-color: #ccc;"></img>`;
       a.setAttribute("onclick", "CopyToClipboard('memoformat');return false;");
-      copyaddr.append(networkValue + ":" + account + "&nbsp;");
+      copyaddr.append(networkValue + ":" + account + " ");
       copyaddr.append(a);
       /*document.getElementById("memoformat").innerHTML =
         networkValue + ":" + account;*/

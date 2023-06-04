@@ -24,7 +24,7 @@ const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
 const NODE_TEST = "wss://testnet.xbts.io/ws";
 const BTSDOMAIN_MAIN = "https://bts.exchange";
 const BTSDOMAIN_TEST = "https://test.xbts.io";
-const CUSTODIAN = "1.2.26653";
+const CUSTODIAN = "1.2.26657";
 const hexToDecimal = (hex) => parseInt(hex, 16);
 const decToHeximal = (dec) => dec.toString(16);
 const provider = ((window.ethereum != null) ? new ethers.providers.Web3Provider(window.ethereum) : ethers.providers.getDefaultProvider());

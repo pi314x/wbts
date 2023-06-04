@@ -376,7 +376,7 @@ async function BitShares() {
       document.getElementById("memo").innerHTML =
         "If you are using the connected wallet, your memo must look like this:"
       var copyaddr = document.getElementById("memoformat");
-      var a document.createElement("a");
+      var a = document.createElement("a");
       a.href = `#`;
       a.innerHTML = `<img src="img/clipboard.svg" class="responsive" alt="Copy address"></img>`;
       a.setAttribute("onclick", "CopyToClipboard('memoformat');return false;");

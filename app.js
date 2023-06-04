@@ -381,7 +381,7 @@ async function BitShares() {
       "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive the wrapped tokens. Connect wallet for more.";
     if (account != "0xB75cCf9ddE9825C31cd02c970Ae8Aa5AD6164559") {
       document.getElementById("memo").innerHTML =
-        "If you are using the connected wallet, your memo must look like this:"
+        "If you are using the connected wallet, your memo must look as shown below. Please use the clipboard symbol for using it."
       document.getElementById("memoformat").innerHTML = "";
       var copyaddr = document.getElementById("memoformat");
       var a = document.createElement("a");

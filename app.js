@@ -254,6 +254,7 @@ async function eth() {
 }
 
 async function connectWallet() {
+  await eth();
   var prev_account = account;
   let accountList = await provider.send("eth_requestAccounts", []);
   account = await toChecksumAddress(accountList[0]);

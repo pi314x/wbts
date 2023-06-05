@@ -245,7 +245,7 @@ async function eth() {
   };
   
   ethereum.on('chainChanged', () => {
-  document.location.reload()
+  //document.location.reload()
 })
   
 } catch (error) {

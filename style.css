@@ -215,11 +215,12 @@ input[type=number] {
 }
 
 .header {
+  text-decoration: none;
   color: white;
 }
 
 .header:hover {
-  background-color: white;
+  background-color: #408EC5;
   color: white;
 }
 

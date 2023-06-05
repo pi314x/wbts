@@ -224,6 +224,15 @@ input[type=number] {
   color: white;
 }
 
+a {
+  color: 0068B1;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #408EC5;
+}
+
 #Wrap {background-color: #ccc;}
 #Unwrap {background-color: #ccc;}
 #PoR {background-color: #ccc;}

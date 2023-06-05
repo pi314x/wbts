@@ -38,6 +38,7 @@ var switchChainId;
 var switchExplorer;
 var switchContract;
 var networkTxt;
+var networkName;
 
 document.getElementById("maintenance").innerHTML = "IN DEVELOPMENT, DO NOT USE!";
 
@@ -166,6 +167,7 @@ async function chainList(short = null, chain = null) {
     try { global.switchExplorer = chaindata['explorers'][0]['url'] } catch (e) { global.switchExplorer = "" }
     try { global.switchContract = CONTRACTS['contracts'][networkValue] } catch (e) { global.switchContract = "" }
     try { global.networkTxt = chaindata['title'] } catch (e) { global.networkTxt = "" }
+    try { global.networkName = chaindata['name'] } catch (e) { global.networkTxt = "" }
     try { document.getElementById("wrappertext").innerHTML = "Wrap and unwrap token between blockchain and " + networkTxt + "."; } catch(e) { console.log(e); }
     return json;
   }

@@ -214,7 +214,17 @@ input[type=number] {
     max-width: 100%;
 }
 
+.header {
+  color: white;
+}
+
+.header:hover {
+  background-color: white;
+  color: white;
+}
+
 #Wrap {background-color: #ccc;}
 #Unwrap {background-color: #ccc;}
 #PoR {background-color: #ccc;}
+
 

@@ -225,11 +225,12 @@ input[type=number] {
 }
 
 a {
-  color: 0068B1;
+  color: #0068B1;
   text-decoration: none;
 }
 
 a:hover {
+  color: white;
   background-color: #408EC5;
 }
 

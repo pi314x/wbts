@@ -217,7 +217,7 @@ async function eth() {
     try {
       const res = await window.ethereum.request({
         method: "wallet_switchEthereumChain",
-        params: [{ chainId: "0xaa36a7" }],
+        params: [{ chainId: ethereum.chainId }],
       });
     } catch (switchError) {
       if (switchError.code === 4902) {

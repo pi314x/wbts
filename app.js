@@ -258,14 +258,15 @@ async function connectWallet() {
   let accountList = await provider.send("eth_requestAccounts", []);
   account = await toChecksumAddress(accountList[0]);
   document.getElementById("caccount").innerHTML = "Active account: " + account;
-  /*document.getElementById("caccount").innerHTML = "";
+  document.getElementById("caccount").innerHTML = "";
   let caccount = document.getElementById("caccount");
   let a = document.createElement("a");
   a.href = `${switchExplorer}/address/${account}`;
   a.innerHTML = account;
   a.setAttribute("target", "_blank");
+  a.setAttribute("class", "header");
   caccount.append("Active account: ");
-  caccount.append(a);*/
+  caccount.append(a);
   await balanceOf(account);
   if (prev_account != account) {
     document.getElementById("txnhash").innerHTML = "";

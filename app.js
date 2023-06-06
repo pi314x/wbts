@@ -519,7 +519,7 @@ async function main() {
 async function loadData() {
     const { data, error } = await _supabase
             .from('unwrapper_status')
-            .select(*)
+            .select()
     console.log(data)
     console.log(error)
 }

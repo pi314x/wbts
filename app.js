@@ -399,7 +399,7 @@ async function BitShares() {
     let decimals = obj[0]["precision"];
     let custName = obj[1]["name"];
     let fees = Number(ticker["highest_bid"]).toFixed(0);
-    let minimum = Number(fees) + 1;
+    let minimum = Number(fees) + 2;
     var total = total / Math.pow(10, decimals);
 
     document.getElementById("custname").innerHTML =
@@ -423,11 +423,11 @@ async function BitShares() {
     document.getElementById("fees").innerHTML =
       "Please be aware that " +
       fees +
-      " token which equals approximately 1 USDT will be deducted as a gateway fee.";
+      " BTS which equals approximately 1 USDT will be deducted as a gateway fee.";
     document.getElementById("minimum").innerHTML =
       "Minimum wrap amount: " +
       minimum +
-      " token.";
+      " BTS.";
 
     document.getElementById("ccust").innerHTML = "";
     var showcust = document.getElementById("ccust");

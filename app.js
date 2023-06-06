@@ -518,7 +518,7 @@ async function main() {
 //https://onebite.dev/play-with-supabase-database-in-website-with-javascript/
 async function loadData() {
     const { data, error } = await _supabase
-            .from('status')
+            .from('rpc_status')
             .select()
     console.log(data)
     console.log(error)

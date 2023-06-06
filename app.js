@@ -523,7 +523,7 @@ async function loadData() {
     const { data, error } = await _supabase
             .from('unwrapper_status')
             .select()
-            .order('name', { ascending: false })
+            .order('name', { ascending: true })
     
     console.log(data)
     console.log(error)
@@ -533,7 +533,7 @@ async function loadData() {
         const parent = document.getElementById('service')
 
         let contents = ''
-        contents += `<div>Please find below the system status of the unwrapper services.</div>` 
+        contents += `<div>Please find below the system status of the unwrapper services.</div></p></p>` 
         data.forEach(function(item){
             contents += `<div>${emojis[item.running]} ${item.name}</div>` 
         })

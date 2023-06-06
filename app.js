@@ -523,6 +523,7 @@ async function loadData() {
     const { data, error } = await _supabase
             .from('unwrapper_status')
             .select()
+            .order('name', { ascending: false })
     
     console.log(data)
     console.log(error)

@@ -403,7 +403,7 @@ async function BitShares() {
     var total = total / Math.pow(10, decimals);
 
     document.getElementById("custname").innerHTML =
-      "Send token to wallet address <b>" +
+      "Send your desired amount of BitShares to the wallet address <b>" +
       custName +
       "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive the wrapped tokens.<br /><br />" +
       "<img src = 'img/send_bts.png' class = 'img-fluid' style = 'border-radius: 8px; max-width: 80%;'/>" +

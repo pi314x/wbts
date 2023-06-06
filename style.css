@@ -115,7 +115,7 @@ input[type=number] {
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 8px 14px;
   transition: 0.3s;
   font-size: 0.95rem;
   border-radius: 8px 8px 0px 0px;

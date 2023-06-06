@@ -520,8 +520,21 @@ async function loadData() {
     const { data, error } = await _supabase
             .from('unwrapper_status')
             .select()
+    
     console.log(data)
     console.log(error)
+  
+    if(!error) {
+        //loop display data here
+        const parent = document.getElementById('service')
+
+        let contents = ''
+        data.forEach(function(item){
+            contents += `<div> ${item.name} - ${item.running}</div>` 
+        })
+
+        parent.insertAdjacentHTML('beforeend', contents)
+    }
 }
 loadData()
 

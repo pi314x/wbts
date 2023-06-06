@@ -40,6 +40,10 @@ var switchContract;
 var networkTxt;
 var networkName;
 
+const SUPABASE_URL = 'https://ceuszdcbuxcpbtungcam.supabase.co'
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNldXN6ZGNidXhjcGJ0dW5nY2FtIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODYwNjYzOTcsImV4cCI6MjAwMTY0MjM5N30.iQe7_E0MEyfUPjsCuJo8uOY0kYJv66UU18p29zTWkgQ'
+const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
 document.getElementById("maintenance").innerHTML = "IN DEVELOPMENT, DO NOT USE ON MAINNET!";
 
 const ABI = [
@@ -510,5 +514,15 @@ async function main() {
   await totalSupply();
   ContractAddress();
 }
+
+//https://onebite.dev/play-with-supabase-database-in-website-with-javascript/
+async function loadData() {
+    const { data, error } = await _supabase
+            .from('status')
+            .select()
+    console.log(data)
+    console.log(error)
+}
+loadData()
 
 window.addEventListener("load", main);

@@ -40,7 +40,7 @@ var switchContract;
 var networkTxt;
 var networkName;
 
-document.getElementById("maintenance").innerHTML = "IN DEVELOPMENT, DO NOT USE!";
+document.getElementById("maintenance").innerHTML = "IN DEVELOPMENT, DO NOT USE ON MAINNET!";
 
 const ABI = [
   {

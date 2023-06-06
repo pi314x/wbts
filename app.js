@@ -1,4 +1,4 @@
-// https://blog.devvivek.tech/build-your-first-web-30-application-with-html-css-javascript-and-remix-ide
+                  // https://blog.devvivek.tech/build-your-first-web-30-application-with-html-css-javascript-and-remix-ide
 // https://github.com/bitshares/bitsharesjs/issues/19
 // https://github.com/BTS-CM/airdrop_tool/blob/main/src/pages/Fetch.jsx
 
@@ -435,11 +435,11 @@ async function BitShares() {
     a.href = `${btsDomain}/#/account/${custName}`;
     a.innerHTML = custName;
     a.setAttribute("target", "_blank");
-    showcust.append("Custodian Wallet: ")
+    showcust.append("Custodian account: ")
     showcust.append(a);
 
     document.getElementById("cbalcust").innerHTML =
-      "Custodian Reserves: " + total + " " + symbol;
+      "Custodian reserves: " + total + " " + symbol;
     
   } catch (error) {
     console.log('BitShares()\n' + error.message);

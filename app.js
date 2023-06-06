@@ -509,16 +509,17 @@ function darkMode() {
 }
 
 async function main() {
+  await ServiceData();
   await BitShares();
   await chainList(networkValue);
   await eth();
   await totalSupply();
   ContractAddress();
-  loadData();
+
 }
 
 //https://onebite.dev/play-with-supabase-database-in-website-with-javascript/
-async function loadData() {
+async function ServiceData() {
   
     const { data, error } = await _supabase
             .from('unwrapper_status')

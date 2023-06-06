@@ -406,7 +406,7 @@ async function BitShares() {
       "Send token to wallet address <b>" +
       custName +
       "</b>and add the network and ERC20 address separated by a colon into the memo field where you want to receive the wrapped tokens.</br>Connect your wallet for the correct format." *
-      "<img src = './img/send_bts.png' class = 'form-select-sm'/>"
+      '<img src = "./img/send_bts.png" class = "form-select-sm" />'
     if (account != "0xB75cCf9ddE9825C31cd02c970Ae8Aa5AD6164559") {
       document.getElementById("memo").innerHTML =
         "If you are using the connected wallet, your memo must have the format as shown below. Please use the clipboard symbol to have it ready once you need it."

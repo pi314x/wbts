@@ -538,7 +538,6 @@ async function loadData() {
             contents += `<div>${emojis[item.running]} ${item.name}</div>` 
         })
         
-        contents += `<p></p>` 
         parent.insertAdjacentHTML('beforeend', contents)
     }
 }

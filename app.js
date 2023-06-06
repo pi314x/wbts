@@ -406,7 +406,7 @@ async function BitShares() {
       "Send token to wallet address <b>" +
       custName +
       "</b>and add the network and ERC20 address separated by a colon into the memo field where you want to receive the wrapped tokens.<br />" +
-      "<img src = 'img/send_bts.png' class = 'img-fluid' style = 'border-radius: 8px; max-width: 50%;'/>" +
+      "<img src = 'img/send_bts.png' class = 'img-fluid' style = 'border-radius: 8px; max-width: 80%;'/>" +
       "<br />Connect your wallet to get the correct format."
     if (account != "0xB75cCf9ddE9825C31cd02c970Ae8Aa5AD6164559") {
       document.getElementById("memo").innerHTML =

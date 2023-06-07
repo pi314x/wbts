@@ -511,6 +511,7 @@ function darkMode() {
 }
 
 async function main() {
+  await Networks();
   await ServiceData();
   await BitShares();
   await chainList(networkValue);
@@ -545,36 +546,38 @@ async function ServiceData() {
     }
 }
 
-const networksDropDown = document.getElementById("networksDropDown");
-const networksData = {
-  "arb-goerli": "Arbitrum One",
-  "bnbt": "Binance Smart Chain",
-  "eos-testnet": "EOS EVM",
-  "chi": "Gnosis Chain",
-  "ogor": "Optimism",
-  "maticmum": "Polygon",
-  "sep": "Sepolia"
-}
-
-for (let key in networksData) {
-  let option = document.createElement("option");
-  option.setAttribute('value', key);
-  option.innerHTML = networksData[key];
-  try {
-    const { data, error } = await _supabase
-            .from('unwrapper_status')
-            .select()
-            .eq('short_name', key)
-            .eq('running', FALSE);
-    if(!error) {
-      option.setAttribute('disabled', ''); 
-    } catch (error) {
-      console.log(error);
-    }
+async function Networks() {
+  const networksDropDown = document.getElementById("networksDropDown");
+  const networksData = {
+    "arb-goerli": "Arbitrum One",
+    "bnbt": "Binance Smart Chain",
+    "eos-testnet": "EOS EVM",
+    "chi": "Gnosis Chain",
+    "ogor": "Optimism",
+    "maticmum": "Polygon",
+    "sep": "Sepolia"
   }
-  /*let optionText = document.createTextNode(key);
-  /*option.appendChild(optionText);*/
-  networksDropDown.appendChild(option);
+
+  for (let key in networksData) {
+    let option = document.createElement("option");
+    option.setAttribute('value', key);
+    option.innerHTML = networksData[key];
+    try {
+      const { data, error } = await _supabase
+              .from('unwrapper_status')
+              .select()
+              .eq('short_name', key)
+              .eq('running', FALSE);
+      if(!error) {
+        option.setAttribute('disabled', ''); 
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    /*let optionText = document.createTextNode(key);
+    /*option.appendChild(optionText);*/
+    networksDropDown.appendChild(option);
+  }
 }
 
 window.addEventListener("load", main);

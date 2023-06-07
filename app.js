@@ -568,7 +568,7 @@ async function Networks() {
               .select()
               .eq('short_name', key)
               .eq('running', false);
-      if(!error) {
+      if(!error & data.length == 1) {
         option.setAttribute('disabled', ''); 
       } else {
         console.log(error);

@@ -163,8 +163,7 @@ function openTab(evt, tabName, color) {
     $("select[name=network]").on("change", function() {
       localStorage.setItem("networkValue", $(this).val());
       const networkValueIndex = networkValue.selectedIndex;
-      //location.reload(); 
-main();
+      location.reload(); 
     });
   })
   

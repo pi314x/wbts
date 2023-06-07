@@ -573,6 +573,8 @@ async function Networks() {
       } else {
         console.log(error);
       }
+    } catch (error) {
+      console.log(error);
     }
     /*let optionText = document.createTextNode(key);
     /*option.appendChild(optionText);*/

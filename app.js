@@ -45,6 +45,14 @@ const SUPABASE_URL = 'https://ceuszdcbuxcpbtungcam.supabase.co'
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNldXN6ZGNidXhjcGJ0dW5nY2FtIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODYwNjYzOTcsImV4cCI6MjAwMTY0MjM5N30.iQe7_E0MEyfUPjsCuJo8uOY0kYJv66UU18p29zTWkgQ'
 const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
+const networksDropDown = document.getElementById("networksDropDown");
+const networksData = {
+  "Australia": "",
+  "Canada": "",
+  "UK": "",
+  "USA": ""
+}
+
 document.getElementById("maintenance").innerHTML = "IN DEVELOPMENT, DO NOT USE ON MAINNET!";
 
 const ABI = [

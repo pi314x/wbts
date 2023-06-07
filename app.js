@@ -451,9 +451,9 @@ async function BitShares() {
       copyaddr.append(a);
     }
     document.getElementById("fees").innerHTML =
-      "Please be aware that " +
+      "Please be aware that a minimum of " +
       fees +
-      " BTS which equals approximately 1 USDT will be deducted as a gateway fee.";
+      " BTS or " + 100/fees + " % will be deducted as a gateway fee.";
     document.getElementById("minimum").innerHTML =
       "Minimum wrap amount: " +
       minimum +

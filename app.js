@@ -577,6 +577,9 @@ async function Networks() {
     } catch (error) {
       console.log(error);
     }
+    if (key = networkValue) {
+      option.setAttribute("selected", "selected");
+    }
     
     /*let optionText = document.createTextNode(key);
     /*option.appendChild(optionText);*/

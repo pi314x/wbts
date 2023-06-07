@@ -577,7 +577,7 @@ async function Networks() {
     } catch (error) {
       console.log(error);
     }
-    if (key = networkValue) {
+    if (key == networkValue) {
       option.setAttribute("selected", "selected");
     }
     

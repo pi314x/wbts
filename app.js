@@ -589,3 +589,33 @@ async function Networks() {
 }
 
 window.addEventListener("load", main);
+
+function openTab(evt, tabName, color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+      tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+    /*evt.style.backgroundColor = color;*/
+  }
+
+  $(function() {
+    var networkValue = localStorage.getItem("networkValue");
+    if(networkValue != null) {
+      $("select[name=network]").val(networkValue);
+    } 
+    $("select[name=network]").on("change", function() {
+      localStorage.setItem("networkValue", $(this).val());
+      const networkValueIndex = networkValue.selectedIndex;
+      location.reload(); 
+    });
+  })
+  
+  document.getElementById("defaultOpen").click();

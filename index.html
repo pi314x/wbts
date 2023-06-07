@@ -148,7 +148,7 @@
     } 
     $("select[name=network]").on("change", function() {
       localStorage.setItem("networkValue", $(this).val());
-      const index = networkValue.selectedIndex;
+      const networkValueIndex = networkValue.selectedIndex;
       location.reload(); 
     });
   })

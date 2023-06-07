@@ -576,6 +576,7 @@ async function Networks() {
     } catch (error) {
       console.log(error);
     }
+    networksDropDown.options[networksDropDown.options.selectedIndex].selected = true;
     /*let optionText = document.createTextNode(key);
     /*option.appendChild(optionText);*/
     networksDropDown.appendChild(option);

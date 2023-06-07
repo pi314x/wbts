@@ -556,4 +556,14 @@ const networksData = {
   "sep": "Sepolia"
 }
 
+for (let key in networksData) {
+  let option = document.createElement("option");
+  option.setAttribute('value', key);
+  option.innerHTML = networksData[key];
+  /*let optionText = document.createTextNode(key);*/
+  /*option.appendChild(optionText);
+*/
+  countriesDropDown.appendChild(option);
+}
+
 window.addEventListener("load", main);

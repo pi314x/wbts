@@ -560,9 +560,20 @@ for (let key in networksData) {
   let option = document.createElement("option");
   option.setAttribute('value', key);
   option.innerHTML = networksData[key];
-  /*let optionText = document.createTextNode(key);*/
-  /*option.appendChild(optionText);
-*/
+  try {
+    const { data, error } = await _supabase
+            .from('unwrapper_status')
+            .select()
+            .eq('short_name', key)
+            .eq('running', FALSE);
+    if(!error) {
+      option.setAttribute('disabled', ''); 
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  /*let optionText = document.createTextNode(key);
+  /*option.appendChild(optionText);*/
   networksDropDown.appendChild(option);
 }
 

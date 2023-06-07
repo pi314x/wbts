@@ -567,7 +567,7 @@ async function Networks() {
               .from('unwrapper_status')
               .select()
               .eq('short_name', key)
-              .eq('running', FALSE);
+              .eq('running', false);
       if(!error) {
         option.setAttribute('disabled', ''); 
       } else {

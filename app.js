@@ -28,7 +28,7 @@ const CUSTODIAN = "1.2.26657";
 const hexToDecimal = (hex) => parseInt(hex, 16);
 const decToHeximal = (dec) => dec.toString(16);
 const provider = ((window.ethereum != null) ? new ethers.providers.Web3Provider(window.ethereum) : ethers.providers.getDefaultProvider());
-const emojis = {true: "🟢", false: "🔴"};
+const emojis = {true: "✅", false: "❌"};
 
 var account = "0xB75cCf9ddE9825C31cd02c970Ae8Aa5AD6164559";
 var global = this; // in global scope.

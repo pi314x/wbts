@@ -548,6 +548,7 @@ async function ServiceData() {
 
 async function Networks() {
   const networksDropDown = document.getElementById("networksDropDown");
+  //const ni = networksDropDown.options[networksDropDown.options.selectedIndex].selected = true;
   const networksData = {
     "arb-goerli": "Arbitrum One",
     "bnbt": "Binance Smart Chain",
@@ -576,7 +577,7 @@ async function Networks() {
     } catch (error) {
       console.log(error);
     }
-    networksDropDown.options[networksDropDown.options.selectedIndex].selected = true;
+    
     /*let optionText = document.createTextNode(key);
     /*option.appendChild(optionText);*/
     networksDropDown.appendChild(option);

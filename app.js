@@ -570,7 +570,7 @@ async function Networks() {
               .eq('running', FALSE);
       if(!error) {
         option.setAttribute('disabled', ''); 
-      } catch (error) {
+      } else {
         console.log(error);
       }
     }

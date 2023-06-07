@@ -563,7 +563,7 @@ for (let key in networksData) {
   /*let optionText = document.createTextNode(key);*/
   /*option.appendChild(optionText);
 */
-  countriesDropDown.appendChild(option);
+  networksDropDown.appendChild(option);
 }
 
 window.addEventListener("load", main);

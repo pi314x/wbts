@@ -231,7 +231,7 @@ async function chainList(short = null, chain = null) {
     try { global.switchContract = tokenContracts[networkValue] } catch (e) { global.switchContract = "" }
     try { global.networkTxt = chaindata['title'] } catch (e) { global.networkTxt = "" }
     try { global.networkName = chaindata['name'] } catch (e) { global.networkName = "" }
-    try { document.getElementById("wrappertext").innerHTML = "Wrap and unwrap BTS between BitShares and " + (networkTxt !== undefined ? networkTxt : networkName) + "."; } catch(e) { console.log(e); }
+    try { document.getElementById("wrappertext").innerHTML = "Wrap BTS and unwrap wBTS between BitShares and " + (networkTxt !== undefined ? networkTxt : networkName) + "."; } catch(e) { console.log(e); }
     return json;
   }
 }

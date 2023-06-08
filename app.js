@@ -473,7 +473,7 @@ async function BitShares() {
             
     document.getElementById("custname").innerHTML =
       "Send your desired amount of BitShares to the wallet address <span id = \"wallet\" style = \"font-weight: 900;\">" + custName + "</span>" + 
-      "<a href =\"#\" onclick = \"CopyToClipboard(\'wallet\');return false;\"><img src=\"img/clipboard.svg\" data-img-src=\"img/checkbox_checked.svg\" class=\"responsive\" id=\"clipboard\" style=\"background-color: #ccc;\"></img></a>" +
+      "<a href =\"#\" onclick = \"CopyToClipboard(\'wallet\');return false;\"><img src=\"img/clipboard.svg\" data-img-src=\"img/checkbox_checked.svg\" class=\"responsive\" id=\"clipboardwallet\" style=\"background-color: #ccc;\"></img></a>" +
       "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive your wrapped BitShares as shown below.<br /><br />" +
       "<img src = 'img/send_bts.png' class = 'img-fluid' style = 'border-radius: 8px; max-width: 100%;'/>" +
       "<br /><br />Connect your wallet to get the correct format."
@@ -484,7 +484,7 @@ async function BitShares() {
       var copyaddr = document.getElementById("memoformat");
       var a = document.createElement("a");
       a.href = `#`;
-      a.innerHTML = `<img src="img/clipboard.svg" data-img-src="img/checkbox_checked.svg" class="responsive" id="clipboard" style="background-color: #ccc;"></img>`;
+      a.innerHTML = `<img src="img/clipboard.svg" data-img-src="img/checkbox_checked.svg" class="responsive" id="clipboardmemoformat" style="background-color: #ccc;"></img>`;
       a.setAttribute("onclick", "CopyToClipboard('memoformat');return false;");
       copyaddr.append(networkValue + ":" + account);
       copyaddr.append(a);
@@ -571,20 +571,22 @@ function CopyToClipboard(id) {
   window.getSelection().addRange(r);
   document.execCommand('copy');
   window.getSelection().removeAllRanges();
-  clicked();
+  clicked(id);
 }
 
-function clicked() {
+function clicked(id) {
   replace();
   setTimeout(replace, 3000);
 }
 
-function replace() {
-  var next = document.getElementById("clipboard").getAttribute("data-img-src");
-  var current = document.getElementById("clipboard").src;
+var element = "clipboard" + id;
 
-  document.getElementById("clipboard").setAttribute("data-img-src", current);
-  document.getElementById("clipboard").src = next;
+function replace() {
+  var next = document.getElementById(element).getAttribute("data-img-src");
+  var current = document.getElementById("element).src;
+
+  document.getElementById(element).setAttribute("data-img-src", current);
+  document.getElementById(element).src = next;
 }
   
 function darkMode() {

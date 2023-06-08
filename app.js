@@ -41,6 +41,7 @@ var global = this; // in global scope.
 var obj;
 var ticker;
 var balances;
+var fObj;
 var switchChainId;
 var switchExplorer;
 var switchContract;
@@ -412,7 +413,7 @@ async function totalSupply() {
     "Total Supply of " + name + ": " + total + " " + symbol;
 }
 
-async function BitShares() {
+async function BitShares(method = None, params = None) {
 
   async function fetchObjects(method, params) {
     return new Promise(async (resolve, reject) => {
@@ -447,10 +448,10 @@ async function BitShares() {
             object = await bitshares_js.bitshares_ws.Apis.instance()
               .db_api()
               .exec("get_account_balances", params);
-          case "get_account_name":
+          case method:
             object = await bitshares_js.bitshares_ws.Apis.instance()
               .db_api()
-              .exec("get_account_name", params);
+              .exec(method, params);
           default:
             console.log("method not supplied yet.");
         }
@@ -468,69 +469,77 @@ async function BitShares() {
 
   try {
     
-    obj = await fetchObjects("get_objects", ["1.3.0", CUSTODIAN]);
-    ticker = await fetchObjects("get_ticker", ["1.3.0", "1.3.22"]);
-    balances = await fetchObjects("get_account_balances", [CUSTODIAN, ["1.3.0"]]);
+    if (method == None & params == None) {
 
-    var total = Number(balances[0]["amount"]);
-    let symbol = obj[0]["symbol"];
-    let decimals = obj[0]["precision"];
-    let custName = obj[1]["name"];
-    let fees = Number(ticker["highest_bid"]).toFixed(0);
-    let minimum = Number(fees) + 2;
-    var total = total / Math.pow(10, decimals);
+      obj = await fetchObjects("get_objects", ["1.3.0", CUSTODIAN]);
+      ticker = await fetchObjects("get_ticker", ["1.3.0", "1.3.22"]);
+      balances = await fetchObjects("get_account_balances", [CUSTODIAN, ["1.3.0"]]);
 
-          /*"Send your desired amount of BitShares to the wallet address <b>" +
-      custName +*/
-            
-    document.getElementById("custname").innerHTML =
-      "Send your desired amount of BitShares to the wallet address <span id = \"custAccount\" style = \"font-weight: 900;\">" + custName + "</span>" + 
-      "<a href =\"#\" onclick = \"CopyToClipboard(\'custAccount\');return false;\"><img src=\"img/clipboard.svg\" data-img-src=\"img/checkbox_checked.svg\" class=\"responsive\" id=\"clipboard-custAccount\" style=\"background-color: #ccc;\"></img></a>" +
-      "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive your wrapped BitShares as shown below.<br /><br />" +
-      "<img src = 'img/send_bts.png' class = 'img-fluid' style = 'border-radius: 8px; max-width: 100%;'/>" +
-      "<br /><br />Connect your wallet to get the correct format."
-    if (account != "0xB75cCf9ddE9825C31cd02c970Ae8Aa5AD6164559") {
-      document.getElementById("memo").innerHTML =
-        "If you are using the connected wallet, your memo must have the format as shown below. Please use the clipboard symbol to have it ready once you need it."
-      document.getElementById("memoformat").innerHTML = "";
-      var copyaddr = document.getElementById("memoformat");
+      var total = Number(balances[0]["amount"]);
+      let symbol = obj[0]["symbol"];
+      let decimals = obj[0]["precision"];
+      let custName = obj[1]["name"];
+      let fees = Number(ticker["highest_bid"]).toFixed(0);
+      let minimum = Number(fees) + 2;
+      var total = total / Math.pow(10, decimals);
+
+            /*"Send your desired amount of BitShares to the wallet address <b>" +
+        custName +*/
+
+      document.getElementById("custname").innerHTML =
+        "Send your desired amount of BitShares to the wallet address <span id = \"custAccount\" style = \"font-weight: 900;\">" + custName + "</span>" + 
+        "<a href =\"#\" onclick = \"CopyToClipboard(\'custAccount\');return false;\"><img src=\"img/clipboard.svg\" data-img-src=\"img/checkbox_checked.svg\" class=\"responsive\" id=\"clipboard-custAccount\" style=\"background-color: #ccc;\"></img></a>" +
+        "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive your wrapped BitShares as shown below.<br /><br />" +
+        "<img src = 'img/send_bts.png' class = 'img-fluid' style = 'border-radius: 8px; max-width: 100%;'/>" +
+        "<br /><br />Connect your wallet to get the correct format."
+      if (account != "0xB75cCf9ddE9825C31cd02c970Ae8Aa5AD6164559") {
+        document.getElementById("memo").innerHTML =
+          "If you are using the connected wallet, your memo must have the format as shown below. Please use the clipboard symbol to have it ready once you need it."
+        document.getElementById("memoformat").innerHTML = "";
+        var copyaddr = document.getElementById("memoformat");
+        var a = document.createElement("a");
+        a.href = `#`;
+        a.innerHTML = `<img src="img/clipboard.svg" data-img-src="img/checkbox_checked.svg" class="responsive" id="clipboard-memoformat" style="background-color: #ccc;"></img>`;
+        a.setAttribute("onclick", "CopyToClipboard('memoformat');return false;");
+        copyaddr.append(networkValue + ":" + account);
+        copyaddr.append(a);
+      }
+      document.getElementById("fees").innerHTML =
+        "Please be aware that a minimum of " +
+        fees +
+        " BTS or " + (100/fees).toFixed(3) + " % will be deducted as gateway fee which leads to a wrap amount of at least " +
+        minimum +
+        " BTS. An amount below will not be credited.";
+
+      document.getElementById("ccust").innerHTML = "";
+      var showcust = document.getElementById("ccust");
       var a = document.createElement("a");
-      a.href = `#`;
-      a.innerHTML = `<img src="img/clipboard.svg" data-img-src="img/checkbox_checked.svg" class="responsive" id="clipboard-memoformat" style="background-color: #ccc;"></img>`;
-      a.setAttribute("onclick", "CopyToClipboard('memoformat');return false;");
-      copyaddr.append(networkValue + ":" + account);
-      copyaddr.append(a);
+      a.href = `${btsDomain}/#/account/${custName}`;
+      a.innerHTML = custName;
+      a.setAttribute("target", "_blank");
+      showcust.append("Custodian account: ")
+      showcust.append(a);
+
+      document.getElementById("cbalcust").innerHTML =
+        "Custodian reserves: " + total + " " + symbol;
+
+    } else { 
+      
+      fObj = await fetchObjects(method, [params]);
+      
     }
-    document.getElementById("fees").innerHTML =
-      "Please be aware that a minimum of " +
-      fees +
-      " BTS or " + (100/fees).toFixed(3) + " % will be deducted as gateway fee which leads to a wrap amount of at least " +
-      minimum +
-      " BTS. An amount below will not be credited.";
-
-    document.getElementById("ccust").innerHTML = "";
-    var showcust = document.getElementById("ccust");
-    var a = document.createElement("a");
-    a.href = `${btsDomain}/#/account/${custName}`;
-    a.innerHTML = custName;
-    a.setAttribute("target", "_blank");
-    showcust.append("Custodian account: ")
-    showcust.append(a);
-
-    document.getElementById("cbalcust").innerHTML =
-      "Custodian reserves: " + total + " " + symbol;
     
   } catch (error) {
     console.log('BitShares()\n' + error.message);
     document.getElementById("custname").innerHTML =
       "There might be a problem connecting the node: " + node;
-  } 
+  }
 }
 
 async function unwrap() {
   let wallet = document.getElementById("wallet");
   let amount = document.getElementById("amount");
-  await fetchObjects("get_account_name", [wallet.value]);
+  await BitShares("get_account_name", [wallet.value]);
   if (wallet.value === "") {
     //wallet.style.border = "2px solid #cc1100";
     //wallet.style.backgroundColor = "#cc1100";

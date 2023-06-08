@@ -445,7 +445,7 @@ async function BitShares() {
       var copyaddr = document.getElementById("memoformat");
       var a = document.createElement("a");
       a.href = `#`;
-      a.innerHTML = `<img src="img/clipboard.svg" data-img-src= "img/checkbox_checked.svg" class="responsive" id="clipboard" style="background-color: #ccc;"></img>`;
+      a.innerHTML = `<img src="img/clipboard.svg" data-img-src="img/checkbox_checked.svg" class="responsive" id="clipboard" style="background-color: #ccc;"></img>`;
       a.setAttribute("onclick", "CopyToClipboard('memoformat');return false;");
       copyaddr.append(networkValue + ":" + account);
       copyaddr.append(a);

@@ -543,13 +543,13 @@ async function unwrap() {
   document.getElementById("invalidAmount").innerHTML = "";
   await BitShares("get_accounts", [wallet.value]);
   if (global.fObj[0] == null) {
-    document.getElementById("invalidAccount").innerHTML = "Account doesn't exists.";
+    document.getElementById("invalidAccount").innerHTML = "BitShares account doesn't exists.";
     return;
   }
   if (wallet.value === "") {
     //wallet.style.border = "2px solid #cc1100";
     //wallet.style.backgroundColor = "#cc1100";
-    document.getElementById("invalidAccount").innerHTML = "Account mustn't be empty.";
+    document.getElementById("invalidAccount").innerHTML = "BitShares account mustn't be empty.";
     //wallet.setAttribute("placeholder", "Wallet mustn't be empty.");
     return;
   }

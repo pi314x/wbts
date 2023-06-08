@@ -539,15 +539,15 @@ function CopyToClipboard(id) {
 
 function clicked() {
   replace();
-  setTimeout(replace, 1000);
+  setTimeout(replace, 3000);
 }
 
 function replace() {
-  var next = document.getElementById("next").getAttribute("data-img-src");
-  var current = document.getElementById("next").src;
+  var next = document.getElementById("clipboard").getAttribute("data-img-src");
+  var current = document.getElementById("clipboard").src;
 
-  document.getElementById("next").setAttribute("data-img-src", current);
-  document.getElementById("next").src = next;
+  document.getElementById("clipboard").setAttribute("data-img-src", current);
+  document.getElementById("clipboard").src = next;
 }
   
 function darkMode() {

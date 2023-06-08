@@ -1,4 +1,4 @@
-                  // https://blog.devvivek.tech/build-your-first-web-30-application-with-html-css-javascript-and-remix-ide
+// https://blog.devvivek.tech/build-your-first-web-30-application-with-html-css-javascript-and-remix-ide
 // https://github.com/bitshares/bitsharesjs/issues/19
 // https://github.com/BTS-CM/airdrop_tool/blob/main/src/pages/Fetch.jsx
 

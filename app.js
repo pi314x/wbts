@@ -492,7 +492,7 @@ async function BitShares() {
     document.getElementById("fees").innerHTML =
       "Please be aware that a minimum of " +
       fees +
-      " BTS or " + (100/fees).toFixed(3) + " % will be deducted as gateway fee which leads to a minimum wrap amount of " +
+      " BTS or " + (100/fees).toFixed(3) + " % will be deducted as gateway fee which leads to a wrap amount of at least " +
       minimum +
       " BTS. An amount below will not be credited.";
 

@@ -240,7 +240,12 @@ a:hover {
   color: white;
   border-radius: 8px;
   padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
   font-size: 0.85rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: fit-content;
 }
 
 .invalids:empty {

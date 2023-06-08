@@ -539,15 +539,15 @@ async function BitShares(method = null, params = null) {
 async function unwrap() {
   let wallet = document.getElementById("wallet");
   let amount = document.getElementById("amount");
+  document.getElementById("invalidAccount").innerHTML = "";
+  document.getElementById("invalidAmount").innerHTML = "";
   await BitShares("get_account_name", [wallet.value]);
   if (fObj != wallet.value) {
-    document.getElementById("invalidAccount").innerHTML = "";
     document.getElementById("invalidAccount").innerHTML = "Account doesn't exists.";
   }
   if (wallet.value === "") {
     //wallet.style.border = "2px solid #cc1100";
     //wallet.style.backgroundColor = "#cc1100";
-    document.getElementById("invalidAccount").innerHTML = "";
     document.getElementById("invalidAccount").innerHTML = "Account mustn't be empty.";
     //wallet.setAttribute("placeholder", "Wallet mustn't be empty.");
     return;

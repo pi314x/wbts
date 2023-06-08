@@ -313,6 +313,7 @@ async function eth() {
     } 
   } else {
     console.log("Please install MetaMask");
+    document.getElementById("installmetamask").innerHTML = "";
     let showmetamaskinfo = document.getElementById("installmetamask");
     let a = document.createElement("a");
     a.href = `https://metamask.io/`;

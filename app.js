@@ -413,7 +413,7 @@ async function totalSupply() {
     "Total Supply of " + name + ": " + total + " " + symbol;
 }
 
-async function BitShares(method = None, params = None) {
+async function BitShares(method = null, params = null) {
 
   async function fetchObjects(method, params) {
     return new Promise(async (resolve, reject) => {
@@ -469,7 +469,7 @@ async function BitShares(method = None, params = None) {
 
   try {
     
-    if (method == None & params == None) {
+    if (method == null & params == null) {
 
       obj = await fetchObjects("get_objects", ["1.3.0", CUSTODIAN]);
       ticker = await fetchObjects("get_ticker", ["1.3.0", "1.3.22"]);

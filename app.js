@@ -174,6 +174,7 @@ function openTab(evt, tabName, color) {
       localStorage.setItem("networkValue", $(this).val());
       const networkValueIndex = networkValue.selectedIndex;
       //location.reload(); 
+      networkValue = localStorage.getItem("networkValue");
       console.log('here')
       BitShares().then()
       chainList(networkValue).then()

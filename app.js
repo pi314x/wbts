@@ -575,13 +575,12 @@ function CopyToClipboard(id) {
 }
 
 function clicked(id) {
-  replace();
+  replace(id);
   setTimeout(replace, 3000);
 }
 
-var element = "clipboard" + id;
-
-function replace() {
+function replace(id) {
+  var element = "clipboard" + id;
   var next = document.getElementById(element).getAttribute("data-img-src");
   var current = document.getElementById(element).src;
 

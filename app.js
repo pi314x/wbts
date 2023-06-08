@@ -497,7 +497,7 @@ async function BitShares(method = null, params = null) {
       if (account != "0xB75cCf9ddE9825C31cd02c970Ae8Aa5AD6164559") {
         document.getElementById("memo").innerHTML = "";
         document.getElementById("memo").innerHTML =
-          "If the connected wallet is the one you want to use, feel free to click the clipboard symbol to have the memo ready once you need it."
+          "If the connected wallet is the one you want to use, feel free to select the clipboard symbol to have the memo ready once you need it."
         document.getElementById("memoformat").innerHTML = "";
         var copyaddr = document.getElementById("memoformat");
         var a = document.createElement("a");

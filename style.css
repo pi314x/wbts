@@ -48,12 +48,12 @@ p.thicker {
   font-weight: 900;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+/*::placeholder { // Chrome, Firefox, Opera, Safari 10.1+ 
   background-color: #cc1100;
   color: white;
-  opacity: 1; /* Firefox */
+  opacity: 1; // Firefox
   width: fit-content;
-}
+}*/
 
 .btn {
   background-color: #0068B1; 

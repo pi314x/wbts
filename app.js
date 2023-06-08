@@ -199,7 +199,8 @@ if (TEST == true) {
 
 async function chainList(short = null, chain = null) {
   try {
-    let url = 'https://chainid.network/chains.json';
+    //let url = 'https://chainid.network/chains.json';
+    let url = 'include/chains.json';
     var json = await (await fetch(url)).json();
     //return cobj;
   } catch (error) {

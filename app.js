@@ -154,13 +154,17 @@ function openTab(evt, tabName, color) {
     evt.currentTarget.className += " active";
     /*evt.style.backgroundColor = color;*/
   
-    if (tabName = 'PoR') {
+    if (tabName == 'PoR') {
       totalSupply();
       BitShares().then();
     }
   
-    if (tabName = 'Unwrap') {
+    if (tabName == 'Unwrap') {
       balanceOf(account).then();
+    }
+  
+    if (tabName == 'Wrap') {
+      BitShares().then();
     }
 
   }

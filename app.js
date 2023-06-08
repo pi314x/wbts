@@ -178,12 +178,12 @@ function openTab(evt, tabName, color) {
       localStorage.setItem("networkValue", $(this).val());
       const networkValueIndex = networkValue.selectedIndex;
       //location.reload(); 
-      global.networkValue = localStorage.getItem("networkValue");
+      /*global.networkValue = localStorage.getItem("networkValue");
       BitShares().then()
       chainList(networkValue).then()
       eth().then()
       totalSupply().then()
-      ContractAddress()
+      ContractAddress()*/
     });
   })
   

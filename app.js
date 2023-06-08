@@ -155,7 +155,6 @@ function openTab(evt, tabName, color) {
     /*evt.style.backgroundColor = color;*/
   
     if (tabName = 'PoR') {
-      BitShares();
       totalSupply();
     }
   }

@@ -579,12 +579,12 @@ function clicked(id) {
 }
 
 function replace(id) {
-  var element = "clipboard-" + id;
-  var next = document.getElementById(element).getAttribute("data-img-src");
-  var current = document.getElementById(element).src;
+  var el = "clipboard-" + id;
+  var next = document.getElementById(el).getAttribute("data-img-src");
+  var current = document.getElementById(el).src;
 
-  document.getElementById(element).setAttribute("data-img-src", current);
-  document.getElementById(element).src = next;
+  document.getElementById(el).setAttribute("data-img-src", current);
+  document.getElementById(el).src = next;
 }
   
 function darkMode() {

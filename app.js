@@ -583,7 +583,7 @@ var element = "clipboard" + id;
 
 function replace() {
   var next = document.getElementById(element).getAttribute("data-img-src");
-  var current = document.getElementById("element).src;
+  var current = document.getElementById(element).src;
 
   document.getElementById(element).setAttribute("data-img-src", current);
   document.getElementById(element).src = next;

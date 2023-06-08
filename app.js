@@ -173,7 +173,12 @@ function openTab(evt, tabName, color) {
     $("select[name=network]").on("change", function() {
       localStorage.setItem("networkValue", $(this).val());
       const networkValueIndex = networkValue.selectedIndex;
-      location.reload(); 
+      //location.reload(); 
+      BitShares().then()
+      chainList(networkValue).then()
+      eth().then()
+      totalSupply().then()
+      ContractAddress()
     });
   })
   

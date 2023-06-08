@@ -6,7 +6,7 @@
   background-position: center center;
 }*/
 body, button, input, div, form, p {
-  font-family: monaco,Consolas,Lucida Console,monospace;
+  font-family: Ubuntu Mono,monaco,Consolas,Lucida Console,monospace;
   font-size: 0.95rem;
   color: #333;
 }

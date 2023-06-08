@@ -388,7 +388,6 @@ async function BitShares() {
         console.log(error);
         document.getElementById("custname").innerHTML =
           "There might be a problem connecting the node: " + node;
-        changeURL(value);
         return reject({
           error,
           location: "init",

@@ -3,25 +3,23 @@
 // https://github.com/BTS-CM/airdrop_tool/blob/main/src/pages/Fetch.jsx
 
 const CONTRACTS = {
-  "contracts": {
-    "test": {
-      "arb-goerli": "0x948F857C55eb5475deDA42BEfb31db9748aFFED5", 
-      "bnbt": "0x558d198723a52691EAeaD4EfEA96761f0801cfcB",
-      "chi": "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc",
-      "eos-testnet": "0x5143E5f225EA83bCb9b93eD6039C0Dfc9826f7Ec",
-      "maticmum": "0x4D84EA09d8ded6dd812A358431DF78cb247916c6",
-      "ogor": "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc",
-      "sep": "0x3AFdF2088eFA3d2b7423d33B9452995C987F9fb1"
-    },
-    "prod": {
-      "eth": "",
-      "bnb": "",
-      "eos": "",
-      "arb1": "",
-      "oeth": "",
-      "matic": "",
-      "gno": "" 
-    }
+  "test": {
+    "arb-goerli": "0x948F857C55eb5475deDA42BEfb31db9748aFFED5", 
+    "bnbt": "0x558d198723a52691EAeaD4EfEA96761f0801cfcB",
+    "chi": "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc",
+    "eos-testnet": "0x5143E5f225EA83bCb9b93eD6039C0Dfc9826f7Ec",
+    "maticmum": "0x4D84EA09d8ded6dd812A358431DF78cb247916c6",
+    "ogor": "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc",
+    "sep": "0x3AFdF2088eFA3d2b7423d33B9452995C987F9fb1"
+  },
+  "prod": {
+    "eth": "",
+    "bnb": "",
+    "eos": "",
+    "arb1": "",
+    "oeth": "",
+    "matic": "",
+    "gno": "" 
   }
 }
 
@@ -230,7 +228,7 @@ async function chainList(short = null, chain = null) {
     var chaindata = json[0];
     try { global.switchChainId = chaindata['chainId'] } catch (e) { global.switchChainId = -1 }
     try { global.switchExplorer = chaindata['explorers'][0]['url'] } catch (e) { global.switchExplorer = "" }
-    try { global.switchContract = tokenContracts['contracts'][networkValue] } catch (e) { global.switchContract = "" }
+    try { global.switchContract = tokenContracts[networkValue] } catch (e) { global.switchContract = "" }
     try { global.networkTxt = chaindata['title'] } catch (e) { global.networkTxt = "" }
     try { global.networkName = chaindata['name'] } catch (e) { global.networkName = "" }
     try { document.getElementById("wrappertext").innerHTML = "Wrap and unwrap BTS between BitShares and " + (networkTxt !== undefined ? networkTxt : networkName) + "."; } catch(e) { console.log(e); }

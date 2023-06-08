@@ -533,7 +533,21 @@ function CopyToClipboard(id) {
   window.getSelection().addRange(r);
   document.execCommand('copy');
   window.getSelection().removeAllRanges();
-  document.getElementById("clipboard").src = "https://www.svgrepo.com/show/309414/checkbox-checked.svg";
+  //document.getElementById("clipboard").src = "img/checkbox-checked.svg";
+  await clicked();
+}
+
+function clicked() {
+  replace();
+  setTimeout(replace, 1000);
+}
+
+function replace() {
+  var next = document.getElementById("next").getAttribute("data-img-src");
+  var current = document.getElementById("next").src;
+
+  document.getElementById("next").setAttribute("data-img-src", current);
+  document.getElementById("next").src = next;
 }
   
 function darkMode() {

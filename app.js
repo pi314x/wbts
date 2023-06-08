@@ -540,11 +540,15 @@ async function unwrap() {
   let wallet = document.getElementById("wallet");
   let amount = document.getElementById("amount");
   await BitShares("get_account_name", [wallet.value]);
+  if (fObj ===) {
+    document.getElementById("invalidAccount").innerHTML = "";
+    document.getElementById("invalidAccount").innerHTML = "Account doesn't exists.";
+  }
   if (wallet.value === "") {
     //wallet.style.border = "2px solid #cc1100";
     //wallet.style.backgroundColor = "#cc1100";
     document.getElementById("invalidAccount").innerHTML = "";
-    document.getElementById("invalidAccount").innerHTML = "Address mustn't be empty.";
+    document.getElementById("invalidAccount").innerHTML = "Account mustn't be empty.";
     //wallet.setAttribute("placeholder", "Wallet mustn't be empty.");
     return;
   }

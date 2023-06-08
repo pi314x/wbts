@@ -577,7 +577,7 @@ function clicked(id) {
   replace(id);
   setTimeout(function () {
       replace(id)
-  }, 2000);
+  }, 1500);
 
 }
 

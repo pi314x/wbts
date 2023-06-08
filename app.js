@@ -468,9 +468,13 @@ async function BitShares() {
     let minimum = Number(fees) + 2;
     var total = total / Math.pow(10, decimals);
 
-    document.getElementById("custname").innerHTML =
-      "Send your desired amount of BitShares to the wallet address <b>" +
+          /*"Send your desired amount of BitShares to the wallet address <b>" +
       custName +
+      "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive your wrapped BitShares as shown below.<br /><br />" +*/
+            
+    document.getElementById("custname").innerHTML =
+      "Send your desired amount of BitShares to the wallet address <a href = '#' id = 'wallet' onclick = 'CopyToClipboard('wallet');return false;>' +
+      custName + "</a>"
       "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive your wrapped BitShares as shown below.<br /><br />" +
       "<img src = 'img/send_bts.png' class = 'img-fluid' style = 'border-radius: 8px; max-width: 100%;'/>" +
       "<br /><br />Connect your wallet to get the correct format."

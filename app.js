@@ -554,6 +554,10 @@ async function unwrap() {
     //wallet.setAttribute("placeholder", "Wallet mustn't be empty.");
     return;
   }
+  if (isNaN(amount.value)) {
+    document.getElementById("invalidAmount").innerHTML = "Amount isn't a number.";
+    return;
+  }
   if (amount.value == null || amount.value === "") {
     //amount.style.border = "2px solid #cc1100";
     //amount.style.backgroundColor  = "#cc1100";

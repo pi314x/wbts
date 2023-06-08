@@ -534,7 +534,7 @@ function CopyToClipboard(id) {
   document.execCommand('copy');
   window.getSelection().removeAllRanges();
   //document.getElementById("clipboard").src = "img/checkbox-checked.svg";
-  await clicked();
+  clicked();
 }
 
 function clicked() {

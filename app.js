@@ -8,7 +8,7 @@ const CONTRACTS = {"contracts": { "arb-goerli": "0x948F857C55eb5475deDA42BEfb31d
                                   "eos-testnet": "0x5143E5f225EA83bCb9b93eD6039C0Dfc9826f7Ec",
                                   "maticmum": "0x4D84EA09d8ded6dd812A358431DF78cb247916c6",
                                   "ogor": "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc",
-                                  "sep": "0x3AFdF2088eFA3d2b7423d33B9452995C987F9fb1",
+                                  "sep": "0x3AFdF2088eFA3d2b7423d33B9452995C987F9fb1",3
                                   "eth": "",
                                   "bnb": "",
                                   "eos": "",
@@ -492,11 +492,9 @@ async function BitShares() {
     document.getElementById("fees").innerHTML =
       "Please be aware that a minimum of " +
       fees +
-      " BTS or " + (100/fees).toFixed(3) + " % will be deducted as a gateway fee.";
-    document.getElementById("minimum").innerHTML =
-      "Minimum wrap amount: " +
+      " BTS or " + (100/fees).toFixed(3) + " % will be deducted as gateway fee which leads to a minumum wrap amount of " +
       minimum +
-      " BTS.";
+      " BTS. An amount below will not be credited.";
 
     document.getElementById("ccust").innerHTML = "";
     var showcust = document.getElementById("ccust");

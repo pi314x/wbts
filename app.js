@@ -527,27 +527,32 @@ async function unwrap() {
   let wallet = document.getElementById("wallet");
   let amount = document.getElementById("amount");
   if (wallet.value === "") {
-    wallet.style.border = "2px solid #cc1100";
+    //wallet.style.border = "2px solid #cc1100";
     //wallet.style.backgroundColor = "#cc1100";
-    wallet.setAttribute("placeholder", "Wallet mustn't be empty.");
+    document.getElementById("invalidWallet").innerHTML = "";
+    document.getElementById("invalidWallet").innerHTML = "Address mustn't be empty.";
+    //wallet.setAttribute("placeholder", "Wallet mustn't be empty.");
     return;
   }
   if (amount.value == null || amount.value === "") {
-    amount.style.border = "2px solid #cc1100";
+    //amount.style.border = "2px solid #cc1100";
     //amount.style.backgroundColor  = "#cc1100";
-    amount.setAttribute("placeholder", "Amount mustn't be empty.");
+    //amount.setAttribute("placeholder", "Amount mustn't be empty.");
+    document.getElementById("invalidAmount").innerHTML = "Amount mustn't be empty.";
     return;
   }
   if (amount.value < 0) {
-    amount.style.border = "2px solid #cc1100";
+    //amount.style.border = "2px solid #cc1100";
     //amount.style.backgroundColor  = "#cc1100";
-    amount.setAttribute("placeholder", "Amount must be positive.");
+    //amount.setAttribute("placeholder", "Amount must be positive.");
+    document.getElementById("invalidAmount").innerHTML = "Amount must be positive.";
     return;
   }
   if (amount.value == 1) {
-    amount.style.border = "2px solid #cc1100";
+    //amount.style.border = "2px solid #cc1100";
     //amount.style.background = "#cc1100";
-    amount.setAttribute("placeholder", "Amount too low.");
+    //amount.setAttribute("placeholder", "Amount too low.");
+    document.getElementById("invalidAmount").innerHTML = "Amount too low.";
     return;
   }
   let contract = getContract();

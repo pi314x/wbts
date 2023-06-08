@@ -472,7 +472,7 @@ async function BitShares() {
       custName +*/
             
     document.getElementById("custname").innerHTML =
-      "Send your desired amount of BitShares to the wallet address <span id = \"wallet\" style = \"font-weight: 900;\">" + custName + "</span>" + 
+      "Send your desired amount of BitShares to the wallet address <span id = \"wallet-2-copy\" style = \"font-weight: 900;\">" + custName + "</span>" + 
       "<a href =\"#\" onclick = \"CopyToClipboard(\'wallet\');return false;\"><img src=\"img/clipboard.svg\" data-img-src=\"img/checkbox_checked.svg\" class=\"responsive\" id=\"clipboardwallet\" style=\"background-color: #ccc;\"></img></a>" +
       "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive your wrapped BitShares as shown below.<br /><br />" +
       "<img src = 'img/send_bts.png' class = 'img-fluid' style = 'border-radius: 8px; max-width: 100%;'/>" +
@@ -566,7 +566,6 @@ if(networkValue != null) {
 function CopyToClipboard(id) {
   var r = document.createRange();
   r.selectNode(document.getElementById(id));
-  console.log(r);
   window.getSelection().removeAllRanges();
   window.getSelection().addRange(r);
   document.execCommand('copy');

@@ -576,7 +576,7 @@ function CopyToClipboard(id) {
 
 function clicked(id) {
   replace(id);
-  setTimeout(replace, 3000);
+  setTimeout(replace(id), 3000);
 }
 
 function replace(id) {

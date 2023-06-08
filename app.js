@@ -231,9 +231,9 @@ async function chainList(short = null, chain = null) {
 async function metamaskData(chainId = null) {
    var j = await chainList(short = null, chain = chainId);
    try { 
-     var explorers = j['explorers'][0]['url'] 
+     var explorer = j['explorers'][0]['url'] 
    } catch(e) { 
-     var explorers = null
+     var explorer = null
    };  
    return [{ chainId: Web3.utils.toHex(chainId),
              chainName: j['name'],
@@ -243,7 +243,7 @@ async function metamaskData(chainId = null) {
                symbol: j['nativeCurrency']['symbol'],
                decimals: j['nativeCurrency']['decimals'],
                },
-             blockExplorerUrls: [explorers]
+             blockExplorerUrls: [explorer]
            }]
 }
 

@@ -386,7 +386,7 @@ async function balanceOf(account) {
   let decimals = await contract.decimals();
   balance = balance / Math.pow(10, decimals);
   document.getElementById("cbalance").innerHTML =
-    "Current Balance of " + name + ": <b>" + balance + " " + symbol + "</b>";
+    "Current Balance of " + name + ": <b>" + balance + " " + symbol + "</b><br />";
 }
 
 async function balanceOfSlider(account) {

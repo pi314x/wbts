@@ -541,10 +541,11 @@ async function unwrap() {
   let amount = document.getElementById("amount");
   document.getElementById("invalidAccount").innerHTML = "";
   document.getElementById("invalidAmount").innerHTML = "";
-  await BitShares("get_accounts", [wallet.value]);
-  if (global.fObj[0] == null) {
-    document.getElementById("invalidAccount").innerHTML = "BitShares account doesn't exists.";
-    return;
+  if (wallet.value != "") {
+    await BitShares("get_accounts", [wallet.value]);
+    if (global.fObj[0] == null) {
+      document.getElementById("invalidAccount").innerHTML = "BitShares account doesn't exists.";
+      return;
   }
   if (wallet.value === "") {
     //wallet.style.border = "2px solid #cc1100";

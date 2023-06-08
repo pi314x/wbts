@@ -447,6 +447,10 @@ async function BitShares() {
             object = await bitshares_js.bitshares_ws.Apis.instance()
               .db_api()
               .exec("get_account_balances", params);
+          case "get_account_name":
+            object = await bitshares_js.bitshares_ws.Apis.instance()
+              .db_api()
+              .exec("get_account_name", params);
           default:
             console.log("method not supplied yet.");
         }
@@ -526,6 +530,7 @@ async function BitShares() {
 async function unwrap() {
   let wallet = document.getElementById("wallet");
   let amount = document.getElementById("amount");
+  await fetchObjects("get_account_name", [wallet.value]);
   if (wallet.value === "") {
     //wallet.style.border = "2px solid #cc1100";
     //wallet.style.backgroundColor = "#cc1100";

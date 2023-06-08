@@ -156,11 +156,11 @@ function openTab(evt, tabName, color) {
   
     if (tabName = 'PoR') {
       totalSupply();
-      BitShares().then(result => console.log(result));
+      BitShares().then();
     }
   
     if (tabName = 'Unwrap') {
-      balanceOf(account).then(result => console.log(result));
+      balanceOf(account).then();
     }
 
   }

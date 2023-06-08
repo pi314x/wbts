@@ -153,6 +153,11 @@ function openTab(evt, tabName, color) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
     /*evt.style.backgroundColor = color;*/
+  
+    if (tabName = 'PoR') {
+      BitShares();
+      totalSupply();
+    }
   }
 
   $(function() {

@@ -529,8 +529,8 @@ async function unwrap() {
   if (wallet.value === "") {
     //wallet.style.border = "2px solid #cc1100";
     //wallet.style.backgroundColor = "#cc1100";
-    document.getElementById("invalidWallet").innerHTML = "";
-    document.getElementById("invalidWallet").innerHTML = "Address mustn't be empty.";
+    document.getElementById("invalidAccount").innerHTML = "";
+    document.getElementById("invalidAccount").innerHTML = "Address mustn't be empty.";
     //wallet.setAttribute("placeholder", "Wallet mustn't be empty.");
     return;
   }

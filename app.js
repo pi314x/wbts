@@ -544,6 +544,7 @@ async function unwrap() {
   await BitShares("get_accounts", [wallet.value]);
   if (fObj != wallet.value) {
     document.getElementById("invalidAccount").innerHTML = "Account doesn't exists.";
+    return;
   }
   if (wallet.value === "") {
     //wallet.style.border = "2px solid #cc1100";

@@ -230,7 +230,11 @@ async function chainList(short = null, chain = null) {
 
 async function metamaskData(chainId = null) {
    var j = await chainList(short = null, chain = chainId);
-   var explorers = try { j['explorers'][0]['url'] } catch(e) { '' };  
+   try { 
+     var explorers = j['explorers'][0]['url'] 
+   } catch(e) { 
+     var explorers = '' 
+   };  
    return [{ chainId: Web3.utils.toHex(chainId),
              chainName: j['name'],
              rpcUrls: j['rpc'],

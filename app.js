@@ -449,10 +449,10 @@ async function BitShares(method = null, params = null) {
               .db_api()
               .exec("get_account_balances", params);
             break;
-          case "get_accounts":
+          case method:
             object = await bitshares_js.bitshares_ws.Apis.instance()
               .db_api()
-              .exec("get_accounts", params);
+              .exec(method, params);
             break;
           default:
             console.log("method not supplied yet.");

@@ -544,7 +544,7 @@ async function unwrap() {
   document.getElementById("invalidAccount").innerHTML = "";
   document.getElementById("invalidAmount").innerHTML = "";
   await BitShares("get_accounts", [wallet.value]);
-  if (global.fObj[0] == 0) {
+  if (global.fObj[0] == null) {
     document.getElementById("invalidAccount").innerHTML = "Account doesn't exists.";
     return;
   }

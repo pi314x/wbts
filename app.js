@@ -575,7 +575,10 @@ function CopyToClipboard(id) {
 
 function clicked(id) {
   replace(id);
-  setTimeout(replace(id), 1000);
+  setTimeout(function () {
+      replace(id)
+  }, 1000);
+  //setTimeout(replace(id), 1000);
 }
 
 function replace(id) {

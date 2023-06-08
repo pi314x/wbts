@@ -492,10 +492,10 @@ async function BitShares(method = null, params = null) {
         "<a href =\"#\" onclick = \"CopyToClipboard(\'custAccount\');return false;\"><img src=\"img/clipboard.svg\" data-img-src=\"img/checkbox_checked.svg\" class=\"responsive\" id=\"clipboard-custAccount\" style=\"background-color: #ccc;\"></img></a>" +
         "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive your wrapped BitShares as shown below.<br /><br />" +
         "<img src = 'img/send_bts.png' class = 'img-fluid' style = 'border-radius: 8px; max-width: 100%;'/>" +
-        "<br /><br />Connect your wallet to get the correct format."
+        "<br /><br />Connect your wallet to get the appropiate format."
       if (account != "0xB75cCf9ddE9825C31cd02c970Ae8Aa5AD6164559") {
         document.getElementById("memo").innerHTML =
-          "If you are using the connected wallet, your memo must have the format as shown below. Please use the clipboard symbol to have it ready once you need it."
+          "If the connected wallet is the one you want to use, feel free to click the clipboard symbol to have the memo ready once you need it."
         document.getElementById("memoformat").innerHTML = "";
         var copyaddr = document.getElementById("memoformat");
         var a = document.createElement("a");

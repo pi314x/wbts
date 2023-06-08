@@ -329,6 +329,7 @@ async function connectWallet() {
   if (prev_account != account) {
     document.getElementById("txnhash").innerHTML = "";
   }
+document.getElementById("connectWallet").innerHTML = "Connected";
   await BitShares();
 }
 

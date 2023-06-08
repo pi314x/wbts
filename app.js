@@ -233,7 +233,7 @@ async function metamaskData(chainId = null) {
    try { 
      var explorers = j['explorers'][0]['url'] 
    } catch(e) { 
-     var explorers = '' 
+     var explorers = null
    };  
    return [{ chainId: Web3.utils.toHex(chainId),
              chainName: j['name'],

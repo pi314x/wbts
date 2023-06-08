@@ -330,6 +330,7 @@ async function connectWallet() {
 }
 
 function ContractAddress() {
+  document.getElementById("contractaddr").innerHTML = "";
   let contractaddr = document.getElementById("contractaddr");
   let a = document.createElement("a");
   a.href = `${switchExplorer}/token/${switchContract}`;

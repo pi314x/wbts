@@ -540,7 +540,7 @@ async function unwrap() {
   let wallet = document.getElementById("wallet");
   let amount = document.getElementById("amount");
   await BitShares("get_account_name", [wallet.value]);
-  if (fObj ===) {
+  if (fObj != wallet.value) {
     document.getElementById("invalidAccount").innerHTML = "";
     document.getElementById("invalidAccount").innerHTML = "Account doesn't exists.";
   }

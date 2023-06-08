@@ -232,19 +232,28 @@ async function metamaskData(chainId = null) {
    var j = await chainList(short = null, chain = chainId);
    try { 
      var explorer = j['explorers'][0]['url'] 
+     return [{ chainId: Web3.utils.toHex(chainId),
+               chainName: j['name'],
+               rpcUrls: j['rpc'],
+               nativeCurrency: {
+                 name: j['nativeCurrency']['name'], 
+                 symbol: j['nativeCurrency']['symbol'],
+                 decimals: j['nativeCurrency']['decimals'],
+                 },
+               blockExplorerUrls: [explorer]
+             }]
    } catch(e) { 
      var explorer = null
+     return [{ chainId: Web3.utils.toHex(chainId),
+               chainName: j['name'],
+               rpcUrls: j['rpc'],
+               nativeCurrency: {
+                 name: j['nativeCurrency']['name'], 
+                 symbol: j['nativeCurrency']['symbol'],
+                 decimals: j['nativeCurrency']['decimals'],
+                 }
+             }]
    };  
-   return [{ chainId: Web3.utils.toHex(chainId),
-             chainName: j['name'],
-             rpcUrls: j['rpc'],
-             nativeCurrency: {
-               name: j['nativeCurrency']['name'], 
-               symbol: j['nativeCurrency']['symbol'],
-               decimals: j['nativeCurrency']['decimals'],
-               },
-             blockExplorerUrls: [explorer]
-           }]
 }
 
 async function eth() {

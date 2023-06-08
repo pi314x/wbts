@@ -474,7 +474,7 @@ async function BitShares() {
     document.getElementById("custname").innerHTML =
       "Send your desired amount of BitShares to the wallet address <span id = \"wallet\" style = \"font-weight: 900;\">" + custName + "</span>" + 
       "<a href =\"#\" onclick = \"CopyToClipboard(\'wallet\');return false;\"><img src=\"img/clipboard.svg\" data-img-src=\"img/checkbox_checked.svg\" class=\"responsive\" id=\"clipboard\" style=\"background-color: #ccc;\"></img></a>" +
-      "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive your wrapped BitShares as shown below.<br /><br />" +
+      "</b> <br />and add the network and ERC20 address separated by a colon into the memo field where you want to receive your wrapped BitShares as shown below.<br /><br />" +
       "<img src = 'img/send_bts.png' class = 'img-fluid' style = 'border-radius: 8px; max-width: 100%;'/>" +
       "<br /><br />Connect your wallet to get the correct format."
     if (account != "0xB75cCf9ddE9825C31cd02c970Ae8Aa5AD6164559") {
@@ -492,7 +492,7 @@ async function BitShares() {
     document.getElementById("fees").innerHTML =
       "Please be aware that a minimum of " +
       fees +
-      " BTS or " + (100/fees).toFixed(3) + " % will be deducted as gateway fee which leads to a minumum wrap amount of " +
+      " BTS or " + (100/fees).toFixed(3) + " % will be deducted as gateway fee which leads to a minimum wrap amount of " +
       minimum +
       " BTS. An amount below will not be credited.";
 

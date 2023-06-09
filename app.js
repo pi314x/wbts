@@ -628,7 +628,7 @@ async function main() {
   await Networks();
   await ServiceData();
   await BitShares();
-  await chainList(networkValue);
+  await chainList(short = networkValue, chain = null);
   await eth();
   await totalSupply();
   ContractAddress();

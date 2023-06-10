@@ -641,6 +641,8 @@ async function main() {
 
 async function isWrapperRunning() {
   
+    var running;
+    
     const { data, error } = await _supabase
         .from('wrapper_status')
         .select()
@@ -650,13 +652,13 @@ async function isWrapperRunning() {
     if (!error) {
       data.forEach(function(item, index){
         if (index == 0) {
-          const running = item.running
+          running = item.running
           console.log(running)
         }
       })
     }
     
-    return running
+    return running;
 }
 
 //https://onebite.dev/play-with-supabase-database-in-website-with-javascript/

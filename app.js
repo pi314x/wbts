@@ -672,7 +672,8 @@ async function ServiceData() {
     console.log(error)
   
     if(!error) {
-        //loop display data here
+      
+        document.getElementById('service').innerHTML = "";
         const parent = document.getElementById('service')
 
         let contents = ''

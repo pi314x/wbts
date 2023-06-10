@@ -648,9 +648,12 @@ async function isWrapperRunning() {
     console.log(data)
   
     if (!error) {
-      const running = data['data'][0]['running']
-      console.log(running)
-      return running
+      data.forEach(function(item, index){
+        if (index == 0) {
+          const running = item.running
+          console.log(running)
+          return running
+        }
     }
 }
 

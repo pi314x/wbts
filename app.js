@@ -639,19 +639,25 @@ async function main() {
 
 }
 
-//https://onebite.dev/play-with-supabase-database-in-website-with-javascript/
-async function ServiceData() {
+async function isWrapperRunning() {
   
-    const { w_data, w_error } = await _supabase
+    const { data, error } = await _supabase
         .from('wrapper_status')
         .select()
     
-    console.log(w_data)
+    console.log(data)
   
-    if (!w_error) {
-      const wrapper_running = w_data['data'][0]['running']
+    if (!error) {
+      const running = data['data'][0]['running']
       console.log(wrapper_running)
+      retrurn running
     }
+}
+
+//https://onebite.dev/play-with-supabase-database-in-website-with-javascript/
+async function ServiceData() {
+  
+    const isRunning = await isWrapperRunning()
   
     const { data, error } = await _supabase
             .from('unwrapper_status')
@@ -668,7 +674,7 @@ async function ServiceData() {
         let contents = ''
         contents += `<div>Please find below the system status of the wrapper & unwrapper services:</div><p></p>` 
         data.forEach(function(item){
-            contents += `<div>${emojis[wrapper_running*item.running]} ${item.name} (${item.short_name})</div>` 
+            contents += `<div>${emojis[isRunning*item.running]} ${item.name} (${item.short_name})</div>` 
         })
         
         parent.insertAdjacentHTML('beforeend', contents)

@@ -171,6 +171,10 @@ function openTab(evt, tabName, color) {
     if (tabName == 'Wrap') {
       BitShares().then();
     }
+  
+    if (tabName == 'Service') {
+      ServiceData().then();
+    }
 
   }
 

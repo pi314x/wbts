@@ -649,8 +649,8 @@ async function isWrapperRunning() {
   
     if (!error) {
       const running = data['data'][0]['running']
-      console.log(wrapper_running)
-      retrurn running
+      console.log(running)
+      return running
     }
 }
 

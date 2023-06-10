@@ -654,6 +654,7 @@ async function isWrapperRunning() {
           console.log(running)
           return running
         }
+      })
     }
 }
 

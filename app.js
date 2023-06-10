@@ -682,7 +682,7 @@ async function ServiceData() {
         let contents = ''
         contents += `<div>Please find below the system status of the wrapper & unwrapper services:</div><p></p>` 
         data.forEach(function(item){
-            contents += `<div>${emojis[(isRunning*item.running==1 ? true : false]} ${item.name} (${item.short_name})</div>` 
+            contents += `<div>${emojis[(isRunning * item.running == 1 ? true : false)]} ${item.name} (${item.short_name})</div>` 
         })
         
         parent.insertAdjacentHTML('beforeend', contents)

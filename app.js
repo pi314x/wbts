@@ -652,10 +652,11 @@ async function isWrapperRunning() {
         if (index == 0) {
           const running = item.running
           console.log(running)
-          return running
         }
       })
     }
+    
+    return running
 }
 
 //https://onebite.dev/play-with-supabase-database-in-website-with-javascript/

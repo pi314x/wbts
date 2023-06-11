@@ -382,7 +382,7 @@ async function toChecksumAddress(address) {
   let checkSumAddress = await ethers.utils.getAddress(address);
   return checkSumAddress;
 }
-function useWholeBalance(amount) {
+function useFullBalance(amount) {
   document.getElementById("amount").value=""
   document.getElementById("amount").value=amount
 }
@@ -395,7 +395,7 @@ async function balanceOf(account) {
   let decimals = await contract.decimals();
   balance = balance / Math.pow(10, decimals);
   document.getElementById("cbalance").innerHTML =
-    "Current Balance of " + name + ": <b>" + "<a href = \"#\" onclick = \"useWholeBalance(" + balance + ")\">" + balance + "</a>" + " " + symbol + "</b>";
+    "Current Balance of " + name + ": <b>" + "<a href = \"#\" onclick = \"useFullBalance(" + balance + ")\">" + balance + "</a>" + " " + symbol + "</b>";
 }
 
 async function balanceOfSlider(account) {

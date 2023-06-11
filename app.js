@@ -699,7 +699,7 @@ async function Networks() {
   const networksData = {
     "arb-goerli": "Arbitrum One",
     "bnbt": "Binance Smart Chain",
-    "eos-testnet": "EOS EVM",
+    "eos-testnet": "EOS EVM Network",
     "chi": "Gnosis Chain",
     "ogor": "Optimism",
     "maticmum": "Polygon",

@@ -671,7 +671,7 @@ async function ServiceData() {
     const isRunning = await isWrapperRunning()
   
     const { data, error } = await _supabase
-            .from('unwrapper_status')
+            .from('unwrapper_status_')
             .select()
             .order('name', { ascending: true })
     

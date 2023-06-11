@@ -491,10 +491,7 @@ async function BitShares(method = null, params = null) {
       let fees = Number(ticker["highest_bid"]).toFixed(0);
       let minimum = Number(fees) + 2;
       var total = total / Math.pow(10, decimals);
-
-            /*"Send your desired amount of BitShares to the wallet address <b>" +
-        custName +*/
-
+      
       document.getElementById("custname").innerHTML =
         "Send your desired amount of BitShares to the wallet address <span id = \"custAccount\" style = \"font-weight: 900;\">" + custName + "</span>" + 
         "<a href =\"#\" onclick = \"CopyToClipboard(\'custAccount\');return false;\"><img src=\"img/clipboard.svg\" data-img-src=\"img/checkbox_checked.svg\" class=\"responsive\" id=\"clipboard-custAccount\" style=\"background-color: #ccc;\"></img></a>" +

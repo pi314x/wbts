@@ -712,7 +712,7 @@ async function Networks() {
     option.innerHTML = networksData[key];
     try {
       const { data, error } = await _supabase
-              .from('unwrapper_status')
+              .from('unwrapper_status_')
               .select()
               .eq('short_name', key)
               .eq('running', false);

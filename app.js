@@ -493,7 +493,7 @@ async function BitShares(method = null, params = null) {
       var total = total / Math.pow(10, decimals);
       
       document.getElementById("custname").innerHTML =
-        "Send your desired amount of BitShares to the wallet address <span id = \"custAccount\" style = \"font-weight: 900;\">" + custName + "</span>" + 
+        "Send your desired amount of BTS to the BitShares account <span id = \"custAccount\" style = \"font-weight: 900;\">" + custName + "</span>" + 
         "<a href =\"#\" onclick = \"CopyToClipboard(\'custAccount\');return false;\"><img src=\"img/clipboard.svg\" data-img-src=\"img/checkbox_checked.svg\" class=\"responsive\" id=\"clipboard-custAccount\" style=\"background-color: #ccc;\"></img></a>" +
         "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive your wrapped BitShares as shown in the screenshot in the example of the Binance Smart Chain.<br /><br />" +
         "<img src = 'img/send_bts.png' class = 'img-fluid' style = 'border-radius: 8px; max-width: 100%;' title = 'Screenshot of https://bts.exchange/' />"

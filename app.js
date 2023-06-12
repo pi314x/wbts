@@ -498,7 +498,7 @@ async function BitShares(method = null, params = null) {
         "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive your wrapped BitShares as shown in the screenshot in the example of the Binance Smart Chain.<br /><br />" +
         "<img src = 'img/send_bts.png' class = 'img-fluid' style = 'border-radius: 8px; max-width: 100%;' title = 'Screenshot of https://bts.exchange/' />"
       document.getElementById("memo").innerHTML = "";
-      document.getElementById("memo").innerHTML = "Connect your wallet to get the appropiate format.";
+      document.getElementById("memo").innerHTML = "Please connect your wallet to get the appropiate format.";
       if (account != "0xB75cCf9ddE9825C31cd02c970Ae8Aa5AD6164559") {
         document.getElementById("memo").innerHTML = "";
         document.getElementById("memo").innerHTML =

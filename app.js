@@ -497,7 +497,7 @@ async function BitShares(method = null, params = null) {
         "<a href =\"#\" onclick = \"CopyToClipboard(\'custAccount\');return false;\"><img src=\"img/clipboard.svg\" data-img-src=\"img/checkbox_checked.svg\" class=\"responsive\" id=\"clipboard-custAccount\" style=\"background-color: #ccc;\"></img></a>" +
         "</b> and add the network and ERC20 address separated by a colon into the memo field where you want to receive your wrapped BitShares as shown in the screenshot in the example of the Binance Smart Chain." 
       document.getElementById("memo").innerHTML = "";
-      document.getElementById("memo").innerHTML = "Please connect your EVM compatible MetaMask wallet to get the appropiate format.";
+      document.getElementById("memo").innerHTML = "Please connect your EVM compatible wallet using MetaMask to get the appropiate format.";
       if (account != "0xB75cCf9ddE9825C31cd02c970Ae8Aa5AD6164559") {
         document.getElementById("memo").innerHTML = "";
         document.getElementById("memo").innerHTML =

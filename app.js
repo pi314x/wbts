@@ -669,7 +669,7 @@ async function ServiceData() {
     const isRunning = await isWrapperRunning()
   
     const { data, error } = await _supabase
-            .from('unwrapper_status_')
+            .from('unwrapper_status')
             .select()
             .order('name', { ascending: true })
     
@@ -710,7 +710,7 @@ async function Networks() {
     option.innerHTML = networksData[key];
     try {
       const { data, error } = await _supabase
-              .from('unwrapper_status_')
+              .from('unwrapper_status')
               .select()
               .eq('short_name', key)
               .eq('running', false);

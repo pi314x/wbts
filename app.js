@@ -292,7 +292,7 @@ async function eth() {
     try {
       switchChainIdHex = Web3.utils.toHex(switchChainId);
     } catch (error) {
-      switchChainIdHex = "0xaa36a7";
+      switchChainIdHex = "0x61"; // prod 0x38
     }     
     
     console.log(switchChainIdHex);

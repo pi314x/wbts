@@ -595,7 +595,7 @@ var networkValue = localStorage.getItem("networkValue");
 if(networkValue != null) {
     $("select[name=network]").val(networkValue);
 } else {
-  networkValue = "sep";
+  networkValue = "bnbt";
 }
 
 function CopyToClipboard(id) {

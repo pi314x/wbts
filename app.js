@@ -393,7 +393,7 @@ async function balanceOfArray(account) {
   let symbol = await contract.symbol();
   let name = await contract.name();
   let decimals = await contract.decimals();
-  return [name, symbol, balance / Math.pow(10, decimals);
+  return [name, symbol, balance / Math.pow(10, decimals)];
 }
 
 async function balanceOf(account) {

@@ -387,23 +387,20 @@ function useFullBalance(amount) {
   document.getElementById("amount").value=amount
 }
 
-async function balanceOfPretty(account) {
+async function balanceOfArray(account) {
   let contract = getContract();
   let balance = await contract.balanceOf(account);
   let symbol = await contract.symbol();
   let name = await contract.name();
   let decimals = await contract.decimals();
-  return balance / Math.pow(10, decimals);
+  return [name, symbol, balance / Math.pow(10, decimals);
 }
 
 async function balanceOf(account) {
-  /*let contract = getContract();
-  let balance = await contract.balanceOf(account);
-  let symbol = await contract.symbol();
-  let name = await contract.name();
-  let decimals = await contract.decimals();
-  balance = balance / Math.pow(10, decimals);*/
-  balance = await balanceOfPretty(account);
+  let bArr = await balanceOfArray(account);
+  let name = bArr[0];
+  let symbol = bArr[1];
+  let balance = bArr[2];
   document.getElementById("cbalance").innerHTML =
     "Current Balance of " + name + ": <b>" + "<a href = \"#\" onclick = \"useFullBalance(" + balance + ")\">" + balance + "</a>" + " " + symbol + "</b>";
 }
@@ -587,7 +584,7 @@ async function unwrap() {
     document.getElementById("invalidAmount").innerHTML = "Amount too low.";
     return;
   }
-  if (amount.value > await balanceOfPretty(account)) {
+  if (amount.value > await balanceOfArray(account)[2]) {
     document.getElementById("invalidAmount").innerHTML = "Amount exceeds your balance.";
     return;
   }

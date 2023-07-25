@@ -585,7 +585,7 @@ async function unwrap() {
     document.getElementById("invalidAmount").innerHTML = "Amount too low.";
     return;
   }
-  if (amount.value > (await balanceOfArray(account)[2])) {
+  if (amount.value > (await balanceOfArray(account))[2]) {
     document.getElementById("invalidAmount").innerHTML = "Amount exceeds your balance.";
     return;
   }

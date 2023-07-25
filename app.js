@@ -25,7 +25,7 @@ const CONTRACTS = {
 
 const TEST = new Boolean(true);
 const NODE_MAIN = "wss://eu.nodes.bitshares.ws";
-const NODE_TEST = "wss://testnet.xbts.io/ws";
+const NODE_TEST = "wss://eu.nodes.testnet.bitshares.ws"; //"wss://testnet.xbts.io/ws";
 const BTSDOMAIN_MAIN = "https://bts.exchange";
 const BTSDOMAIN_TEST = "https://test.xbts.io";
 const CUSTODIAN = "1.2.26657";

@@ -393,7 +393,8 @@ async function balanceOfArray(account) {
   let symbol = await contract.symbol();
   let name = await contract.name();
   let decimals = await contract.decimals();
-  return [name, symbol, balance / Math.pow(10, decimals)];
+  balance = balance / Math.pow(10, decimals)
+  return [name, symbol, balance];
 }
 
 async function balanceOf(account) {
@@ -584,7 +585,7 @@ async function unwrap() {
     document.getElementById("invalidAmount").innerHTML = "Amount too low.";
     return;
   }
-  if (amount.value > await balanceOfArray(account)[2]) {
+  if (amount.value > (await balanceOfArray(account)[2])) {
     document.getElementById("invalidAmount").innerHTML = "Amount exceeds your balance.";
     return;
   }

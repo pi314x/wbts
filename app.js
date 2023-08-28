@@ -1,25 +1,20 @@
 // https://blog.devvivek.tech/build-your-first-web-30-application-with-html-css-javascript-and-remix-ide
 // https://github.com/bitshares/bitsharesjs/issues/19
 // https://github.com/BTS-CM/airdrop_tool/blob/main/src/pages/Fetch.jsx
+// "arb-goerli": "0x948F857C55eb5475deDA42BEfb31db9748aFFED5", 
+// "bnbt": "0x558d198723a52691EAeaD4EfEA96761f0801cfcB",
+// "chi": "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc",
+// "eos-testnet": "0x5143E5f225EA83bCb9b93eD6039C0Dfc9826f7Ec",
+// "maticmum": "0x4D84EA09d8ded6dd812A358431DF78cb247916c6",
+// "ogor": "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc",
+// "sep": "0x3AFdF2088eFA3d2b7423d33B9452995C987F9fb1"
 
 const CONTRACTS = {
   "test": {
-    "arb-goerli": "0x948F857C55eb5475deDA42BEfb31db9748aFFED5", 
-    "bnbt": "0x558d198723a52691EAeaD4EfEA96761f0801cfcB",
-    "chi": "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc",
-    "eos-testnet": "0x5143E5f225EA83bCb9b93eD6039C0Dfc9826f7Ec",
-    "maticmum": "0x4D84EA09d8ded6dd812A358431DF78cb247916c6",
-    "ogor": "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc",
-    "sep": "0x3AFdF2088eFA3d2b7423d33B9452995C987F9fb1"
+    "bnbt": "0x558d198723a52691EAeaD4EfEA96761f0801cfcB"
   },
   "prod": {
-    "eth": "",
-    "bnb": "",
-    "eos": "",
-    "arb1": "",
-    "oeth": "",
-    "matic": "",
-    "gno": "" 
+    "bnb": ""
   }
 }
 

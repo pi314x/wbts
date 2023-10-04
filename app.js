@@ -702,12 +702,12 @@ async function Networks() {
   const networksDropDown = document.getElementById("networksDropDown");
   //const ni = networksDropDown.options[networksDropDown.options.selectedIndex].selected = true;
   const networksData = {
-    "arb-goerli": "Arbitrum One",
-    "bnbt": "Binance Smart Chain",
-    "eos-testnet": "EOS EVM Network",
-    "chi": "Gnosis Chain",
-    "ogor": "Optimism",
-    "maticmum": "Polygon",
+    "arb-goerli": "Arbitrum Goerli",
+    "bnbt": "BNB Smart Chain Testnet",
+    "eos-testnet": "EOS EVM Network Testnet",
+    "chi": "Gnosis Chiado Testnet",
+    "ogor": "Optimism Goerli Testnet",
+    "maticmum": "Polygon Mumbai",
     "sep": "Sepolia"
   }
 

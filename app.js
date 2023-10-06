@@ -703,6 +703,7 @@ async function Networks() {
   //const ni = networksDropDown.options[networksDropDown.options.selectedIndex].selected = true;
   const networksData = {
     "arb-goerli": "Arbitrum Goerli",
+    "bnb": "BNB Smart Chain",
     "bnbt": "BNB Smart Chain Testnet",
     "eos-testnet": "EOS EVM Network Testnet",
     "chi": "Gnosis Chiado Testnet",

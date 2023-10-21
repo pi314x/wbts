@@ -6,11 +6,7 @@
 const CONTRACTS = {
   "test": {
     "arb-goerli": "0x948F857C55eb5475deDA42BEfb31db9748aFFED5", 
-    "bnbt": "0x558d198723a52691EAeaD4EfEA96761f0801cfcB",
-    "chi": "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc",
-    "maticmum": "0x4D84EA09d8ded6dd812A358431DF78cb247916c6",
-    "ogor": "0x76f7d892D1C1127E8F0EC8438936946535e45Cdc",
-    "sep": "0x3AFdF2088eFA3d2b7423d33B9452995C987F9fb1"
+    "bnbt": "0x558d198723a52691EAeaD4EfEA96761f0801cfcB"
   },
   "prod": {
     "bnb": ""
@@ -702,11 +698,7 @@ async function Networks() {
   //const ni = networksDropDown.options[networksDropDown.options.selectedIndex].selected = true;
   const networksData = {
     "arb-goerli": "Arbitrum Goerli",
-    "bnbt": "BNB Smart Chain Testnet",
-    "chi": "Gnosis Chiado Testnet",
-    "ogor": "Optimism Goerli Testnet",
-    "maticmum": "Polygon Mumbai",
-    "sep": "Sepolia"
+    "bnbt": "BNB Smart Chain Testnet"
   }
 
   for (let key in networksData) {

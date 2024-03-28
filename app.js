@@ -5,7 +5,6 @@
 
 const CONTRACTS = {
   "test": {
-    "arb-goerli": "0x948F857C55eb5475deDA42BEfb31db9748aFFED5", 
     "bnbt": "0x558d198723a52691EAeaD4EfEA96761f0801cfcB"
   },
   "prod": {
@@ -697,7 +696,6 @@ async function Networks() {
   const networksDropDown = document.getElementById("networksDropDown");
   //const ni = networksDropDown.options[networksDropDown.options.selectedIndex].selected = true;
   const networksData = {
-    "arb-goerli": "Arbitrum Goerli",
     "bnbt": "BNB Smart Chain Testnet"
   }
 
